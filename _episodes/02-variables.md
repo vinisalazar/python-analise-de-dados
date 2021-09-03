@@ -1,35 +1,41 @@
 ---
-title: "Variables and Assignment"
+title: "Variáveis e Assinalação"
 teaching: 10
 exercises: 10
 questions:
-- "How can I store data in programs?"
+- "Como posso armazenar dados em programas?"
 objectives:
-- "Write programs that assign scalar values to variables and perform calculations with those values."
-- "Correctly trace value changes in programs that use scalar assignment."
+- "Escrever programas que assinalam valores escalares a variáveis e realizar operações com esses valores."
+- "Traçar corretamente mudanças de valores em programas que usam assinalamento de escalares."
 keypoints:
-- "Use variables to store values."
-- "Use `print` to display values."
-- "Variables persist between cells."
-- "Variables must be created before they are used."
-- "Variables can be used in calculations."
-- "Use an index to get a single character from a string."
-- "Use a slice to get a substring."
-- "Use the built-in function `len` to find the length of a string."
-- "Python is case-sensitive."
-- "Use meaningful variable names."
+- "Usar variáveis para armazenar valores."
+- "Usar `print` para mostrar valores."
+- "Variáveis persistem entre células."
+- "Variáveis precisam ser criadas antes de serem usadas."
+- "Variáveis podem ser usadas em operações."
+- "Use um índice para pegar um único caracter de uma string."
+- "Use uma fatia para pegar uma substring."
+- "Use a função embutida `len` para encontrar o comprimento de uma string."
+- "Python é *case-sensitive*."
+- "Use nomes informativos para variáveis."
 ---
-## Use variables to store values.
-
+## Use variáveis para armazenar valores
+<!-- 
 *   **Variables** are names for values.
 *   In Python the `=` symbol assigns the value on the right to the name on the left.
 *   The variable is created when a value is assigned to it.
 *   Here, Python assigns an age to a variable `age`
     and a name in quotes to a variable `first_name`.
+ -->
+*   **Variáveis** são nomes para valores.
+*   No Python o símbolo `=` assinala o valor da direita ao nome na esquerda.
+*   A variável é criada quando o valor é assinalado a ela.
+*   Aqui, o Python assinala uma idade à variável `idade`
+    e um nome em aspas à variável `primeiro_nome`.
 
     ~~~
-    age = 42
-    first_name = 'Ahmed'
+    idade = 42
+    primeiro_nome = 'Ahmed'
     ~~~
     {: .language-python}
 
