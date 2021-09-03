@@ -1,9 +1,26 @@
 ---
 layout: page
-title: "Licenses"
-root: .
+title: "Licenças"
 ---
-## Instructional Material
+## Adaptação
+
+Esse material didático foi adaptado por [Vinícius Salazar](https://github.com/vinisalazar), e segue a licença MIT, reproduzida na íntegra abaixo.
+
+Copyright 2021 © Vinícius Salazar
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+## Conteúdo original
+
+O material original utilizado nessa adaptação é propriedade da [The Carpentries](https://carpentries.org/),
+e é disponibilizado para uso comercial através da licença [CC BY 4.0][cc-by-human]. Abaixo segue o texto da licença da The Carpentries
+na íntegra.
+
+## Licença The Carpentries
 
 All Software Carpentry, Data Carpentry, and Library Carpentry instructional material is
 made available under the [Creative Commons Attribution
