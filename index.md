@@ -4,13 +4,16 @@ root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
 
-This lesson is an introduction to programming in Python for people with little or no previous 
+<!-- This lesson is an introduction to programming in Python for people with little or no previous 
 programming experience. It uses plotting as its motivating example, and is designed to be used in 
 both [Data Carpentry][dc-lessons] and [Software Carpentry][swc-lessons] workshops. 
 This lesson references [JupyterLab][jupyterlab], but can be taught using a regular Python interpreter 
-as well. Please note that this lesson uses Python 3.
+as well. Please note that this lesson uses Python 3. -->
 
-> ## Under Design
+Essa aula é uma introdução à programação com Python para pessoas com pouca ou nenhuma experiência
+prévia de programação. Ela usa plotagem como seu exemplo motivacional e usa o [JupyterLab][jupyterlab] como ferramenta. Essa aula usa Python 3.
+
+<!-- > ## Under Design
 >
 > **This lesson is currently in its early design stage;
 > please check [the design notes]({{ page.root }}/design/)
@@ -18,22 +21,22 @@ as well. Please note that this lesson uses Python 3.
 > Contributions are very welcome:
 > we would be particularly grateful for exercises
 > and for commentary on the ones already there.**
-{: .callout}
+{: .callout} -->
 
-> ## Prerequisites
+> ## Pré-requisitos
 >
-> 1.  Learners need to understand what files and directories are,
->     what a working directory is,
->     and how to start a Python interpreter.
+> 1.  É necessário entender o que são arquivos e diretórios,
+>     o que é o *working directory*,
+>     e como iniciar um interpretador Python.
 >
-> 2. Learners must install Python before the class starts.
+> 2. Participantes devem instalar o Python antes da aula começar.
 >
-> 3. Learners must get the gapminder data before class starts:
->    please download and unzip the file 
+> 3. Participantes precisam baixar os dados antes da aula começar:
+>    por favor baixe e faça o unzip do arquivo
 >    [python-novice-gapminder-data.zip]({{page.root}}/files/python-novice-gapminder-data.zip).
 >
->    Please see [the setup instructions][lesson-setup]
->    for details.
+>    Por favor, veja as [instruções de setup][lesson-setup]
+>    para detalhes.
 {: .prereq}
 
 {% include links.md %}
