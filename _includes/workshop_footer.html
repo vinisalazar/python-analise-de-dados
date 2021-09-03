@@ -1,12 +1,13 @@
 {% comment %}
-  Footer for a standard workshop.
+Footer for a standard workshop.
 {% endcomment %}
 <footer>
+  <hr />
   <div class="row">
     <div class="col-md-6" align="left">
       <h4>
-	Copyright &copy; 2016–{{ 'now' | date: "%Y" }}
-	{% if site.carpentry == "swc" %}
+        Copyright The XLab &copy; {{ 'now' | date: "%Y" }}
+        <!-- {% if site.carpentry == "swc" %}
 	<a href="{{ site.swc_site }}">Software Carpentry</a>
 	{% elsif site.carpentry == "dc" %}
 	<a href="{{ site.dc_site }}">Data Carpentry</a>
@@ -22,5 +23,5 @@
 	<a href="mailto:{{ site.email }}">Contact The Carpentries</a>
       </h4>
     </div>
-  </div>
+  </div> -->
 </footer>
