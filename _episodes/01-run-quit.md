@@ -15,7 +15,7 @@ objectives:
 keypoints:
 - "Scripts Python são arquivos de texto plano."
 - "Usar o Jupyter Notebook para escrever e executar código Python."
-- "O Notebook tem modos de edição e de comando."
+- "O Notebook tem modos de comando e edição."
 - "Use o teclado e o mouse para selecionar e editar células."
 - "O Notebook vai formatar o Markdown para deixar tudo bonito."
 - "Markdown faz quase tudo que HTML faz."
@@ -207,20 +207,6 @@ A Barra de Menu no topo do JupyterLab tem os menus top-level que expõe as difer
 *   **Tabs:** Uma lista de documentos e atividades abertos na área principal.
 *   **Settings:** Configurações comuns do Jupyter podem ser modificadas nesse menu. Ele também contém a opção *Advanced Settings Editor* no menu dropdown que provê um controle mais fino das opções do JupyterLab.
 *   **Help:** Uma lista de links de ajuda para o JupyterLab e o kernel.
-<!-- 
-> ## Kernels
-> The JupyterLab [docs](https://jupyterlab.readthedocs.io/en/stable/user/documents_kernels.html) 
-> define kernels as "separate processes started by the server that run your code in different programming languages and environments."
-> When we open a Jupyter Notebook, that starts a kernel - a process - that is going to run the code. 
-> In this lesson, we'll be using the Jupyter ipython kernel which lets us run Python 3 code interactively.
-> 
-> Using other Jupyter [kernels for other programming languages](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) would let us 
-> write and execute code in other programming languages in the same JupyterLab interface, like R, Java, Julia, Ruby, JavaScript, Fortran, 
-> etc.
-> 
-{: .callout}
- -->
-
 
 > ## Kernels
 > A [documentação do JupyterLab](https://jupyterlab.readthedocs.io/en/stable/user/documents_kernels.html) 
@@ -228,9 +214,8 @@ A Barra de Menu no topo do JupyterLab tem os menus top-level que expõe as difer
 > Quando abrimos um Jupyter Notebook, abrimos um kernel - um processo - que vai rodar o código.
 > Nessa aula, vamos usar o kernel IPython do Jupyter, que permite rodar código Python 3 interativamente.
 > 
-> Usar outros [kernels Jupyter para outras linguagens de programação]https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) nos permitiria
+> Usar outros [kernels Jupyter para outras linguagens de programação](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) nos permitiria
 > escrever e executar código de outras linguagens de programação na mesma interface do JupyterLab, como R, Java, Julia, Ruby, JavaScript, Fortran, etc.
-> 
 {: .callout}
 
 Abaixo um screenshot da Barra de Menu:
@@ -358,7 +343,7 @@ Abaixo está um screenshot de um Jupyter Notebook rodando dentro do JupyterLab. 
 > paineis e abas. Que combinação de paineis e abas você acha que será a mais útil para o seu
 > workflow?
 >
-> > ## Solution
+> > ## Solução
 > >
 <!-- > > After creating the necessary tabs, you can drag one of the tabs to the center of a panel to 
 > > move the tab to the panel; next you can subdivide a tab panel by dragging a tab to the left, 
@@ -369,17 +354,23 @@ Abaixo está um screenshot de um Jupyter Notebook rodando dentro do JupyterLab. 
 > {: .solution}
 {: .challenge}
 
-> ## Code vs. Text
+> ## Código vs. Texto
 >
+<!--
 > Jupyter mixes code and text in different types of blocks, called cells. We often use the term
 > "code" to mean "the source code of software written in a language such as Python".
 > A "code cell" in a Notebook is a cell that contains software;
 > a "text cell" is one that contains ordinary prose written for human beings.
+> -->
+> O Jupyter mistura código e texto em diferentes tipos de blocos, chamados células. Nós frequentemente usamos 
+> o termo "código" para se referir ao "código fonte do software escrito em uma linguagem como Python".
+> Uma "célula de código" em um notebook é uma célula que contém software;
+> a "célula de texto" é uma que contém prosa escrita para seres humanos.
 {: .callout}
 
-## The Notebook has Command and Edit modes.
+## Modos de Comando e de Edição
 
-*   If you press <kbd>Esc</kbd> and <kbd>Return</kbd> alternately, the outer border of your code cell will change from gray to blue.
+<!-- *   If you press <kbd>Esc</kbd> and <kbd>Return</kbd> alternately, the outer border of your code cell will change from gray to blue.
 *   These are the **Command** (gray) and **Edit** (blue) modes of your notebook.
 *   Command mode allows you to edit notebook-level features, and Edit mode changes the content of cells.
 *   When in Command mode (esc/gray),
@@ -388,27 +379,51 @@ Abaixo está um screenshot de um Jupyter Notebook rodando dentro do JupyterLab. 
     *   The <kbd>x</kbd> key will delete the current cell.
     *   The <kbd>z</kbd> key will undo your last cell operation (which could be a deletion, creation, etc).
 *   All actions can be done using the menus, but there are lots of keyboard shortcuts to speed things up.
+ -->
+*   Se você apertar <kbd>Esc</kbd> e <kbd>Enter</kbd> alternadamente, a borda exterior da sua célula de código vai mudar de cinza para azul.
+*   Esses são os modos de **Comando** (cinza) e **Edição** (azul) do seu notebook.
+*   O modo de comando permite que você editar features a nível de notebook, e o modo edição muda o conteúdo das células.
+*   Quando no modo de Comando (Esc/Cinza),
+    *   A tecla <kbd>b</kbd> vai criar uma nova célula abaixo da célula atual.
+    *   A tecla <kbd>a</kbd> vai criar uma acima.
+    *   A tecla <kbd>x</kbd> vai deletar a célula atual.
+    *   A tecla <kbd>z</kbd> vai desfazer a sua última operação (que pode ser uma deleção, criação, etc.).
+* Todas as ações podem ser feitas usando os menus, mas existem vários atalhos no teclado que podem acelerar.
 
-> ## Command Vs. Edit
->
+> ## Comando vs. Edição
+<!-- >
 > In the Jupyter notebook page are you currently in Command or Edit mode?  
 > Switch between the modes. 
 > Use the shortcuts to generate a new cell. 
 > Use the shortcuts to delete a cell.
 > Use the shortcuts to undo the last cell operation you performed.
+> -->
 >
-> > ## Solution
-> >
+> O Jupyter Notebook atual você está no modo Comando ou Edição?
+> Troque entre os modos.
+> Use os atalhos para criar uma nova célula.
+> Use os atalhos para deletar uma célula.
+> Use os atalhos para desfazer a última operação que você fez.
+>
+> > ## Solução
+<!-- > >
 > > Command mode has a grey border and Edit mode has a blue border. 
 > > Use <kbd>Esc</kbd> and <kbd>Return</kbd> to switch between modes. 
 > > You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Type <kbd>b</kbd> or <kbd>a</kbd>.
 > > You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Type <kbd>x</kbd>.
 > > You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Type <kbd>z</kbd>.
+> >  -->
+> >
+> > O modo de Comando tem uma borda cinza e o de Edição tem uma borda azul.
+> > Use <kbd>Esc</kbd> e <kbd>Enter</kbd> para alternar entre os modos. 
+> > Você precisa estar no modo de Comando (Aperte <kbd>Esc</kbd> se a sua célula estiver azul).  Aperte <kbd>b</kbd> ou <kbd>a</kbd>.
+> > Você precisa estar no modo de Comando (Aperte <kbd>Esc</kbd> se a sua célula estiver azul).  Aperte <kbd>x</kbd>.
+> > Você precisa estar no modo de Comando (Aperte <kbd>Esc</kbd> se a sua célula estiver azul).  Aperte <kbd>z</kbd>.
 > {: .solution}
 {: .challenge}
 
-### Use the keyboard and mouse to select and edit cells.
-
+### Use o teclado e o mouse para alternar entre as células.
+<!-- 
 *   Pressing the <kbd>Return</kbd> key turns the border blue and engages Edit mode, which allows 
     you to type within the cell.
 *   Because we want to be able to write many lines of code in a single cell,
@@ -418,9 +433,17 @@ Abaixo está um screenshot de um Jupyter Notebook rodando dentro do JupyterLab. 
 *   Pressing <kbd>Shift</kbd>+<kbd>Return</kbd> together will execute the contents of the cell.
 *   Notice that the <kbd>Return</kbd> and <kbd>Shift</kbd> keys on the right of the keyboard are 
     right next to each other.
+ -->
+*   Apertar o <kbd>Enter</kbd> transforma a borda azul e ativa o modo de Edição, que permite que
+    você digite dentro da célula.
+*   Por que queremos ser capazes de escrever muitas linhsa de código em uma única célula,
+    apertar o <kbd>Enter</kbd> quando no modo de Edição (azul) move o cursor para a próxima linha
+    da célula assim como qualquer outro editor de texto.
+*   Precisamos de alguma outra forma de dizer para o Notebook que queremos executar o que está dentro da célula.
+*   Apertar <kbd>Shift</kbd>+<kbd>Enter</kbd> juntos vai executar o conteúdo da célula.
 
-### The Notebook will turn Markdown into pretty-printed documentation.
-
+### O Notebook vai formatar o Markdown para deixar tudo bonito
+<!-- 
 *   Notebooks can also render [Markdown][markdown].
     *   A simple plain-text format for writing lists, links, 
         and other things that might go into a web page.
@@ -431,24 +454,35 @@ Abaixo está um screenshot de um Jupyter Notebook rodando dentro do JupyterLab. 
     Markdown.
 *   Turn the current cell into a Code cell by entering the Command mode (<kbd>Esc</kbd>/gray) and 
     press the <kbd>y</kbd> key.
+ -->
 
-### Markdown does most of what HTML does.
+*   Notebooks também podem renderizar [Markdown][markdown].
+    *   Um formato simples de texto plano para escrever listas, links,
+        e outras coisas que poderiam estar em uma página web.
+    *   De forma equivalente, é um subset de HTML que parece que você está enviando um email "das antigas".
+*   Transforme a célula atual em Markdown ao entrar no modo de Comando (<kbd>Esc</kbd>)
+    e aperte a tecla <kbd>M</kbd> (de Markdown).
+*   `In [ ]:` vai disparecer para mostrar que não é mais uma célula de código.
+*   Transforme a célula atual em Código ao entrar no modo de Comando (<kbd>Esc</kbd>)
+    e aperte a tecla <kbd>Y</kbd>.
+
+### Markdown faz quase tudo que HTML faz
 
 <div class="row">
   <div class="col-md-6" markdown="1">
-    
+
 ~~~
-*   Use asterisks
-*   to create
-*   bullet lists.
+*   Use asteriscos
+*   para criar
+*   listas bullet.
 ~~~
 
   </div>
   <div class="col-md-6" markdown="1">
   
-*   Use asterisks
-*   to create
-*   bullet lists.
+*   Use asteriscos
+*   para criar
+*   listas bullet.
 
   </div>
 </div>
@@ -457,17 +491,17 @@ Abaixo está um screenshot de um Jupyter Notebook rodando dentro do JupyterLab. 
   <div class="col-md-6" markdown="1">
     
 ~~~
-1.  Use numbers
-1.  to create
-1.  numbered lists.
+1.  Use números
+1.  para criar
+1.  listas numeradas.
 ~~~
 
   </div>
   <div class="col-md-6" markdown="1">
 
-1.  Use numbers
-1.  to create
-1.  numbered lists.
+1.  Use números
+1.  para criar
+1.  listas numeradas.
 
   </div>
 </div>
@@ -476,23 +510,23 @@ Abaixo está um screenshot de um Jupyter Notebook rodando dentro do JupyterLab. 
   <div class="col-md-6" markdown="1">
     
 ~~~
-*  You can use indents
-	*  To create sublists 
-	*  of the same type
-*  Or sublists
-	1. Of different
-	1. types
+*  Você aninhar itens
+	*  Para criar sublistas 
+	*  de mesmo tipo
+*  Ou sublistas
+	1. De tipos
+	1. diferentes
 ~~~
 
   </div>
   <div class="col-md-6" markdown="1">
   
-*  You can use indents
-	*  To create sublists
-	*  of the same type
-*  Or sublists
-	1. Of different
-	1. types
+*  Você aninhar itens
+	*  Para criar sublistas 
+	*  de mesmo tipo
+*  Ou sublistas
+	1. De tipos
+	1. diferentes
   
   </div>
 </div>
@@ -501,13 +535,13 @@ Abaixo está um screenshot de um Jupyter Notebook rodando dentro do JupyterLab. 
   <div class="col-md-6" markdown="1">
     
 ~~~
-# A Level-1 Heading
+# Cabeçalho Nível 1
 ~~~
 
   </div>
   <div class="col-md-6" markdown="1">
   
-# A Level-1 Heading
+# Cabeçalho Nível 1
 
   </div>
 </div>
@@ -516,13 +550,13 @@ Abaixo está um screenshot de um Jupyter Notebook rodando dentro do JupyterLab. 
   <div class="col-md-6" markdown="1">
     
 ~~~
-## A Level-2 Heading (etc.)
+## Cabeçalho Nível 2 (etc.)
 ~~~
 
   </div>
   <div class="col-md-6" markdown="1">
   
-## A Level-2 Heading (etc.)
+## Cabeçalho Nível 2 (etc.)
 
   </div>
 </div>
@@ -531,21 +565,21 @@ Abaixo está um screenshot de um Jupyter Notebook rodando dentro do JupyterLab. 
   <div class="col-md-6" markdown="1">
     
 ~~~
-Line breaks
-don't matter.
+Novas linhas
+não importam.
 
-But blank lines
-create new paragraphs.
+Mas linhas em branco
+criam novos parágrafos.
 ~~~
 
   </div>
   <div class="col-md-6" markdown="1">
   
-Line breaks
-don't matter.
+Novas linhas
+não importam.
 
-But blank lines
-create new paragraphs.
+Mas linhas em branco
+criam novos parágrafos.
 
   </div>
 </div>
@@ -554,25 +588,25 @@ create new paragraphs.
   <div class="col-md-6" markdown="1">
     
 ~~~
-[Create links](http://software-carpentry.org) with `[...](...)`.
-Or use [named links][data_carpentry].
+[Crie links](https://thexlab.com.br/) com `[...](...)`.
+Ou use [links com nome][XLab].
 
-[data_carpentry]: http://datacarpentry.org
+[XLab]: https://thexlab.com.br/
 ~~~
 
   </div>
   <div class="col-md-6" markdown="1">
   
-[Create links](http://software-carpentry.org) with `[...](...)`.
-Or use [named links][data_carpentry].
+[Crie links](https://thexlab.com.br/) com `[...](...)`.
+Ou use [links com nome][XLab].
 
-[data_carpentry]: http://datacarpentry.org
+[XLab]: https://thexlab.com.br/
 
   </div>
 </div>
 
-> ## Creating Lists in Markdown
->
+> ## Crie listas em Markdown
+<!-- >
 > Create a nested list in a Markdown cell in a notebook that looks like this:
 >
 > 1.  Get funding.
@@ -582,28 +616,47 @@ Or use [named links][data_carpentry].
 >     *   Analyze.
 > 3.  Write up.
 > 4.  Publish.
+> -->
+>
+> Crie uma lista aninhada em uma célula de Markdown em um notebook que pareça com isso:
+>
+> 1.  Planejar projeto.
+> 2.  Fazer o trabalho.
+>     *   Coletar os dados.
+>     *   Analisar.
+>     *   Gerar figuras.
+> 3.  Escrever relatório.
+> 4.  Submeter.
 > 
-> > ## Solution
-> >
+> > ## Solução
+<!-- > >
 > > This challenge integrates both the numbered list and bullet list. 
-> > Note that the bullet list is indented 2 spaces so that it is inline with the items of the numbered list.
+> > Note that the bullet list is indented 2 spaces so that it is inline with the items of the numbered list. -->
+> >
+> > Esse desafio integra uma lista numerada e uma lista bullet.
+> > Note que a lista bullet é indentada com 2 espaços para que esteja alinhada com os itens da lista numerada.
 > > ~~~
-> > 1.  Get funding.
-> > 2.  Do work.
-> >     *   Design experiment.
-> >     *   Collect data.
-> >     *   Analyze.
-> > 3.  Write up.
-> > 4.  Publish.
+> > 1.  Planejar projeto.
+> > 2.  Fazer o trabalho.
+> >     *   Coletar os dados.
+> >     *   Analisar.
+> >     *   Gerar figuras.
+> > 3.  Escrever relatório.
+> > 4.  Submeter.
 > > ~~~
 > {: .solution}
 {: .challenge}
 
-> ## More Math
->
+> ## Mais Matemática
+<!-- >
 > What is displayed when a Python cell in a notebook
 > that contains several calculations is executed?
 > For example, what happens when this cell is executed?
+> -->
+>
+> O que aparece quando uma célula Python de um notebook
+> que contém várias operações é executada?
+> Por exemplo, o que acontece quando essa célula é executada?
 >
 > ~~~
 > 7 * 3
@@ -611,9 +664,9 @@ Or use [named links][data_carpentry].
 > ~~~
 > {: .language-python}
 > 
-> > ## Solution
+> > ## Solução
 > >
-> > Python returns the output of the last calculation.
+> > O Python retorna a saída da última operação.
 > > ~~~
 > > 3
 > > ~~~
@@ -621,29 +674,45 @@ Or use [named links][data_carpentry].
 > {: .solution}
 {: .challenge}
 
-> ## Change an Existing Cell from Code to Markdown
->
+> ## Mude uma Célula Existente de Código para Markdown
+<!-- >
 > What happens if you write some Python in a code cell
 > and then you switch it to a Markdown cell?
 > For example,
 > put the following in a code cell:
+> -->
+>
+> O que acontece se você escreve um pouco de Python em uma célula de código
+> e depois você troca para uma célula Markdown?
+> Por exemplo,
+> coloque o seguinte em uma célula de código:
 >
 > ~~~
 > x = 6 * 7 + 12
 > print(x)
 > ~~~
 > {: .language-python}
->
+<!-- >
 > And then run it with <kbd>Shift</kbd>+<kbd>Return</kbd> to be sure that it works as a code cell.
 > Now go back to the cell and use <kbd>Esc</kbd> then <kbd>m</kbd> to switch the cell to Markdown
 > and "run" it with <kbd>Shift</kbd>+<kbd>Return</kbd>.
 > What happened and how might this be useful?
+>  -->
+>
+> Execute com <kbd>Shift</kbd>+<kbd>Enter</kbd> para ter certeza que funciona como uma célula de código.
+> Agora volte para célula e use <kbd>Esc</kbd> depois <kbd>M</kbd> para mudar a célula para Markdown
+> e "execute" como <kbd>Shift</kbd>+<kbd>Enter</kbd>.
+> O que aconteceu e como isso pode ser útil?
 > 
-> > ## Solution
-> >
+> > ## Solução
+<!-- > >
 > > The Python code gets treated like Markdown text.
 > > The lines appear as if they are part of one contiguous paragraph.
 > > This could be useful to temporarily turn on and off cells in notebooks that get used for multiple purposes. 
+> > -->
+> > O código Python é tratado como texto Markdown.
+> > As linhas aparecem como se fossem parte de um parágrafo contíguo.
+> > Isso pode ser útil para temporariamente ligar e desligar células em notebooks que são usados para múltiplos propósitos.
 > > ~~~
 > > x = 6 * 7 + 12 print(x)
 > > ~~~
@@ -651,44 +720,65 @@ Or use [named links][data_carpentry].
 > {: .solution}
 {: .challenge}
 
-> ## Equations
->
+> ## Equações
+<!-- >
 > Standard Markdown (such as we're using for these notes) won't render equations,
 > but the Notebook will.
 > Create a new Markdown cell
 > and enter the following:
+> -->
+>
+> Markdown Standard (como o que estamos usando para as notas) não vão renderizar equações,
+> mas o Notebook vai.
+> Cria uma nova célula Markdown
+> e escreva o seguinte:
 >
 > ~~~
 > $\sum_{i=1}^{N} 2^{-i} \approx 1$
 > ~~~
->
+<!-- >
 > (It's probably easier to copy and paste.)
 > What does it display?
 > What do you think the underscore, `_`, circumflex, `^`, and dollar sign, `$`, do?
+> -->
+>
+> (Talvez seja mais fácil copiar e colar.)
+> O que isso mostra?
+> O que você acha que o underline, `_`, acento circumflexo, `^`, e cifrão, `$`, fazem?
 > 
-> > ## Solution
-> >
+> > ## Solução
+<!-- > >
 > > The notebook shows the equation as it would be rendered from LaTeX equation syntax.
 > > The dollar sign, `$`, is used to tell Markdown that the text in between is a LaTeX equation.
 > > If you're not familiar with LaTeX,  underscore, `_`, is used for subscripts and circumflex, `^`, is used for superscripts.
 > > A pair of curly braces, `{` and `}`, is used to group text together so that the statement `i=1` becomes the subscript and `N` becomes the superscript.
 > > Similarly, `-i` is in curly braces to make the whole statement the superscript for `2`.
-> > `\sum` and `\approx` are LaTeX commands for "sum over" and "approximate" symbols. 
+> > `\sum` and `\approx` are LaTeX commands for "sum over" and "approximate" symbols. -->
+> >
+> > O Notebook mostra a equação como ela seria renderizada na sintaxe de LaTeX.
+> > O cifrão, `$`, é usado para dizer ao Markdown que o texto ali dentro é uma equação LaTeX.
+> > No LaTeX, o underline, `_`, é usado para *subscript* e o circumflexo, `^`, é usado para *superscript*.
+> > Um par de chaves, `{` e `}`, é usado para agrupar texto para que a declaração `i=1` se torne subscript e `N` se torne superscript.
+> > Similarmente, `-i` dentro de chaves é utilizado para fazer a declaração toda um superscript para `2`.
+> > `\sum` e `\approx` são comandos LaTeX para os símbolos de "somatório" e "aproximadamente". 
 > {: .solution}
 {: .challenge}
 
-## Closing JupyterLab
-
+## Fechando o JupyterLab
+<!-- 
 *   From the Menu Bar select the "File" menu and then choose "Shut Down" at the bottom of the dropdown menu. You will be prompted to confirm that you wish to shutdown the JupyterLab server (don't forget to save your work!). Click "Shut Down" to shutdown the JupyterLab server.
 *   To restart the JupyterLab server you will need to re-run the following command from a shell.
+ -->
+*   Da Barra de Menu, selecione o menu `File` e escolha `Shut Down` na base do menu dropdown. Você vai ter que confirmar que quer fechar o servidor JupyterLab (não esqueça de salvar seu trabalho!). Clique em "Shut Down" para fechar o servidor.
+*   Para reiniciar o servidor JupyterLab você vai precisar re-executar o seguinte comando de um terminal (como o Anaconda Prompt) ou usar o Anaconda Navigator.
 
 ~~~
 $ jupyter lab
 ~~~
 
-> ## Closing JupyerLab
+> ## Fechando o JupyterLab
 >
-> Practice closing and restarting the JupyterLab server.
+> Pratique fechar e reiniciar o JupyterLab.
 {: .challenge}
 [anaconda]: https://docs.continuum.io/anaconda/install
 [jupyterlab-ui]: https://jupyterlab.readthedocs.io/en/stable/user/interface.html
