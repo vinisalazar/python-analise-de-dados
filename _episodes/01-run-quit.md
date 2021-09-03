@@ -1,61 +1,79 @@
 ---
-title: "Running and Quitting"
+title: "Introdução ao JupyterLab"
 teaching: 15
 exercises: 0
 questions:
-- "How can I run Python programs?"
+- "Como eu posso rodar programas Python?"
 objectives:
-- "Launch the JupyterLab server." 
-- "Create a new Python script." 
-- "Create a Jupyter notebook."
-- "Shutdown the JupyterLab server."
-- "Understand the difference between a Python script and a Jupyter notebook."
-- "Create Markdown cells in a notebook."
-- "Create and run Python cells in a notebook."
+- "Ativar o servidor do JupyterLab." 
+- "Criar um novo script Python."  
+- "Criar um Jupyter notebook."
+- "Desligar o servidor JupyterLab."
+- "Entender a diferença entre um script Python e um Jupyter notebook."
+- "Criar células Markdown em um notebook."
+- "Criar e executar células Python em um notebook."
 keypoints:
-- "Python scripts are plain text files."
-- "Use the Jupyter Notebook for editing and running Python."
-- "The Notebook has Command and Edit modes."
-- "Use the keyboard and mouse to select and edit cells."
-- "The Notebook will turn Markdown into pretty-printed documentation."
-- "Markdown does most of what HTML does."
+- "Scripts Python são arquivos de texto plano."
+- "Usar o Jupyter Notebook para escrever e executar código Python."
+- "O Notebook tem modos de edição e de comando."
+- "Use o teclado e o mouse para selecionar e editar células."
+- "O Notebook vai formatar o Markdown para deixar tudo bonito."
+- "Markdown faz quase tudo que HTML faz."
 ---
 
-Many software developers will often use an integrated development environment (IDE) or a 
-text editor to create and edit their Python programs which can be executed through the IDE or command line directly. While this is a common approach, we are going to use the [Jupyter Notebook][jupyter] via [JupyterLab][jupyterlab] for the remainder of this workshop.
+<!-- Many software developers will often use an integrated development environment (IDE) or a 
+text editor to create and edit their Python programs which can be executed through the IDE or command line directly. While this is a common approach, we are going to use the [Jupyter Notebook][jupyter] via [JupyterLab][jupyterlab] for the remainder of this workshop. -->
 
-This has several advantages:
+<!-- This has several advantages:
   *   You can easily type, edit, and copy and paste blocks of code.
   *   Tab complete allows you to easily access the names of things you are using
       and learn more about them.
   *   It allows you to annotate your code with links, different sized text, bullets, etc.
       to make it more accessible to you and your collaborators.
   *   It allows you to display figures next to the code that produces them
-      to tell a complete story of the analysis.
+      to tell a complete story of the analysis. -->
 
-Each notebook contains one or more cells that contain code, text, or images.
+Existem várias vantagens de se usar o Jupyter:
+  * Você pode facilmente digitar, editar, ou copiar e colar blocos de código.
+  * Compleção com <kbd>TAB</kbd> permite que você facilmente acesse o nome de coisas
+  que você está usando.
+  * Você pode anotar seu código com links, textos de diferentes formatos, *bullet points*, etc.
+  * Você pode exibir figuras do lado do código que as produz e contar uma história completa da análise.
 
-## Getting Started with JupyterLab
+<!-- Each notebook contains one or more cells that contain code, text, or images. -->
+Cada notebook contém uma ou mais células que contém códigos, texto, ou imagens.
 
-JupyterLab is an application with a web-based user interface from [Project Jupyter][jupyter] that 
+## Introdução ao JupyterLab
+
+<!-- JupyterLab is an application with a web-based user interface from [Project Jupyter][jupyter] that 
 enables one to work with documents and activities such as Jupyter notebooks, text editors, terminals,
 and even custom components in a flexible, integrated, and extensible manner. JupyterLab requires a
 reasonably up-to-date browser (ideally a current version of Chrome, Safari, or Firefox); Internet
-Explorer versions 9 and below are *not* supported.
+Explorer versions 9 and below are *not* supported. -->
 
-JupyterLab is included as part of the Anaconda Python distribution. If you have not already
+JupyterLab é uma aplicação web do [Projeto Jupyter][jupyter] que permite trabalhar com documentos e atividades
+como Jupyter Notebooks, editores de texto, terminais, e até componentes personalizados de uma forma flexível e integrada. O JupyterLab requer um navegador atualizado (idealmente uma versão do Chrome, Safari, ou Firefox); Internet Explorer da versão 9 e anteriores *não* são suportados.
+
+<!-- JupyterLab is included as part of the Anaconda Python distribution. If you have not already
 installed the Anaconda Python distribution, see [the setup instructions]({{ page.root }}{% link
 setup.md %})
-for installation instructions.
+for installation instructions. -->
 
-Even though JupyterLab is a web-based application, JupyterLab runs locally on your machine and 
+O JupyterLab é incluído na distribuição Anaconda do Python.
+
+<!-- Even though JupyterLab is a web-based application, JupyterLab runs locally on your machine and 
 does not require an internet connection.
 *   The JupyterLab server sends messages to your web browser.
 *   The JupyterLab server does the work and the web browser renders the result.
 *   You will type code into the browser and see the result when the web page talks to the 
-    JupyterLab server.
+    JupyterLab server. -->
 
-> ## JupyterLab? What about Jupyter notebooks?
+Apesar do JupyterLab ser uma aplicação web, ele roda localmente em sua máquina e não requer uma conexão a internet.
+*   O servidor JupyterLab manda mensagens para o seu navegador.
+*   O servidor JupyterLab faz o trabalho e o navegador renderiza o resultado.
+*   Você vai codar no navegador e ver o resultado quando a página web se comunicar com o servidor JupyterLab.
+
+<!-- > ## JupyterLab? What about Jupyter notebooks?
 > 
 > JupyterLab is the [next stage in the evolution of the Jupyter Notebook](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#overview).
 > If you have prior experience working with Jupyter notebooks, then you will have a a good idea of what to expect from JupyterLab. 
@@ -63,13 +81,27 @@ does not require an internet connection.
 > Experienced users of Jupyter notebooks interested in a more detailed discussion of the similarities and differences
 > between the JupyterLab and Jupyter notebook user interfaces can find more information in the 
 > [JupyterLab user interface documentation][jupyterlab-ui].
+{: .callout} -->
+
+> ## JupyterLab? E Jupyter Notebooks?
+> 
+> JupyterLab é [o próximo estágio na evolução do Jupyter notebook](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#overview).
+> Se você tem experiência prévia com notebooks Jupyter, então você vai ter uma boa ideia do que esperar do JupyterLab.
 {: .callout}
 
+<!-- 
 ## Starting JupyterLab
 
 You can start the JupyterLab server through the command line or through an application called 
 `Anaconda Navigator`. Anaconda Navigator is included as part of the Anaconda Python distribution.
+ -->
 
+## Iniciando o JupyterLab
+
+Você pode iniciar o servidor JupyterLab através da linha de comando ou através de uma aplicação chamada
+`Anaconda Navigator`. O Anaconda Navigator é incluído na distribuição Anaconda do Python.
+
+<!-- 
 ### macOS - Command Line
 To start the JupyterLab server you will need to access the command line through the Terminal. 
 There are two ways to open Terminal on Mac.
@@ -84,7 +116,8 @@ After you have launched Terminal, type the command to launch the JupyterLab serv
 $ jupyter lab
 ~~~
 {: .bash}
-
+ -->
+<!-- 
 ### Windows Users - Command Line
 To start the JupyterLab server you will need to access the Anaconda Prompt.
 
@@ -96,43 +129,65 @@ After you have launched the Anaconda Prompt, type the command:
 $ jupyter lab
 ~~~
 {: .bash}
+ -->
+
+### Windows - Linha de Comando
+Para ativar o servidor JupyterLab você vai precisar acessar o Anaconda Prompt.
+
+Aperte <kbd>Windows-Key</kbd> e pesquisa por `Anaconda Prompt`, clique no resultado e aperte Enter. 
+
+Depois de ter acessado o Anaconda Prompt, digite o seguinte comando:
+
+~~~
+$ jupyter lab
+~~~
+{: .bash}
 
 ###  Anaconda Navigator
 
-To start a JupyterLab server from Anaconda Navigator you must first [start Anaconda Navigator (click for detailed instructions on macOS, Windows, and Linux)](https://docs.anaconda.com/anaconda/navigator/getting-started/#starting-navigator). You can search for Anaconda Navigator via Spotlight on macOS (<kbd>Command</kbd> + <kbd>spacebar</kbd>), the Windows search function (<kbd>Windows Logo Key</kbd>) or opening a terminal shell and executing the `anaconda-navigator` executable from the command line.
+<!-- To start a JupyterLab server from Anaconda Navigator you must first [start Anaconda Navigator (click for detailed instructions on macOS, Windows, and Linux)](https://docs.anaconda.com/anaconda/navigator/getting-started/#starting-navigator). You can search for Anaconda Navigator via Spotlight on macOS (<kbd>Command</kbd> + <kbd>spacebar</kbd>), the Windows search function (<kbd>Windows Logo Key</kbd>) or opening a terminal shell and executing the `anaconda-navigator` executable from the command line.
 
 After you have launched Anaconda Navigator, click the `Launch` button under JupyterLab. You may need
 to scroll down to find it.
 
 Here is a screenshot of an Anaconda Navigator page similar to the one that should open on either macOS
-or Windows.
+or Windows. -->
+
+Para ativar o servidor Jupyter do Anaconda Navigator, primeiro, [abra o Anaconda Navigator (clique para instruções detalhadas)](https://docs.anaconda.com/anaconda/navigator/getting-started/#starting-navigator). Você pode pesquisar pelo Anaconda Navigator pela função pesquisar do Windows (<kbd>Windows-Key</kbd>) ou pelo Spotlight do MacOS. Depois de ter ativado o Anaconda Navigator, procure pelo JupyterLab e clique em `Launch`.
 
 <p align='center'>
   <img alt="Anaconda Navigator landing page" src="../fig/0_anaconda_navigator_landing_page.png" width="750"/>
 </p>
 
-And here is a screenshot of a JupyterLab landing page that should be similar to the one that opens in your 
-default web browser after starting the JupyterLab server on either macOS or Windows.
+Uma tab assim deve abrir no seu navegador: 
 
 <p align='center'>
   <img alt="JupyterLab landing page" src="../fig/0_jupyterlab_landing_page.png" width="750"/>
 </p>
 
-## The JupyterLab Interface
-
+## A interface JupyterLab
+<!-- 
 JupyterLab has many features found in traditional integrated development environments (IDEs) but 
 is focused on providing flexible building blocks for interactive, exploratory computing.
 
 The [JupyterLab Interface](https://jupyterlab.readthedocs.io/en/stable/user/interface.html) 
 consists of the Menu Bar, a collapsable Left Side Bar, and the Main Work Area which contains tabs 
 of documents and activities.
+ -->
 
-### Menu Bar
+A [interface JupyterLab](https://jupyterlab.readthedocs.io/en/stable/user/interface.html) 
+consiste de uma barra de menu, uma barra lateral colapsável, e a área de trabalho principal que contém documentos e atividades.
 
+### Barra de Menu
+<!-- 
 The Menu Bar at the top of JupyterLab has the top-level menus that expose various actions 
 available in JupyterLab along with their keyboard shortcuts (where applicable). The following 
 menus are included by default.
+-->
 
+A Barra de Menu no topo do JupyterLab tem os menus top-level que expõe as diferentes ações disponíveis no JupyterLab junto dos seus atalhos no teclado. Os seguintes menus são incluídos por padrão.
+
+<!--
 *   **File:** Actions related to files and directories such as *New*, *Open*, *Close*, *Save*, etc. The *File* menu also includes the *Shut Down* action used to shutdown the JupyterLab server.
 *   **Edit:** Actions related to editing documents and other activities such as *Undo*, *Cut*, *Copy*, *Paste*, etc.
 *   **View:** Actions that alter the appearance of JupyterLab.
@@ -141,7 +196,18 @@ menus are included by default.
 *   **Tabs:** A list of the open documents and activities in the main work area.
 *   **Settings:** Common JupyterLab settings can be configured using this menu. There is also an *Advanced Settings Editor* option in the dropdown menu that provides more fine-grained control of JupyterLab settings and configuration options.
 *   **Help:** A list of JupyterLab and kernel help links.
+ -->
 
+
+*   **File:** Ações relacionadas a arquivos como *New*, *Open*, *Close*, *Save*, etc. O menu *File* também inclui a ação *Shut Down* que é usada para desativar o servidor JupyterLab.
+*   **Edit:** Ações relacionadas a editar documentos, tais como *Undo*, *Cut*, *Copy*, *Paste*, etc.
+*   **View:** Ações que alteram a aparência do JupyterLab.
+*   **Run:** Ações para executar código em diferentes atividades como notebooks e consoles de código (discutidos abaixo).
+*   **Kernel:** Ações para gerenciar kernels. Kernels no Jupyter serão explicados com mais detalhes abaixo.
+*   **Tabs:** Uma lista de documentos e atividades abertos na área principal.
+*   **Settings:** Configurações comuns do Jupyter podem ser modificadas nesse menu. Ele também contém a opção *Advanced Settings Editor* no menu dropdown que provê um controle mais fino das opções do JupyterLab.
+*   **Help:** Uma lista de links de ajuda para o JupyterLab e o kernel.
+<!-- 
 > ## Kernels
 > The JupyterLab [docs](https://jupyterlab.readthedocs.io/en/stable/user/documents_kernels.html) 
 > define kernels as "separate processes started by the server that run your code in different programming languages and environments."
@@ -153,51 +219,82 @@ menus are included by default.
 > etc.
 > 
 {: .callout}
+ -->
 
-A screenshot of the default Menu Bar is provided below.
+
+> ## Kernels
+> A [documentação do JupyterLab](https://jupyterlab.readthedocs.io/en/stable/user/documents_kernels.html) 
+> define kernels como "processos separados iniciados pelo servidor que roda o seu código em diferentes linguagens de programação e ambientes."
+> Quando abrimos um Jupyter Notebook, abrimos um kernel - um processo - que vai rodar o código.
+> Nessa aula, vamos usar o kernel IPython do Jupyter, que permite rodar código Python 3 interativamente.
+> 
+> Usar outros [kernels Jupyter para outras linguagens de programação]https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) nos permitiria
+> escrever e executar código de outras linguagens de programação na mesma interface do JupyterLab, como R, Java, Julia, Ruby, JavaScript, Fortran, etc.
+> 
+{: .callout}
+
+Abaixo um screenshot da Barra de Menu:
 
 <p align='center'>
     <img alt="JupyterLab Menu Bar" src="../fig/0_jupyterlab_menu_bar.png" width="750"/>
 </p>
 
-### Left Sidebar
-
+### Barra Lateral
+<!-- 
 The left sidebar contains a number of commonly used tabs, such as a file browser (showing the 
 contents of the directory where the JupyterLab server was launched), a list of running kernels 
 and terminals, the command palette, and a list of open tabs in the main work area. A screenshot of 
 the default Left Side Bar is provided below.
+ -->
+
+A barra lateral que fica à esquerda contém um número de abas comumente usadas, como um navegador de arquivos (que mostra o conteúdo do diretório aonde o servidor JupyterLab foi iniciado), uma lista dos kernels e terminais em execução, a paleta de comandos, e uma lista de abas abertas na área de trabalho principal. 
 
 <p align='center'>
     <img alt="JupyterLab Left Side Bar" src="../fig/0_jupyterlab_left_side_bar.png" width="250"/>
 </p>
-
+<!-- 
 The left sidebar can be collapsed or expanded by selecting “Show Left Sidebar” in the View menu or 
 by clicking on the active sidebar tab.
+ -->
 
-### Main Work Area
+A barra lateral pode ser colapsada ou expandida selecionando "Show Left Sidebar" no Menu *View* ou clicando na aba ativa da barra lateral.
 
+### Área de Trabalho Principal
+<!-- 
 The main work area in JupyterLab enables you to arrange documents (notebooks, text files, etc.) 
 and other activities (terminals, code consoles, etc.) into panels of tabs that can be resized or 
 subdivided. A screenshot of the default Menu Bar is provided below.
+ -->
+
+A área de trabalho principal do JupyterLab permite que você arranje documentos (notebooks, arquivos de texto, etc.) e outras atividades (terminais, consoles de código, etc.) em paineis de abas que podem ter o tamanho ajustado ou ser subdivididas. Abaixo um screenshot da barra de menu.
 
 <p align='center'>
     <img alt="JupyterLab Main Work Area" src="../fig/0_jupyterlab_main_work_area.png" width="750"/>
 </p>
-
+<!-- 
 Drag a tab to the center of a tab panel to move the tab to the panel. Subdivide a tab panel by 
 dragging a tab to the left, right, top, or bottom of the panel. The work area has a single current 
 activity. The tab for the current activity is marked with a colored top border (blue by default).
+ -->
 
-## Creating a Python script
+Arraste um tab do centro do painel de abas para mover a aba para o painel. Subdivida um painel de abas arrastando a aba para a esquerda, direita, topo, ou base do painel. A área de trabalho tem uma única atividade no momento. A aba para a atividade corrente é marcada como uma borda colorida no topo (azul por padrão).
 
+## Criando um script Python
+<!-- 
 *   To start writing a new Python program click the Text File icon under the *Other* header in the Launcher tab of the Main Work Area.
     *   You can also create a new plain text file by selecting the *New -> Text File* from the *File* menu in the Menu Bar.
 *   To convert this plain text file to a Python program, select the *Save File As* action from the *File* menu in the Menu Bar and give your new text file a name that ends with the `.py` extension.
     *   The `.py` extension lets everyone (including the operating system) know that this text file is a Python program.
     *   This is convention, not a requirement.
+ -->
+* Para começar a escrever um novo programa Python, clique no ícone de Arquivo de Texto embaixo do cabeçalho *Other* na aba **Launcher** da área de trabalho principal.
+  * Você também pode criar um novo arquivo de texto plano ao selecionar *New -> Text File* do menu *File* na Barra de Menu.
+* Para converter esse arquivo de texto plano em um programa Pytohn, selecione a ação *Salvar Arquivo Como* do menu *File* na Barra de Menu e dê ao seu novo arquivo de texto um nome que termine com a extensão `.py`.
+  * A extensão `.py` permite que todos (incluindo o sistema operacional) saibam que esse arquivo de texto é um programa Python.
+  * Isso é uma convenção, e não um requerimento.
 
-## Creating a Jupyter Notebook
-
+## Criando um Notebook Jupyter
+<!-- 
 To open a new notebook click the Python 3 icon under the *Notebook* header in the Launcher tab in 
 the main work area. You can also create a new notebook by selecting *New -> Notebook* from the *File* menu in the Menu Bar.
 
@@ -205,24 +302,38 @@ Additional notes on Jupyter notebooks.
 
   *   Notebook files have the extension `.ipynb` to distinguish them from plain-text Python programs.
   *   Notebooks can be exported as Python scripts that can be run from the command line.
-
 Below is a screenshot of a Jupyter notebook running inside JupyterLab. If you are interested in 
 more details, then see the [official notebook documentation][jupyterlab-notebook-docs].
+ -->
+
+Para criar um novo notebook, clique no ícone do Python 3 embaixo do cabeçalho *Notebook* na aba **Launcher** na área de trabalho principal. Você também pode criar um novo notebook ao selecionar *New -> Notebook* do menu *File* na Barra de Menu.
+
+Notas adicionais sobre notebooks Jupyter:
+
+  *   Arquivos de Notebook tem a extensão `.ipynb` para que os distingue de programas de Python em texto plano.
+  *   Notebooks podem ser exportados como scripts Python que podem ser executados da linha de comando.
+
+Abaixo está um screenshot de um Jupyter Notebook rodando dentro do JupyterLab. Se você está interessado em mais detalhes, veja a [documentação oficial dos notebooks][jupyterlab-notebook-docs]
 
 <p align='center'>
     <img alt="Example Jupyter Notebook" src="../fig/0_jupyterlab_notebook_screenshot.png" width="750"/>
 </p>
 
-> ## How It's Stored
->
+> ## Como É Armazenado
+<!-- >
 > *   The notebook file is stored in a format called JSON.
 > *   Just like a webpage, what's saved looks different from what you see in your browser.
 > *   But this format allows Jupyter to mix source code, text, and images, all in one file.
+{: .callout} -->
+>
+> *   O arquivo do notebook é armazenado em um formato chamado JSON.
+> *   Assim como a página web, o que é salvo é diferente do que vemos no navegador.
+> *   Esse formato permite que o Jupyter possa misturar código, texto, e imagens, tudo em um único arquivo.
 {: .callout}
 
-> ## Arranging Documents into Panels of Tabs
+> ## Arranjando Documentos em Paineis de Abas
 >
-> In the JupyterLab Main Work Area you can arrange documents into panels of tabs. Here is an 
+<!-- > In the JupyterLab Main Work Area you can arrange documents into panels of tabs. Here is an 
 > example from the [official documentation][jupyterlab].
 > 
 > <p align='center'>
@@ -233,13 +344,28 @@ more details, then see the [official notebook documentation][jupyterlab-notebook
 > panels in the main work area. Next, create a notebook, terminal window, and text file and 
 > arrange them into three panels in the main work area. Finally, create your own combination of 
 > panels and tabs. What combination of panels and tabs do you think will be most useful for your 
+> workflow? -->
+> Na área de trabalho principal do JupyterLab você pode arranjar documentos em paineis de abas. Aqui está um
+> exemplo da [documentação oficial][jupyterlab].
+> 
+> <p align='center'>
+>    <img alt="Multi-panel JupyterLab" src="../fig/0_multipanel_jupyterlab_screenshot.png" width="750"/>
+> </p>
+>
+> Primeiro, crie um arquivo de texto, console Python, e janela do terminal e os arranje em três
+> paineis diferentes na área de trabalho principal. Em seguida, crie um notebook, uma janela do terminal, e um arquivo de texto e
+> os arranje em três painéis na área de trabalho principal. Por último, crie sua própria combinação de 
+> paineis e abas. Que combinação de paineis e abas você acha que será a mais útil para o seu
 > workflow?
 >
 > > ## Solution
 > >
-> > After creating the necessary tabs, you can drag one of the tabs to the center of a panel to 
+<!-- > > After creating the necessary tabs, you can drag one of the tabs to the center of a panel to 
 > > move the tab to the panel; next you can subdivide a tab panel by dragging a tab to the left, 
-> > right, top, or bottom of the panel.
+> > right, top, or bottom of the panel. -->
+> > Depois de criar as abas necessárias, você pode arrastar uma delas no centro de um painel para
+> > mover a aba para o painel; em seguida você pode subdividir um painel de abas ao arrastar a aba para a esquerda,
+> > direita, topo, ou base do painel.
 > {: .solution}
 {: .challenge}
 
@@ -568,5 +694,6 @@ $ jupyter lab
 [jupyterlab-ui]: https://jupyterlab.readthedocs.io/en/stable/user/interface.html
 [jupyterlab-notebook-docs]: https://jupyterlab.readthedocs.io/en/stable/user/notebook.html
 [markdown]: https://en.wikipedia.org/wiki/Markdown
+[newwinlogo]: http://i.stack.imgur.com/B8Zit.png
 
 {% include links.md %}
