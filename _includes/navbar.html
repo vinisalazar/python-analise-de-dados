@@ -54,8 +54,6 @@ Lesson navigation bar.
         <li><a href="{{ relative_root_path }}{% link CODE_OF_CONDUCT.md %}">Code of Conduct</a></li> -->
 
         {% if site.kind == "lesson" %}
-        {% comment %} Show setup instructions. {% endcomment %}
-        <li><a href="{{ relative_root_path }}{% link setup.md %}">Setup</a></li>
 
         {% comment %} Show lesson episodes for lessons. {% endcomment %}
         <li class="dropdown">
@@ -69,6 +67,8 @@ Lesson navigation bar.
             <li><a href="{{ relative_root_path }}{% link aio.md %}">Tudo em uma página</a></li>
           </ul>
         </li>
+        {% comment %} Show setup instructions. {% endcomment %}
+        <li><a href="{{ relative_root_path }}{% link setup.md %}">Setup</a></li>
         {% endif %}
 
         <!-- {% comment %} Show extras for lessons or if this is the main workshop-template repo (where they contain
