@@ -9,4 +9,6 @@ _site
 .Rhistory
 .RData
 .jekyll-cache
+.jekyll-metadata
+Gemfile.lock
 
