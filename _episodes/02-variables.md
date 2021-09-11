@@ -112,7 +112,7 @@ NameError: name 'sobrenome' is not defined
 *   We will look at error messages in detail [later]({{ page.root }}/15-scope/#reading-error-messages).
  -->
 *   A última linha de uma mensagem de erro costuma ser a mais informativa.
-*   Vamos dar uma olhada em mensagens de erro [depois]({{ page.root }}/14-scope/).
+*   Vamos dar uma olhada em mensagens de erro [depois]({{ page.root }}/14-scope/#reading-error-messages).
 
 <!--
 >
@@ -484,7 +484,7 @@ print(ewr_422_yY, 'tem', flabadab, 'anos de idade.')
 >
 > > ## Solução
 > > Números não são strings ou sequências e o Python vai dar um erro quando você tentar fazer uma operação de index em um
-> > número. No [próximo episódio sobre tipos e conversão de dados]({{ page.root }}/03-types-conversion/)
+> > número. No [próximo episódio sobre tipos e conversão de dados]({{ page.root }}/03-types-conversion/#convert-numbers-and-strings)
 > > vamos aprender mais sobre tipos e como converter entre diferentes tipos. Se você quer o N-ésimo dígito de um número você
 > > pode convertê-lo para uma string usando a função embutida `str` e então executar uma operação de index nessa string.
 > >
