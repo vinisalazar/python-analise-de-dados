@@ -739,6 +739,33 @@ primeiro é 2 e segundo é 5
 {: .challenge}
  -->
 
+<!-- OC -->
+> ## Somando Fatias
+> 
+> Como substrings também são strings, é possível somá-las da mesma força que somamos strings.
+> A partir da variável `empresa`, escreva o código para criar a variável `abrev`, usando
+> o index de cada letra e o operador `+`.
+>
+> ~~~
+> empresa = "Companhia Paulista de Força e Luz"
+> abrev = __________
+> print(abrev)
+> ~~~
+> {: .language-python}
+> ~~~
+> CPFL
+> ~~~
+> {: .output}
+> > ## Solução
+> > 
+> > ~~~
+> > empresa = "Companhia Paulista de Força e Luz"
+> > abrev = empresa[0] + empresa[10] + empresa[22] + empresa[30]
+> > print(abrev)
+> > ~~~
+> > {: language-python}
+
+
 > ## Números Complexos
 >
 > Python vem com números complexos,
