@@ -1,23 +1,23 @@
 ---
-title: "Data Types and Type Conversion"
+title: "Tipos de Dados e Conversão de Tipos"
 teaching: 10
 exercises: 10
 questions:
-- "What kinds of data do programs store?"
-- "How can I convert one type to another?"
+- "Que tipos de dados um programa armazena?"
+- "Como posso converter de um tipo para outro?"
 objectives:
-- "Explain key differences between integers and floating point numbers."
-- "Explain key differences between numbers and character strings."
-- "Use built-in functions to convert between integers, floating point numbers, and strings."
+- "Explicar as principais diferenças entre inteiros e números de ponto flutuante."
+- "Explicar as principais diferenças entre strings e números."
+- "Usar funções embutidas para converter entre inteiros, números de ponto flutuante e strings."
 keypoints:
-- "Every value has a type."
-- "Use the built-in function `type` to find the type of a value."
-- "Types control what operations can be done on values."
-- "Strings can be added and multiplied."
-- "Strings have a length (but numbers don't)."
-- "Must convert numbers to strings or vice versa when operating on them."
-- "Can mix integers and floats freely in operations."
-- "Variables only change value when something is assigned to them."
+- "Todo valor tem um tipo."
+- "Use a função embutida `type` para encontrar o tipo de um valor."
+- "Tipos determinam que operações podem ser feitas em um valor."
+- "Strings podem ser somadas e multiplicadas."
+- "Strings têm um comprimento (mas números não)."
+- "Preciso converter números para strings ou vice-versa quando fazendo operações entre eles."
+- "Posso misturar inteiros e *floats* livremente entre operações."
+- "Variáveis só mudam de valor quando algo é assinalado a elas."
 ---
 ## Every value has a type.
 
