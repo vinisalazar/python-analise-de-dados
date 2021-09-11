@@ -1,29 +1,29 @@
 ---
-title: "Built-in Functions and Help"
+title: "Funções Embutidas e Ajuda"
 teaching: 15
 exercises: 10
 questions:
-- "How can I use built-in functions?"
-- "How can I find out what they do?"
-- "What kind of errors can occur in programs?"
+- "Como posso usar funções embutidas?"
+- "Como posso descobrir o que elas fazem?"
+- "Que tipos de erros podem ocorrer em progamas?"
 objectives:
-- "Explain the purpose of functions."
-- "Correctly call built-in Python functions."
-- "Correctly nest calls to built-in functions."
-- "Use help to display documentation for built-in functions."
-- "Correctly describe situations in which SyntaxError and NameError occur."
+- "Explique o propósito de funções."
+- "Chame corretamente funções Python."
+- "Aninhe chamadas de funções corretamente."
+- "Use o help para mostrar documentação para funções embutidas."
+- "Corretamente descreva situações nas quais `SyntaxError` e `NameError` podem ocorrer."
 keypoints:
-- "Use comments to add documentation to programs."
-- "A function may take zero or more arguments."
-- "Commonly-used built-in functions include `max`, `min`, and `round`."
-- "Functions may only work for certain (combinations of) arguments."
-- "Functions may have default values for some arguments."
-- "Use the built-in function `help` to get help for a function."
-- "The Jupyter Notebook has two ways to get help."
-- "Every function returns something."
-- "Python reports a syntax error when it can't understand the source of a program."
-- "Python reports a runtime error when something goes wrong while a program is executing."
-- "Fix syntax errors by reading the source code, and runtime errors by tracing the program's execution."
+- "Use comentários para adicionar documentação a programas."
+- "Uma função pode receber zero ou mais argumentos."
+- "Funções embutidas comumente utilizadas incluem `max`, `min` e `round`."
+- "Funções podem funcionar somente para certos(as) (combinações de) argumentos."
+- "Funções podem ter valores padrão para alguns argumentos."
+- "Use a função embutida `help` para conseguir ajuda sobre uma função."
+- "O Jupyter Notebook tem duas formas de obter ajuda."
+- "Toda função retorna algo."
+- "Python reporta um erro de sintaxe quando ele não consegue entender a fonte de um programa."
+- "Python reporta um erro de *runtime* quando algo dá errado enquanto o programa está sendo executado.
+- "Conserte erros de sintaxe lendo o código fonte do programa, e erros de *runtime* monitorando a execução do programa.
 ---
 ## Use comments to add documentation to programs.
 
