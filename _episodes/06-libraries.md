@@ -1,20 +1,20 @@
 ---
-title: "Libraries"
+title: "Bibliotecas"
 teaching: 10
 exercises: 10
 questions:
-- "How can I use software that other people have written?"
-- "How can I find out what that software does?"
+- "Como posso usar software que outras pessoas escreveram"
+- "Como posso descobrir o que um software faz?"
 objectives:
-- "Explain what software libraries are and why programmers create and use them."
-- "Write programs that import and use modules from Python's standard library."
-- "Find and read documentation for the standard library interactively (in the interpreter) and online."
+- "Explicar o que são bibliotecas de software e por que pessoas programadoras as criam e usam."
+- "Escrever programas que importam e usam módulos da biblioteca padrão do Python."
+- "Encontre e leia documentação para a biblioteca padrão interativamente (no interpretador) e online."
 keypoints:
-- "Most of the power of a programming language is in its libraries."
-- "A program must import a library module in order to use it."
-- "Use `help` to learn about the contents of a library module."
-- "Import specific items from a library to shorten programs."
-- "Create an alias for a library when importing it to shorten programs."
+- "A maior parte do poder de uma linguagem de programação está em suas bibliotecas."
+- "Um programa deve importar um módulo de uma biblioteca para poder utilizá-lo."
+- "Use `help` para aprnder sobre os conteúdos de um módulo de uma biblioteca."
+- "Importe itens específicos de uma biblioteca para encurtar programas."
+- "Crie um atalho para uma biblioteca quando importá-la para encurtar programas."
 ---
 ## Most of the power of a programming language is in its libraries.
 
