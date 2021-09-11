@@ -22,8 +22,8 @@ keypoints:
 - "O Jupyter Notebook tem duas formas de obter ajuda."
 - "Toda função retorna algo."
 - "Python reporta um erro de sintaxe quando ele não consegue entender a fonte de um programa."
-- "Python reporta um erro de *runtime* quando algo dá errado enquanto o programa está sendo executado.
-- "Conserte erros de sintaxe lendo o código fonte do programa, e erros de *runtime* monitorando a execução do programa.
+- "Python reporta um erro de *runtime* quando algo dá errado enquanto o programa está sendo executado."
+- "Conserte erros de sintaxe lendo o código fonte do programa, e erros de *runtime* monitorando a execução do programa."
 ---
 ## Use comentários para adicionar documentação a programas.
 <!-- 
@@ -527,6 +527,7 @@ NameError: name 'ppessoas' is not defined
 {: .error}
 
 *   Conserte os erros de sintaxe lendo a fonte e os erros de *runtime* monitorando a execução.
+
 <!-- 
 > ## What Happens When
 >
