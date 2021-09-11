@@ -28,14 +28,14 @@ keypoints:
     *   The quote marks aren't printed when the string is displayed.
  -->
 
-## Every value has a type.
+## Todo valor tem um tipo.
 
-*   Every value in a program has a specific type.
-*   Integer (`int`): represents positive or negative whole numbers like 3 or -512.
-*   Floating point number (`float`): represents real numbers like 3.14159 or -2.5.
-*   Character string (usually called "string", `str`): text.
-    *   Written in either single quotes or double quotes (as long as they match).
-    *   The quote marks aren't printed when the string is displayed.
+*  Todo valor de um programa tem um tipo específico.
+*  Integer (`int`): representa um número inteiro positivo ou negativo como 3 ou -512.
+*  Número de ponto flutuante (`float`): representa números reais como 3.14159 ou -2.5.
+*  String de caracteres (geralmente chamado de "string", `str`): texto.
+    *   Escritas entre aspas simples ou duplas (desde que sejam do mesmo tipo).
+    *   As aspas não são impressas quando usamos `print()`.
 
 <!-- 
 *   Use the built-in function `type` to find out what type a value has.
@@ -43,11 +43,11 @@ keypoints:
     *   But remember: the *value* has the type --- the *variable* is just a label.
  -->
 
-## Use the built-in function `type` to find the type of a value.
+## Use a função embutida `type` para descobrir o tipo de um valor.
 
-*   Use the built-in function `type` to find out what type a value has.
-*   Works on variables as well.
-    *   But remember: the *value* has the type --- the *variable* is just a label.
+*   Use a função embutida `type` para descobrir qual é o tipo de um determinado valor.
+*   Também funciona como variáveis.
+    *   Mas lembre-se: o *valor* tem o tipo --- a *variável* é só uma etiqueta.
 
 ~~~
 print(type(52))
@@ -59,8 +59,8 @@ print(type(52))
 {: .output}
 
 ~~~
-fitness = 'average'
-print(type(fitness))
+forma = 'redonda'
+print(type(forma))
 ~~~
 {: .language-python}
 ~~~
@@ -72,9 +72,9 @@ print(type(fitness))
 *   A value's type determines what the program can do to it.
  -->
 
-## Types control what operations (or methods) can be performed on a given value.
+## Tipos controlam que operações (ou métodos) podem ser executados em um dado valor.
 
-*   A value's type determines what the program can do to it.
+*   O tipo de um valor determina o que o programa pode fazer com ele.
 
 ~~~
 print(5 - 3)
@@ -86,14 +86,14 @@ print(5 - 3)
 {: .output}
 
 ~~~
-print('hello' - 'h')
+print('ola' - 'o')
 ~~~
 {: .language-python}
 ~~~
 ---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
 <ipython-input-2-67f5626a1e07> in <module>()
-----> 1 print('hello' - 'h')
+----> 1 print('ola' - 'o')
 
 TypeError: unsupported operand type(s) for -: 'str' and 'str'
 ~~~
@@ -103,17 +103,17 @@ TypeError: unsupported operand type(s) for -: 'str' and 'str'
 *   "Adding" character strings concatenates them.
  -->
 
-## You can use the "+" and "*" operators on strings.
+## Você pode usar os operadores `+` e `*` em strings.
 
 *   "Adding" character strings concatenates them.
 
 ~~~
-full_name = 'Ahmed' + ' ' + 'Walsh'
-print(full_name)
+nome_completo = 'Felipe' + ' ' + 'da Silva'
+print(nome_completo)
 ~~~
 {: .language-python}
 ~~~
-Ahmed Walsh
+Felipe da Silva
 ~~~
 {: .output}
 
@@ -122,12 +122,12 @@ Ahmed Walsh
     *   Since multiplication is repeated addition.
  -->
 
-*   Multiplying a character string by an integer _N_ creates a new string that consists of that character string repeated  _N_ times.
-    *   Since multiplication is repeated addition.
+*   Multiplicar uma string por um inteiro `N` cria uma nova string que consiste da string original repetida `N` vezes.
+    *   Já que multiplicação é adição repetida.
 
 ~~~
-separator = '=' * 10
-print(separator)
+separador = '=' * 10
+print(separador)
 ~~~
 {: .language-python}
 ~~~
@@ -135,19 +135,19 @@ print(separator)
 ~~~
 {: .output}
 
-## Strings have a length (but numbers don't).
+## Strings têm um comprimento (mas números não).
 
 <!--
 *   The built-in function `len` counts the number of characters in a string. 
 -->
-*   The built-in function `len` counts the number of characters in a string.
+*   A função embutida `len` (*length*) conta o número de caracteres em uma string.
 
 ~~~
-print(len(full_name))
+print(len(nome_completo))
 ~~~
 {: .language-python}
 ~~~
-11
+15
 ~~~
 {: .output}
 
@@ -155,7 +155,7 @@ print(len(full_name))
 *   But numbers don't have a length (not even zero).
  -->
 
-*   But numbers don't have a length (not even zero).
+*   Mas números não tem um comprimento (nem zero).
 
 
 ~~~
@@ -172,12 +172,12 @@ TypeError: object of type 'int' has no len()
 ~~~
 {: .error}
 
-## <a name='convert-numbers-and-strings'></a> Must convert numbers to strings or vice versa when operating on them.
+## <a name='convert-numbers-and-strings'></a> É necessário converter números para strings e vice-versa para poder fazer operações entre eles.
 
 <!-- 
 *   Cannot add numbers and strings.
  -->
-*   Cannot add numbers and strings.
+*   Não é possível somar números e strings.
 
 ~~~
 print(1 + '2')
@@ -197,8 +197,8 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 *   Some types can be converted to other types by using the type name as a function.
  -->
 
-*   Not allowed because it's ambiguous: should `1 + '2'` be `3` or `'12'`?
-*   Some types can be converted to other types by using the type name as a function.
+*   Não é permitido porque é ambíguo: `1 + '2'` deve ser `3` ou `'12'`?
+*   Alguns tipos podem ser convertidos para outros tipos ao usar o nome do tipo como um função.
 
 ~~~
 print(1 + int('2'))
@@ -211,27 +211,27 @@ print(str(1) + '2')
 ~~~
 {: .output}
 
-## Can mix integers and floats freely in operations.
+## É possível misturar *integers* e *floats* livremente entre operações.
 <!-- 
 *   Integers and floating-point numbers can be mixed in arithmetic.
     *   Python 3 automatically converts integers to floats as needed.
  -->
 
-*   Integers and floating-point numbers can be mixed in arithmetic.
-    *   Python 3 automatically converts integers to floats as needed.
+*   Números inteiros e de ponto flutuante pode ser misturados em aritmética.
+    *   Python 3 automaticamente converte *integers* para *floats* conforme o necessário.
 
 ~~~
-print('half is', 1 / 2.0)
-print('three squared is', 3.0 ** 2)
+print('meio é', 1 / 2.0)
+print('três ao quadrado é', 3.0 ** 2)
 ~~~
 {: .language-python}
 ~~~
-half is 0.5
-three squared is 9.0
+meio é 0.5
+três ao quadrado é 9.0
 ~~~
 {: .output}
 
-## Variables only change value when something is assigned to them.
+## Variáveis só mudam de valor quando algo é assinalado a elas.
 <!-- 
 *   If we make one cell in a spreadsheet depend on another,
     and update the latter,
@@ -239,20 +239,20 @@ three squared is 9.0
 *   This does **not** happen in programming languages.
  -->
 
-*   If we make one cell in a spreadsheet depend on another,
-    and update the latter,
-    the former updates automatically.
-*   This does **not** happen in programming languages.
+*   Se fizermos uma célula em uma planilha depender de outra,
+    e fizermos update da última,
+    a primeira faz update automaticamente.
+*   Isso **não** acontece em linguagens de programação.
 
 ~~~
-first = 1
-second = 5 * first
-first = 2
-print('first is', first, 'and second is', second)
+primeiro = 1
+segundo = 5 * primeiro
+primeiro = 2
+print('primeiro é', primeiro, 'e segundo é', segundo)
 ~~~
 {: .language-python}
 ~~~
-first is 2 and second is 5
+primeiro é 2 e segundo é 5
 ~~~
 {: .output}
 <!-- 
@@ -261,9 +261,9 @@ first is 2 and second is 5
 *   After that, `second` does not remember where it came from.
  -->
 
-*   The computer reads the value of `first` when doing the multiplication,
-    creates a new value, and assigns it to `second`.
-*   After that, `second` does not remember where it came from.
+*   O computador lê o valor de `primeiro` quando faz a multiplicação,
+    cria um novo valor, e assinala para `segundo`.
+*   Depois disso, `segundo` não lembra da onde veio o valor original.
 
 <!-- 
 > ## Fractions
@@ -288,15 +288,15 @@ first is 2 and second is 5
 {: .challenge}
  -->
 
-> ## Fractions
+> ## Frações
 >
-> What type of value is 3.4?
-> How can you find out?
+> Que tipo de valor é `3.4`?
+> Como você pode descobrir?
 >
-> > ## Solution
+> > ## Solução
 > >
-> > It is a floating-point number (often abbreviated "float").
-> > It is possible to find out by using the built-in function `type()`.
+> > É um número de ponto flutuante (normalmente abreviado de "float").
+> > É possível descobrir usando a função embutida `type`.
 > >
 > > ~~~
 > > print(type(3.4))
@@ -332,18 +332,18 @@ first is 2 and second is 5
 {: .challenge}
  -->
 
-> ## Automatic Type Conversion
+> ## Conversão Automática de Tipos
 >
-> What type of value is 3.25 + 4?
+> Que tipo é o valor `3.25 + 4`?
 >
-> > ## Solution
+> > ## Solução
 > >
-> > It is a float:
-> > integers are automatically converted to floats as necessary.
+> > É um float:
+> > inteiros são automaticamente convertidos para floats conforme o necessário.
 > >
 > > ~~~
-> > result = 3.25 + 4
-> > print(result, 'is', type(result))
+> > resultado = 3.25 + 4
+> > print(resultado, 'é', type(resultado))
 > > ~~~
 > > {: .language-python}
 > > ~~~
@@ -379,27 +379,27 @@ first is 2 and second is 5
 {: .challenge}
  -->
 
-> ## Choose a Type
+> ## Escolha um Tipo
 >
-> What type of value (integer, floating point number, or character string)
-> would you use to represent each of the following?  Try to come up with more than one good answer for each problem.  For example, in  # 1, when would counting days with a floating point variable make more sense than using an integer?  
+> Que tipo de valor (inteiro, número de ponto flutuante, ou string de caracteres)
+> você usaria para representar cada um dos seguintes? Tente pensar em mais de uma boa resposta para cada problema. Por exemplo, no número 1, quando contar os dias com uma variável de ponto flutuante faria mais sentido do que usar um inteiro?
 >
-> 1. Number of days since the start of the year.
-> 2. Time elapsed from the start of the year until now in days.
-> 3. Serial number of a piece of lab equipment.
-> 4. A lab specimen's age
-> 5. Current population of a city.
-> 6. Average population of a city over time.
+> 1. Número de dias desde o início do ano.
+> 2. Tempo do início do ano até agora em dias.
+> 3. Número serial de um patrimônio.
+> 4. A validade de uma inspeção de segurança.
+> 5. População atual de um município.
+> 6. População média de um município ao longo do tempo.
 >
-> > ## Solution
+> > ## Solução
 > >
 > > The answers to the questions are:
-> > 1. Integer, since the number of days would lie between 1 and 365. 
-> > 2. Floating point, since fractional days are required
-> > 3. Character string if serial number contains letters and numbers, otherwise integer if the serial number consists only of numerals
-> > 4. This will vary! How do you define a specimen's age? whole days since collection (integer)? date and time (string)?
-> > 5. Choose floating point to represent population as large aggregates (eg millions), or integer to represent population in units of individuals.
-> > 6. Floating point number, since an average is likely to have a fractional part.
+> > 1. Inteiro, já que o número de dias ficaria entre 1 e 365.
+> > 2. Ponto flutuante, já que os dias fracionais são necessários.
+> > 3. String se o número serial contém letras e números, se não um integer se o número serial contém apenas números (**e não começa com zero**).
+> > 4. Isso pode variar! Como você define a validade? Dias desde a última inspeção (integer)? Data de validade (string)?
+> > 5. Float para representar a populações como grandes agregados (como milhões), ou inteiro para representar a população em unidades de indivíduos.
+> > 6. Número de ponto flutuante, já que a média provavelmente vai possuir um valor fracional.
 > {: .solution}
 {: .challenge}
 
@@ -423,23 +423,23 @@ first is 2 and second is 5
 > ~~~
 > {: .output}
 >
-> If `num_subjects` is the number of subjects taking part in a study,
-> and `num_per_survey` is the number that can take part in a single survey,
+> If `num_participantes` is the number of subjects taking part in a study,
+> and `num_por_entrevista` is the number that can take part in a single survey,
 > write an expression that calculates the number of surveys needed
 > to reach everyone once.
 >
 > > ## Solution
 > > We want the minimum number of surveys that reaches everyone once, which is
-> > the rounded up value of `num_subjects/ num_per_survey`. This is 
+> > the rounded up value of `num_participantes/ num_por_entrevista`. This is 
 > > equivalent to performing a floor division with `//` and adding 1. Before
 > > the division we need to subtract 1 from the number of subjects to deal with 
-> > the case where `num_subjects` is evenly divisible by `num_per_survey`.
+> > the case where `num_participantes` is evenly divisible by `num_por_entrevista`.
 > > ~~~
-> > num_subjects = 600
-> > num_per_survey = 42
-> > num_surveys = (num_subjects - 1) // num_per_survey + 1
+> > num_participantes = 600
+> > num_por_entrevista = 42
+> > num_entrevistas = (num_participantes - 1) // num_por_entrevista + 1
 > >
-> > print(num_subjects, 'subjects,', num_per_survey, 'per survey:', num_surveys)
+> > print(num_participantes, 'subjects,', num_por_entrevista, 'per survey:', num_entrevistas)
 > > ~~~
 > > {: .language-python}
 > > ~~~
@@ -450,10 +450,10 @@ first is 2 and second is 5
 {: .challenge}
  -->
 
-> ## Division Types
+> ## Tipos de Divisão
 >
-> In Python 3, the `//` operator performs integer (whole-number) floor division, the `/` operator performs floating-point
-> division, and the `%` (or *modulo*) operator calculates and returns the remainder from integer division:
+> No Python 3, o operador `//` realiza divisão de inteiros, o operador `/` realiza divisão de ponto flutuante,
+> e o operador `%` (ou *módulo*) calcula o resto da divisão de inteiros.
 >
 > ~~~
 > print('5 // 3:', 5 // 3)
@@ -469,27 +469,27 @@ first is 2 and second is 5
 > ~~~
 > {: .output}
 >
-> If `num_subjects` is the number of subjects taking part in a study,
-> and `num_per_survey` is the number that can take part in a single survey,
-> write an expression that calculates the number of surveys needed
-> to reach everyone once.
+> Se `num_participantes` é o número de participantes em um estudo,
+> e `num_por_entrevista` é o número que pode participar em uma única entrevista,
+> escreva uma expressão que calcula o número mínimo de entrevistas necessárias
+> para incluir todos os participantes.
 >
-> > ## Solution
-> > We want the minimum number of surveys that reaches everyone once, which is
-> > the rounded up value of `num_subjects/ num_per_survey`. This is 
-> > equivalent to performing a floor division with `//` and adding 1. Before
-> > the division we need to subtract 1 from the number of subjects to deal with 
-> > the case where `num_subjects` is evenly divisible by `num_per_survey`.
+> > ## Solução
+> > Queremos o mínimo número de entrevistas que inclua todos os participantes,
+> > que seria o valor arredondado de `num_participantes / num_por_entrevista`. Isso é
+> > equivalente a realizar a divisão de inteiros com `//` e adicionar 1. Antes
+> > da divisão precisamos subtrair 1 do número de participantes para lidar com
+> > o caso no qual `num_participantes` é dividido igualmente port `num_por_entrevista`.
 > > ~~~
-> > num_subjects = 600
-> > num_per_survey = 42
-> > num_surveys = (num_subjects - 1) // num_per_survey + 1
+> > num_participantes = 600
+> > num_por_entrevista = 42
+> > num_entrevistas = (num_participantes - 1) // num_por_entrevista + 1
 > >
-> > print(num_subjects, 'subjects,', num_per_survey, 'per survey:', num_surveys)
+> > print(num_participantes, 'participantes,', num_por_entrevista, 'por entrevista:', num_entrevistas)
 > > ~~~
 > > {: .language-python}
 > > ~~~
-> > 600 subjects, 42 per survey: 15
+> > 600 participantes, 42 por entrevista: 15
 > > ~~~
 > > {: .output}
 > {: .solution}
@@ -572,27 +572,27 @@ first is 2 and second is 5
 {: .challenge}
  -->
 
-> ## Strings to Numbers
+> ## Strings para Números
 >
-> Where reasonable, `float()` will convert a string to a floating point number,
-> and `int()` will convert a floating point number to an integer:
+> Quando possível, `float()` vai converter a string em um número de ponto flutuante,
+> e `int()` vai converter o número de ponto flutuante em um inteiro.
 >
 > ~~~
-> print("string to float:", float("3.4"))
-> print("float to int:", int(3.4))
+> print("string para float:", float("3.4"))
+> print("float para int:", int(3.4))
 > ~~~
 > {: .language-python}
 >
 > ~~~
-> string to float: 3.4
-> float to int: 3
+> string para float: 3.4
+> float para int: 3
 > ~~~
 > {: .output}
 >
-> If the conversion doesn't make sense, however, an error message will occur.
+> Se a conversão não fizer sentido, vai ocorrer um erro.
 >
 > ~~~
-> print("string to float:", float("Hello world!"))
+> print("string para float:", float("Olá Mundo!"))
 > ~~~
 > {: .language-python}
 >
@@ -600,27 +600,27 @@ first is 2 and second is 5
 > ---------------------------------------------------------------------------
 > ValueError                                Traceback (most recent call last)
 > <ipython-input-5-df3b790bf0a2> in <module>
-> ----> 1 print("string to float:", float("Hello world!"))
+> ----> 1 print("string para float:", float("Olá Mundo!"))
 >
-> ValueError: could not convert string to float: 'Hello world!'
+> ValueError: could not convert string to float: 'Olá Mundo!'
 > ~~~
 > {: .error}
 >
-> Given this information, what do you expect the following program to do?
+> Dada essa informação, o que você espera que o programa abaixo vai fazer?
 >
-> What does it actually do?
+> O que ele realmente faz?
 >
-> Why do you think it does that?
+> Por que você acha que ele faz isso?
 >
 > ~~~
-> print("fractional string to int:", int("3.4"))
+> print("string de fração para int:", int("3.4"))
 > ~~~
 > {: .language-python}
 > 
-> > ## Solution
-> > What do you expect this program to do? It would not be so unreasonable to expect the Python 3 `int` command to
-> > convert the string "3.4" to 3.4 and an additional type conversion to 3. After all, Python 3 performs a lot of other
-> > magic - isn't that part of its charm?
+> > ## Solução
+> > O que você espera que eswse programa faça? Não seria razoável que o comando `int` do Python 3
+> > convertesse a string `"3.4"` para `3.4` e uma conversão adicional para `3`. Afinal, o Python 3 faz mais um monte de
+> > mágicas - isso não faz parte do charme?
 > >
 > > ~~~
 > > int("3.4")
@@ -634,8 +634,8 @@ first is 2 and second is 5
 > > ValueError: invalid literal for int() with base 10: '3.4'
 > > ~~~
 > > {: .output}
-> > However, Python 3 throws an error. Why? To be consistent, possibly. If you ask Python to perform two consecutive
-> > typecasts, you must convert it explicitly in code.
+> > VEmos que o Python 3 dá erro. Por quê? Possivelmente para se manter consistente. Se você pedir para o Python realizar duas
+> > conversões de tipo consecutivas, você precisa declarar isso explicitamente no código.
 > > ~~~
 > > int(float("3.4"))
 > > ~~~
@@ -674,28 +674,28 @@ first is 2 and second is 5
 {: .challenge}
  -->
 
-> ## Arithmetic with Different Types
+> ## Aritmética com Diferentes Tipos
 >
-> Which of the following will return the floating point number `2.0`?
-> Note: there may be more than one right answer.
+> Qual dos seguintes vai retornar o número de ponto flutuante `2.0`?
+> Nota: pode haver mais de uma resposta certa.
 >
 > ~~~
-> first = 1.0
-> second = "1"
-> third = "1.1"
+> primeiro = 1.0
+> segundo = "1"
+> terceiro = "1.1"
 > ~~~
 > {: .language-python}
 >
-> 1. `first + float(second)`
-> 2. `float(second) + float(third)`
-> 3. `first + int(third)`
-> 4. `first + int(float(third))`
-> 5. `int(first) + int(float(third))`
-> 6. `2.0 * second`
+> 1. `primeiro + float(segundo)`
+> 2. `float(segundo) + float(terceiro)`
+> 3. `primeiro + int(terceiro)`
+> 4. `primeiro + int(float(terceiro))`
+> 5. `int(primeiro) + int(float(terceiro))`
+> 6. `2.0 * segundo`
 >
-> > ## Solution
+> > ## Solução
 > >
-> > Answer: 1 and 4
+> > Resposta: 1 e 4.
 > {: .solution}
 {: .challenge}
 
@@ -739,18 +739,18 @@ first is 2 and second is 5
 {: .challenge}
  -->
 
-> ## Complex Numbers
+> ## Números Complexos
 >
-> Python provides complex numbers,
-> which are written as `1.0+2.0j`.
-> If `val` is a complex number,
-> its real and imaginary parts can be accessed using *dot notation*
-> as `val.real` and `val.imag`.
+> Python vem com números complexos,
+> escritos como `1 + 2j`.
+> Se `val` é um número complexo,
+> suas partes reais e imaginárias podem ser acessadas usando *notação de ponto*
+> como `val.real` e `val.imag`.
 >
 > ~~~
-> complex = 6 + 2j
-> print(complex.real)
-> print(complex.imag)
+> complexo = 6 + 2j
+> print(complexo.real)
+> print(complexo.imag)
 > ~~~
 > {: .language-python}
 >
@@ -761,18 +761,18 @@ first is 2 and second is 5
 > {: .output}
 >
 >
-> 1.  Why do you think Python uses `j` instead of `i` for the imaginary part?
-> 2.  What do you expect `1+2j + 3` to produce?
-> 3.  What do you expect `4j` to be?  What about `4 j` or `4 + j`?
+> 1.  Por que você acha que usamos `j` e não `i` para a parte imaginária?
+> 2.  O que você espera que `1 + 2j + 3` vai produzir?
+> 3.  O que você espera `4j` será? E `4 j` ou `4 + j`?
 > 
-> > ## Solution
+> > ## Solução
 > >
-> > 1. Standard mathematics treatments typically use `i` to denote an imaginary number. However, from media reports it
-> > was an early convention established from electrical engineering that now presents a technically expensive area to
-> > change. [Stack Overflow provides additional explanation and
-> > discussion.](http://stackoverflow.com/questions/24812444/why-are-complex-numbers-in-python-denoted-with-j-instead-of-i)
+> > 1. Tratados padrão da matemática tipicamente usam `i` para denotar um número imaginário. No entanto, isso foi
+> > foi uma convenção estabelecida cedo na área de engenharia elétrica e agora representa um área tecnicamente custosa para
+> > modificar. [Existe uma explicação e discussão adicional no
+> > Stack Overflow.](http://stackoverflow.com/questions/24812444/why-are-complex-numbers-in-python-denoted-with-j-instead-of-i)
 > > 2. `(4+2j)`
-> > 3. `4j` and `Syntax Error: invalid syntax`. In the latter cases, `j` is considered a variable and the statement
-> > depends on if `j` is defined and if so, its assigned value.
+> > 3. `4j` e `Syntax Error: invalid syntax`. Nos dois últimos casos, `j` é considerada uma variável e a declaração
+> > depende de se `j` já foi definido, e do seu valor assinalado.
 > {: .solution}
 {: .challenge}
