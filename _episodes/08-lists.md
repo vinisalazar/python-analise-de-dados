@@ -1,24 +1,25 @@
 ---
-title: "Lists"
+title: "Listas"
 teaching: 10
 exercises: 10
 questions:
-- "How can I store multiple values?"
+- "Como eu posso armazenar muitos valores?"
 objectives:
-- "Explain why programs need collections of values."
-- "Write programs that create flat lists, index them, slice them, and modify them through assignment and method calls."
+- "Explicar por que programas precisam de coleções de valores."
+- "Escrever programas que criem, indexem, fatiem e modifiquem listas planas através de assinalação e chamadas de métodos."
 keypoints:
-- "A list stores many values in a single structure."
-- "Use an item's index to fetch it from a list."
-- "Lists' values can be replaced by assigning to them."
-- "Appending items to a list lengthens it."
-- "Use `del` to remove items from a list entirely."
-- "The empty list contains no values."
-- "Lists may contain values of different types."
-- "Character strings can be indexed like lists."
-- "Character strings are immutable."
-- "Indexing beyond the end of the collection is an error."
+- "Uma lista armazena muitos valores em uma única estrutura."
+- "Use o index de um item para selecioná-lo na lista."
+- "Os valores da lista podem ser substituídos por assinalação."
+- "Apendar itens para uma lista aumenta ela."
+- "Use `del` para remover inteiramente itens de uma lista."
+- "Uma lista vazia não contém valores."
+- "Listas podem conter valores de diferentes tipos."
+- "Strings de caracteres podem ser indexadas como listas."
+- "Strings de caracteres são imutáveis."
+- "Indexar além do fim de uma coleção é um erro."
 ---
+
 ## A list stores many values in a single structure.
 
 *   Doing calculations with a hundred variables called `pressure_001`, `pressure_002`, etc.,
