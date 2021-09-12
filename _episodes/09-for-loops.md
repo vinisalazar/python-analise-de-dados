@@ -15,7 +15,7 @@ keypoints:
 - "Indentação é sempre importante no Python."
 - "Variáveis de loop podem ser chamadas de qualquer coisa (mas é fortemente recomendado de que seja usado um nome informativo)."
 - "O corpo de um loop pode conter muitos comandos."
-- "Use `range` para iterar sobre uma sequência de  números."
+- "Use `range` para iterar sobre uma sequência de números."
 - "O padrão Acumulador transforma muitos valores em um."
 ---
 
@@ -54,22 +54,22 @@ print(5)
 {: .output}
  -->
 
-## A *for loop* executes commands once for each value in a collection.
+## Um *for loop* executa comandos uma vez para cada valor em uma coleção.
 
-*   Doing calculations on the values in a list one by one
-    is as painful as working with `pressure_001`, `pressure_002`, etc.
-*   A *for loop* tells Python to execute some statements once for each value in a list,
-    a character string,
-    or some other collection.
-*   "for each thing in this group, do these operations"
+*   Fazer operações nos valores de uma lista um por um
+    é tão doloroso quanto trabalhar com `consumo_001`, `consumo_002`, etc.
+*   Um *for loop* diz ao Python para executar alguns comandos uma vez para cada valor em uma lista,
+    string de caracteres,
+    ou alguma outra coleção.
+*   "para cada coisa nesse grupo, faça essas operações"
 
 ~~~
-for number in [2, 3, 5]:
-    print(number)
+for numero in [2, 3, 5]:
+    print(numero)
 ~~~
 {: .language-python}
 
-*   This `for` loop is equivalent to:
+*   Esse `for loop` é equivalente a:
 
 ~~~
 print(2)
@@ -78,7 +78,7 @@ print(5)
 ~~~
 {: .language-python}
 
-*   And the `for` loop's output is:
+*   E a saída do `for loop` é:
 
 ~~~
 2
@@ -101,18 +101,19 @@ for number in [2, 3, 5]:
     *   The "current thing".
  -->
 
-## A `for` loop is made up of a collection, a loop variable, and a body.
+## Um *for loop* consiste de uma coleção, uma variável do loop, e um corpo.
 
 ~~~
-for number in [2, 3, 5]:
-    print(number)
+for numero in [2, 3, 5]:
+    print(numero)
 ~~~
 {: .language-python}
 
-*   The collection, `[2, 3, 5]`, is what the loop is being run on.
-*   The body, `print(number)`, specifies what to do for each value in the collection.
-*   The loop variable, `number`, is what changes for each *iteration* of the loop.
-    *   The "current thing".
+*   A coleção, `[2, 3, 5]`, é a coisa sobre a qual o loop está sendo rodado.
+*   O corpo, `print(numero)`, especifica o que fazer para cada valor na coleção.
+*   O variável do loop, `numero`, é o que muda em cada *iteração* do loop.
+    *   A "coisa atual".
+
 <!-- 
 ## The first line of the `for` loop must end with a colon, and the body must be indented.
 
@@ -138,7 +139,7 @@ firstName = "Jon"
 ~~~
 {: .language-python}
 ~~~
-  File "<ipython-input-7-f65f2962bf9c>", line 2
+  File "ipython-input-7-f65f2962bf9c", line 2
     lastName = "Smith"
     ^
 IndentationError: unexpected indent
@@ -147,17 +148,17 @@ IndentationError: unexpected indent
 
 *   This error can be fixed by removing the extra spaces
     at the beginning of the second line.
- -->
+-->
 
-## The first line of the `for` loop must end with a colon, and the body must be indented.
+## A primeira linha de um for loop deve acabar com dois pontos, e o corpo deve ser indentado.
 
-*   The colon at the end of the first line signals the start of a *block* of statements.
-*   Python uses indentation rather than `{}` or `begin`/`end` to show *nesting*.
-    *   Any consistent indentation is legal, but almost everyone uses four spaces.
+*   Os dois pontos no final da primeira linha indica o início de um *bloco* de comandos (*statements*).
+*   Python usa indentação invés de `{}` ou `begin`/`end` para mostrar *aninhamento* (*nesting*).
+    *   Qualquer indentação constante pode ser usada, mas normalmente utilizamos quatro espaços.
 
 ~~~
-for number in [2, 3, 5]:
-print(number)
+for numero in [2, 3, 5]:
+print(numero)
 ~~~
 {: .language-python}
 ~~~
@@ -165,23 +166,23 @@ IndentationError: expected an indented block
 ~~~
 {: .error}
 
-*   Indentation is always meaningful in Python.
+*   Indentação é sempre importante no Python.
 
 ~~~
-firstName = "Jon"
-  lastName = "Smith"
+primeiro_nome = "Felipe"
+  sobrenome = "da Silva"
 ~~~
 {: .language-python}
 ~~~
   File "<ipython-input-7-f65f2962bf9c>", line 2
-    lastName = "Smith"
+    sobrenome = "da Silva"
     ^
 IndentationError: unexpected indent
 ~~~
 {: .error}
 
-*   This error can be fixed by removing the extra spaces
-    at the beginning of the second line.
+*   Esse erro pode ser consertado ao remover o espaço extra
+    no começo da segunda linha.
 <!-- 
 ## Loop variables can be called anything.
 
@@ -196,15 +197,15 @@ for kitten in [2, 3, 5]:
 {: .language-python}
  -->
 
-## Loop variables can be called anything.
+## Variáveis de loop podem ser chamadas de qualquer coisa.
 
-*   As with all variables, loop variables are:
-    *   Created on demand.
-    *   Meaningless: their names can be anything at all.
+*   Assim como todas as variáveis, variáveis de loop são:
+    *   Criadas por demanda.
+    *   Sem significado: os seus nomes podem ser qualquer coisa
 
 ~~~
-for kitten in [2, 3, 5]:
-    print(kitten)
+for pessoa in [2, 3, 5]:
+    print(pessoa)
 ~~~
 {: .language-python}
 <!-- 
@@ -229,17 +230,17 @@ for p in primes:
 {: .output}
  -->
 
-## The body of a loop can contain many statements.
+## O corpo de um loop pode conter muitos comandos.
 
-*   But no loop should be more than a few lines long.
-*   Hard for human beings to keep larger chunks of code in mind.
+*   Mas nenhum loop deve ter muito mais do que algumas linhas.
+*   É difícil para seres humanos manterem grandes pedaços de código em mente.
 
 ~~~
-primes = [2, 3, 5]
-for p in primes:
-    squared = p ** 2
-    cubed = p ** 3
-    print(p, squared, cubed)
+primos = [2, 3, 5]
+for p in primos:
+    quadrado = p ** 2
+    cubo = p ** 3
+    print(p, quadrado, cubo)
 ~~~
 {: .language-python}
 ~~~
@@ -272,22 +273,22 @@ a range is not a list: range(0, 3)
 {: .output}
  -->
 
-## Use `range` to iterate over a sequence of numbers.
+## Use `range` para iterar sobre uma sequência de números.
 
-*   The built-in function [`range`](https://docs.python.org/3/library/stdtypes.html#range) produces a sequence of numbers.
-    *   *Not* a list: the numbers are produced on demand
-        to make looping over large ranges more efficient.
-*   `range(N)` is the numbers 0..N-1
-    *   Exactly the legal indices of a list or character string of length N
+*   A função embutida [`range`](https://docs.python.org/pt-br/3/library/stdtypes.html#range) produz uma sequência de números.
+    *   *Não* é uma lista: os números são produzidos sob demanda
+        para tornar o loop de grandes ranges mais eficiente.
+*   `range(N)` são os números `0 ... N-1`.
+    *   Exatamente os mesmos índices de uma lista ou string de tamanho `N`.
 
 ~~~
-print('a range is not a list: range(0, 3)')
-for number in range(0, 3):
-    print(number)
+print('Uma range não é uma lista: range(0, 3)')
+for numero in range(0, 3):
+    print(numero)
 ~~~
 {: .language-python}
 ~~~
-a range is not a list: range(0, 3)
+Uma range não é uma lista: range(0, 3)
 0
 1
 2
@@ -320,17 +321,17 @@ print(total)
 *   We have to add `number + 1` because `range` produces 0..9, not 1..10.
  -->
 
-## The Accumulator pattern turns many values into one.
+## O padrão Acumulador transforma muitos valores em um.
 
-*   A common pattern in programs is to:
-    1.  Initialize an *accumulator* variable to zero, the empty string, or the empty list.
-    2.  Update the variable with values from a collection.
+*   Uma padrão comum em programas é:
+    1.  Inicializar uma variável *acumuladora* como zero, uma string vazia, uma lista vazia.
+    2.  Fazer update da variável com valores de uma coleção.
 
 ~~~
-# Sum the first 10 integers.
+# Some os 10 primeiros inteiros.
 total = 0
-for number in range(10):
-   total = total + (number + 1)
+for numero in range(10):
+   total = total + (numero+ 1)
 print(total)
 ~~~
 {: .language-python}
@@ -339,11 +340,11 @@ print(total)
 ~~~
 {: .output}
 
-*   Read `total = total + (number + 1)` as:
-    *   Add 1 to the current value of the loop variable `number`.
-    *   Add that to the current value of the accumulator variable `total`.
-    *   Assign that to `total`, replacing the current value.
-*   We have to add `number + 1` because `range` produces 0..9, not 1..10.
+*   Leia `total = total + (numero + 1)` como:
+    *   Some 1 ao valor atual da variável `numero`.
+    *   Some isso ao valor atual da variável acumuladora `total`.
+    *   Assinalar isso à `total`, substituindo o valor atual.
+*   Temos que botar `numero + 1` porque `range` produz `0..9`, e não `1..10`.
 <!-- 
 > ## Classifying Errors
 >
@@ -355,12 +356,12 @@ print(total)
 {: .challenge}
  -->
 
-> ## Classifying Errors
+> ## Classificando Erros
 >
-> Is an indentation error a syntax error or a runtime error?
-> > ## Solution
-> > An IndentationError is a syntax error. Programs with syntax errors cannot be started.
-> > A program with a runtime error will start but an error will be thrown under certain conditions.
+> Indentação é um erro de sintaxe ou um erro de *runtime*?
+> > ## Solução
+> > Um IndentationError é um erro de sintaxe. Programas que têm erros de sintaxe não podem ser iniciados.
+> > Um programa com um erro de *runtime* vai iniciar mas o erro vai ocorrer em certas condições.
 > {: .solution}
 {: .challenge}
 <!-- 
@@ -390,28 +391,28 @@ print(total)
 {: .challenge}
  -->
 
-> ## Tracing Execution
+> ## Traçando Execução
 >
-> Create a table showing the numbers of the lines that are executed when this program runs,
-> and the values of the variables after each line is executed.
+> Crie uma tabela mostra os números de cada linha quando esse programa é executado,
+> e os valores das variáveis depois de que cada linha é executada.
 >
 > ~~~
 > total = 0
-> for char in "tin":
+> for char in "rio":
 >     total = total + 1
 > ~~~
 > {: .language-python}
-> > ## Solution
+> > ## Solução
 > >
 > > | Line no | Variables            |
 > > |---------|----------------------|
 > > | 1       | total = 0            |
-> > | 2       | total = 0 char = 't' |
-> > | 3       | total = 1 char = 't' |
+> > | 2       | total = 0 char = 'r' |
+> > | 3       | total = 1 char = 'r' |
 > > | 2       | total = 1 char = 'i' |
 > > | 3       | total = 2 char = 'i' |
-> > | 2       | total = 2 char = 'n' |
-> > | 3       | total = 3 char = 'n' |
+> > | 2       | total = 2 char = 'o' |
+> > | 3       | total = 3 char = 'o' |
 > {: .solution}
 {: .challenge}
 <!-- 
@@ -441,26 +442,26 @@ print(total)
 {: .challenge}
  -->
 
-> ## Reversing a String
+> ## Invertendo uma String
 >
-> Fill in the blanks in the program below so that it prints "nit"
-> (the reverse of the original character string "tin").
+> Preencha os brancos no programa abaixo para que ele imprima "oir"
+> o inverso da string original "rio".
 >
 > ~~~
-> original = "tin"
-> result = ____
-> for char in original:
+> original = "rio"
+> resultado = ____
+> for letra in original:
 >     result = ____
 > print(result)
 > ~~~
 > {: .language-python}
-> > ## Solution
+> > ## Solução
 > > ~~~
-> > original = "tin"
-> > result = ""
-> > for char in original:
-> >     result = char + result
-> > print(result)
+> > original = "rio"
+> > resultado = ""
+> > for letra in original:
+> >     resultado = letra + resultado
+> > print(resultado)
 > > ~~~
 > > {: .language-python}
 > {: .solution}
@@ -543,76 +544,76 @@ print(total)
 {: .challenge}
  -->
 
-> ## Practice Accumulating
+> ## Pratique Acumulação
 >
-> Fill in the blanks in each of the programs below
-> to produce the indicated result.
+> Preencha os brancos do programas abaixo
+> para produzir o resultado indicado.
 >
 > ~~~
-> # Total length of the strings in the list: ["red", "green", "blue"] => 12
+> # Comprimento total das strings na lista: ["vermelho", "verde", "azul"] => 17
 > total = 0
-> for word in ["red", "green", "blue"]:
->     ____ = ____ + len(word)
+> for palavra in ["vermelho", "verde", "azul"]:
+>     ____ = ____ + len(palavra)
 > print(total)
 > ~~~
 > {: .language-python}
-> > ## Solution
+> > ## Solução
 > > ~~~
 > > total = 0
-> > for word in ["red", "green", "blue"]:
-> >     total = total + len(word)
+> > for palavra in ["vermelho", "verde", "azul"]:
+> >     total = total + len(palavra)
 > > print(total)
 > > ~~~
 > > {: .language-python}
 > {: .solution}
 >
 > ~~~
-> # List of word lengths: ["red", "green", "blue"] => [3, 5, 4]
-> lengths = ____
-> for word in ["red", "green", "blue"]:
->     lengths.____(____)
-> print(lengths)
+> # Lista com os comprimentos (lengths) de cada palavra: ["vermelho", "verde", "azul"] => [8, 5, 4]
+> comprimentos = ____
+> for palavra in ["vermelho", "verde", "azul"]:
+>     comprimentos.____(____)
+> print(comprimentos)
 > ~~~
 > {: .language-python}
-> > ## Solution
+> > ## Solução
 > > ~~~
-> > lengths = []
-> > for word in ["red", "green", "blue"]:
-> >     lengths.append(len(word))
-> > print(lengths)
+> > comprimentos = []
+> > for palavra in ["vermelho", "verde", "azul"]:
+> >     comprimentos.append(len(palavra))
+> > print(comprimentos)
 > > ~~~
 > > {: .language-python}
 > {: .solution}
 >
 > ~~~
-> # Concatenate all words: ["red", "green", "blue"] => "redgreenblue"
-> words = ["red", "green", "blue"]
-> result = ____
+> # Concatene (junte) todas as palavras: ["vermelho", "verde", "azul"] => "redgreenblue"
+> palavras = ["vermelho", "verde", "azul"]
+> resultado = ____
 > for ____ in ____:
 >     ____
-> print(result)
+> print(resultado)
 > ~~~
 > {: .language-python}
-> > ## Solution
+> > ## Solução
 > > ~~~
-> > words = ["red", "green", "blue"]
-> > result = ""
-> > for word in words:
-> >     result = result + word
-> > print(result)
+> > palavras = ["vermelho", "verde", "azul"]
+> > resultado = ""
+> > for palavra in palavras:
+> >     resultado = resultado + palavra
+> > print(resultado)
 > > ~~~
 > > {: .language-python}
 > {: .solution}
 >
-> __Create an acronym:__ Starting from the list `["red", "green", "blue"]`, create the acronym `"RGB"` using
+> __Create an acronym:__ Starting from the list `["vermelho", "verde", "azul"]`, create the acronym `"RGB"` using
 > a for loop.
 > 
 > __Hint:__ You may need to use a string method to properly format the acronym.
-> > ## Solution
+> > ## Solução
 > > ~~~
 > > acronym = ""
-> > for word in ["red", "green", "blue"]:
-> >     acronym = acronym + word[0].upper()
+> > for palavra in ["vermelho", "verde", "azul"]:
+> >     acronym = acronym + palavra[0].upper()
 > > print(acronym)
 > > ~~~
 > > {: .language-python}
@@ -650,31 +651,31 @@ print(total)
 {: .challenge}
  -->
 
-> ## Cumulative Sum
+> ## Soma Acumulativa
 >
-> Reorder and properly indent the lines of code below
-> so that they print a list with the cumulative sum of data.
-> The result should be `[1, 3, 5, 10]`.
+> Reordene e indente corretamente as linhas de código abaixo
+> para que imprimam a lista com a soma acumulativa dos dados.
+> O resultado deve ser `[1, 3, 5, 10]`.
 >
 > ~~~
-> cumulative.append(total)
-> for number in data:
-> cumulative = []
-> total += number
+> acumulativa.append(total)
+> for numero in dados:
+> acumulativa = []
+> total += numero
 > total = 0
-> print(cumulative)
-> data = [1,2,2,5]
+> print(acumulativa)
+> dados = [1,2,2,5]
 > ~~~
 > {: .language-python}
 > > ## Solution
 > > ~~~
 > > total = 0
-> > data = [1,2,2,5]
-> > cumulative = []
-> > for number in data:
-> >     total += number
-> >     cumulative.append(total)
-> > print(cumulative)
+> > dados = [1,2,2,5]
+> > acumulativa = []
+> > for numero in dados:
+> >     total += numero
+> >     acumulativa.append(total)
+> > print(acumulativa)
 > > ~~~
 > > {: .language-python}
 > {: .solution}
@@ -721,41 +722,41 @@ print(total)
 {: .challenge}
  -->
 
-> ## Identifying Variable Name Errors
+> ## Identificando Nomes em Erros de Variáveis
 >
-> 1. Read the code below and try to identify what the errors are
->    *without* running it.
-> 2. Run the code and read the error message.
->    What type of `NameError` do you think this is?
->    Is it a string with no quotes, a misspelled variable, or a
->    variable that should have been defined but was not?
-> 3. Fix the error.
-> 4. Repeat steps 2 and 3, until you have fixed all the errors.
+> 1. Leia o código abaixo e tente identificar quais são os erros
+>    *sem* rodá-lo.
+> 2. Rode o código e leia a mensagem de erro.
+>    Que tipo de `NameError` você acha que é esse?
+>    É uma string sem aspas, uma variável escrita errada, ou
+>    uma variável que deria ser definida mas não foi?
+> 3. Conserte o erro.
+> 4. Repita os passos 2 e 3, até consertar todos os erros.
 >
 > ~~~
-> for number in range(10):
->     # use a if the number is a multiple of 3, otherwise use b
->     if (Number % 3) == 0:
->         message = message + a
+> for numero in range(10):
+>     # use a if the numero is a multiple of 3, otherwise use b
+>     if (Numero % 3) == 0:
+>         mensagem = mensagem + a
 >     else:
->         message = message + "b"
-> print(message)
+>         mensagem = mensagem + "b"
+> print(mensagem)
 > ~~~
 > {: .language-python}
-> > ## Solution
-> > - Python variable names are case sensitive: `number` and `Number` refer to different variables.
-> > - The variable `message` needs to be initialized as an empty string.
-> > - We want to add the string `"a"` to `message`, not the undefined variable `a`.
+> > ## Solução
+> > - Nomes de variável do Python são *case-sensitive*: `numero` e `Numero` se referem a variáveis distintas.
+> > - A variável mensagem `mensagem` precisa ser inicializada com uma string vazia.
+> > - Queremos adicionar uma string `"a"` para `mensagem`, não uma variável indefinida `a`.
 > >
 > > ~~~
-> > message = ""
-> > for number in range(10):
-> >     # use a if the number is a multiple of 3, otherwise use b
-> >     if (number % 3) == 0:
-> >         message = message + "a"
+> > mensagem = ""
+> > for numero in range(10):
+> >     # use a if the numero is a multiple of 3, otherwise use b
+> >     if (numero % 3) == 0:
+> >         mensagem = mensagem + "a"
 > >     else:
-> >         message = message + "b"
-> > print(message)
+> >         mensagem = mensagem + "b"
+> > print(mensagem)
 > > ~~~
 > > {: .language-python}
 > {: .solution}
@@ -784,23 +785,23 @@ print(total)
 {: .challenge}
  -->
 
-> ## Identifying Item Errors
+> ## Identificando Erros de Itens
 >
-> 1. Read the code below and try to identify what the errors are
->    *without* running it.
-> 2. Run the code, and read the error message. What type of error is it?
-> 3. Fix the error.
+> 1. Leia o código abaixo e tente identificar o que são os erros
+>    *sem* rodá-lo.
+> 2. Rode o código, e leia a mensagem de erro. Que tipo de erro é esse?
+> 3. Conserte o erro.
 >
 > ~~~
-> seasons = ['Spring', 'Summer', 'Fall', 'Winter']
-> print('My favorite season is ', seasons[4])
+> estacoes = ['Primavera', 'Verão', 'Outono', 'Inverno']
+> print('Minha estação favorita é', estacoes[4])
 > ~~~
 > {: .language-python}
-> > ## Solution
-> > This list has 4 elements and the index to access the last element in the list is `3`.
+> > ## Solução
+> > Essa lista tem 4 elementos e o index para acessar o último elemento da lista é `3`.
 > > ~~~
-> > seasons = ['Spring', 'Summer', 'Fall', 'Winter']
-> > print('My favorite season is ', seasons[3])
+> > estacoes = ['Primavera', 'Verão', 'Outono', 'Inverno']
+> > print('Minha estação favorita é', estacoes[3])
 > > ~~~
 > > {: .language-python}
 > {: .solution}
