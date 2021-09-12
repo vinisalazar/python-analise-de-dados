@@ -42,24 +42,25 @@ if mass > 3.0:
 
 ## Use declarações `if` para controlar se um bloco de código será executado ou não.
 
-*   An `if` statement (more properly called a *conditional* statement)
-    controls whether some block of code is executed or not.
-*   Structure is similar to a `for` statement:
-    *   First line opens with `if` and ends with a colon
-    *   Body containing one or more statements is indented (usually by 4 spaces)
+*   Uma declaração `if` (melhor chamada de declaração *condicional*)
+   controla se um bloco de código será executado ou não.
+*   A estrutura é similar a um `for`:
+    *   Primeira linha abre com `if` e acaba em dois pontos:
+    *   O corpo contendo um ou mais comandos é indentado (normalmente com 4 espaços).
 
 ~~~
-mass = 3.54
-if mass > 3.0:
-    print(mass, 'is large')
+# mwh para megawatts / hora
+mwh = 3.54
+if mwh > 3.0:
+    print(mwh, 'é uma carga alta')
 
-mass = 2.07
-if mass > 3.0:
-    print (mass, 'is large')
+mwh = 2.07
+if mwh > 3.0:
+    print (mwh, 'é uma carga alta')
 ~~~
 {: .language-python}
 ~~~
-3.54 is large
+3.54 é uma carga alta
 ~~~
 {: .output}
 
@@ -70,7 +71,7 @@ if mass > 3.0:
 *   But useful when we have a collection to process.
 
 ~~~
-masses = [3.54, 2.07, 9.22, 1.86, 1.71]
+     = [3.54, 2.07, 9.22, 1.86, 1.71]
 for m in masses:
     if m > 3.0:
         print(m, 'is large')
@@ -85,19 +86,19 @@ for m in masses:
 
 ## Condicionais são comumente usadas dentro de loops.
 
-*   Not much point using a conditional when we know the value (as above).
-*   But useful when we have a collection to process.
+*   Não faz muito sentido usar uma condicional quando conhecemos o valor (como no exemplo acima).
+*   Mas é útil quando temos uma coleção de valores para processar.
 
 ~~~
-masses = [3.54, 2.07, 9.22, 1.86, 1.71]
-for m in masses:
+mwh = [3.54, 2.07, 9.22, 1.86, 1.71]
+for m in mwh:
     if m > 3.0:
-        print(m, 'is large')
+        print(m, 'é uma carga alta')
 ~~~
 {: .language-python}
 ~~~
-3.54 is large
-9.22 is large
+3.54 é uma carga alta
+9.22 é uma carga alta
 ~~~
 {: .output}
 
@@ -128,24 +129,24 @@ for m in masses:
 
 ## Use `else` para executar um bloco de código quando uma condição `if` *não* é verdadeira.
 
-*   `else` can be used following an `if`.
-*   Allows us to specify an alternative to execute when the `if` *branch* isn't taken.
+*   `else` pode ser usado depois de um `if`.
+*   Nos dá uma alternativa para execução se o *ramo* `if` não é selecionado.
 
 ~~~
-masses = [3.54, 2.07, 9.22, 1.86, 1.71]
-for m in masses:
+mwh = [3.54, 2.07, 9.22, 1.86, 1.71]
+for m in mwh:
     if m > 3.0:
-        print(m, 'is large')
+        print(m, 'é uma carga alta')
     else:
-        print(m, 'is small')
+        print(m, 'é uma carga baixa')
 ~~~
 {: .language-python}
 ~~~
-3.54 is large
-2.07 is small
-9.22 is large
-1.86 is small
-1.71 is small
+3.54 é uma carga alta
+2.07 é uma carga baixa
+9.22 é uma carga alta
+1.86 é uma carga baixa
+1.71 é uma carga baixa
 ~~~
 {: .output}
 
@@ -180,28 +181,28 @@ for m in masses:
 
 ## Use `elif` para especificar testes adicionais.
 
-*   May want to provide several alternative choices, each with its own test.
-*   Use `elif` (short for "else if") and a condition to specify these.
-*   Always associated with an `if`.
-*   Must come before the `else` (which is the "catch all").
+*   Podemos querer dar várias escolhas alternativas, cada uma com seu próprio teste.
+*   Use `elif` (abreviação de "*else if*", "senão se") e uma condição para especificar isso.
+*   Sempre é associado com um `if`.
+*   Deve vir antes do `else` (que é o que pega "todo o resto").
 
 ~~~
-masses = [3.54, 2.07, 9.22, 1.86, 1.71]
-for m in masses:
+mwh = [3.54, 2.07, 9.22, 1.86, 1.71]
+for m in mwh:
     if m > 9.0:
-        print(m, 'is HUGE')
+        print(m, 'carga ENORME!')
     elif m > 3.0:
-        print(m, 'is large')
+        print(m, 'é uma carga alta')
     else:
-        print(m, 'is small')
+        print(m, 'é uma carga baixa')
 ~~~
 {: .language-python}
 ~~~
-3.54 is large
-2.07 is small
-9.22 is HUGE
-1.86 is small
-1.71 is small
+3.54 é uma carga alta
+2.07 é uma carga baixa
+9.22 carga ENORME!
+1.86 é uma carga baixa
+1.71 é uma carga baixa
 ~~~
 {: .output}
 
@@ -275,67 +276,67 @@ final velocity: 30.0
 
 ## Condições são testadas uma vez, em ordem.
 
-*   Python steps through the branches of the conditional in order, testing each in turn.
-*   So ordering matters.
+*   Python passa por todos os ramos da condicional em ordem, testando cada um por vez.
+*   Então a ordem importa.
 
 ~~~
-grade = 85
-if grade >= 70:
-    print('grade is C')
-elif grade >= 80:
-    print('grade is B')
-elif grade >= 90:
-    print('grade is A')
+nota = 85
+if nota >= 70:
+    print('nota é C')
+elif nota >= 80:
+    print('nota é B')
+elif nota >= 90:
+    print('nota é A')
 ~~~
 {: .language-python}
 ~~~
-grade is C
+nota é C
 ~~~
 {: .output}
 
-*   Does *not* automatically go back and re-evaluate if values change.
+*  Uma condicional *não* volta automaticamente e é re-avaliada se valores mudarem.
 
 ~~~
-velocity = 10.0
-if velocity > 20.0:
+velocidade = 10.0
+if velocidade > 20.0:
     print('moving too fast')
 else:
-    print('adjusting velocity')
-    velocity = 50.0
+    print('ajustando velocidade')
+    velocidade = 50.0
 ~~~
 {: .language-python}
 ~~~
-adjusting velocity
+ajustando velocidade
 ~~~
 {: .output}
 
-*   Often use conditionals in a loop to "evolve" the values of variables.
+*   É comum usar condicionais em um loop para "evoluir" valores das variáveis.
 
 ~~~
-velocity = 10.0
-for i in range(5): # execute the loop 5 times
-    print(i, ':', velocity)
-    if velocity > 20.0:
-        print('moving too fast')
-        velocity = velocity - 5.0
+velocidade = 10.0
+for i in range(5): # execute o loop 5 vezes
+    print(i, ':', velocidade)
+    if velocidade > 20.0:
+        print('indo muito rápido')
+        velocidade = velocidade - 5.0
     else:
-        print('moving too slow')
-        velocity = velocity + 10.0
-print('final velocity:', velocity)
+        print('indo muito devagar')
+        velocidade = velocidade + 10.0
+print('velocidade final:', velocidade)
 ~~~
 {: .language-python}
 ~~~
 0 : 10.0
-moving too slow
+indo muito devagar
 1 : 20.0
-moving too slow
+indo muito devagar
 2 : 30.0
-moving too fast
+indo muito rápido
 3 : 25.0
-moving too fast
+indo muito rápido
 4 : 20.0
-moving too slow
-final velocity: 30.0
+indo muito devagar
+velocidade final: 30.0
 ~~~
 {: .output}
 <!-- 
@@ -406,9 +407,9 @@ final velocity: 30.0
   </tr>
 </table>
 
-*   The program must have a `print` statement *outside* the body of the loop
-    to show the final value of `velocity`,
-    since its value is updated by the last iteration of the loop.
+*   O programa deve ter uma chamada para `print` *fora* do corpo do loop
+    para mostrar o valor final de `velocidade`
+    já que seu valor é atualizado pela última iteração do loop.
 
 <!-- 
 > ## Compound Relations Using `and`, `or`, and Parentheses
@@ -455,47 +456,47 @@ final velocity: 30.0
 {: .callout}
  -->
 
-> ## Compound Relations Using `and`, `or`, and Parentheses
+> ## Relações Compostas usando `and`, `or`, e Parênteses
 >
-> Often, you want some combination of things to be true.  You can combine
-> relations within a conditional using `and` and `or`.  Continuing the example
-> above, suppose you have
+> É normal precisarmos ter uma combinação de condições que sejam verdadeiras. Você pode combinar
+> relações dentro de uma condicional usando `and` e `or`. Continuando o exemplo
+> acima, suponha que você tenha
 >
 > ~~~
-> mass     = [ 3.54,  2.07,  9.22,  1.86,  1.71]
-> velocity = [10.00, 20.00, 30.00, 25.00, 20.00]
+> massa     = [ 3.54,  2.07,  9.22,  1.86,  1.71]
+> velocidade = [10.00, 20.00, 30.00, 25.00, 20.00]
 >
 > i = 0
 > for i in range(5):
->     if mass[i] > 5 and velocity[i] > 20:
->         print("Fast heavy object.  Duck!")
->     elif mass[i] > 2 and mass[i] <= 5 and velocity[i] <= 20:
->         print("Normal traffic")
->     elif mass[i] <= 2 and velocity[i] <= 20:
->         print("Slow light object.  Ignore it")
+>     if massa[i] > 5 and velocidade[i] > 20:
+>         print("Objeto pesado e rápido. Cuidado!")
+>     elif massa[i] > 2 and massa[i] <= 5 and velocidade[i] <= 20:
+>         print("Tráfego normal")
+>     elif massa[i] <= 2 and velocidade[i] <= 20:
+>         print("Objeto lento e leve. Ignore.")
 >     else:
->         print("Whoa!  Something is up with the data.  Check it")
+>         print("Tem algo errado com os dados. Verifique.")
 > ~~~
 > {: .language-python}
 >
-> Just like with arithmetic, you can and should use parentheses whenever there
-> is possible ambiguity.  A good general rule is to *always* use parentheses
-> when mixing `and` and `or` in the same condition.  That is, instead of:
+> Assim como qualquer aritmética, você deve usar parênteses sempre que haja
+> uma possível ambiguidade. Uma boa regra geral é *sempre* usar parênteses
+> quando se mistura `and` e `or` na mesma situação. Ou seja, invés de:
 >
 > ~~~
-> if mass[i] <= 2 or mass[i] >= 5 and velocity[i] > 20:
-> ~~~
-> {: .language-python}
->
-> write one of these:
->
-> ~~~
-> if (mass[i] <= 2 or mass[i] >= 5) and velocity[i] > 20:
-> if mass[i] <= 2 or (mass[i] >= 5 and velocity[i] > 20):
+> if massa[i] <= 2 or massa[i] >= 5 and velocidade[i] > 20:
 > ~~~
 > {: .language-python}
 >
-> so it is perfectly clear to a reader (and to Python) what you really mean.
+> escreva um desses:
+>
+> ~~~
+> if (massa[i] <= 2 or massa[i] >= 5) and velocidade[i] > 20:
+> if massa[i] <= 2 or (massa[i] >= 5 and velocidade[i] > 20):
+> ~~~
+> {: .language-python}
+>
+> assim fica perfeitamente claro para o Python (e para o leitor) o que isso realmente significa.
 {: .callout}
 
 <!-- 
@@ -523,21 +524,21 @@ final velocity: 30.0
 {: .challenge}
  -->
 
-> ## Tracing Execution
+> ## Traçando Execução
 >
-> What does this program print?
+> O que esse programa imprime?
 >
 > ~~~
-> pressure = 71.9
-> if pressure > 50.0:
->     pressure = 25.0
-> elif pressure <= 50.0:
->     pressure = 0.0
-> print(pressure)
+> pressao = 71.9
+> if pressao > 50.0:
+>     pressao = 25.0
+> elif pressao <= 50.0:
+>     pressao = 0.0
+> print(pressao)
 > ~~~
 > {: .language-python}
 >
-> > ## Solution
+> > ## Solução
 > >
 > > ~~~
 > > 25.0
@@ -586,21 +587,21 @@ final velocity: 30.0
 {: .challenge}
  -->
 
-> ## Trimming Values
+> ## Aparando Valores
 >
-> Fill in the blanks so that this program creates a new list
-> containing zeroes where the original list's values were negative
-> and ones where the original list's values were positive.
+> Preencha os brancos para que o programa crie uma nova lista
+> contendo zeros onde os valores anteriores da lista eram negativos
+> e uns onde os valores anteriores da lista eram positivos.
 >
 > ~~~
 > original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
-> result = ____
-> for value in original:
+> resultado = ____
+> for valor in original:
 >     if ____:
->         result.append(0)
+>         resultado.append(0)
 >     else:
 >         ____
-> print(result)
+> print(resultado)
 > ~~~
 > {: .language-python}
 >
@@ -608,17 +609,17 @@ final velocity: 30.0
 > [0, 1, 1, 1, 0, 1]
 > ~~~
 > {: .output}
-> > ## Solution
+> > ## Solução
 > >
 > > ~~~
 > > original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
-> > result = []
-> > for value in original:
-> >     if value < 0.0:
-> >         result.append(0)
+> > resultado = []
+> > for valor in original:
+> >     if valor < 0.0:
+> >         resultado.append(0)
 > >     else:
-> >         result.append(1)
-> > print(result)
+> >         resultado.append(1)
+> > print(resultado)
 > > ~~~
 > > {: .language-python}
 > {: .solution}
@@ -653,28 +654,28 @@ final velocity: 30.0
 {: .challenge}
  -->
 
-> ## Processing Small Files
+> ## Processando Pequenos Arquivos
 >
-> Modify this program so that it only processes files with fewer than 50 records.
+> Modifique esse programa para que ele só processe arquivos com menos de 50 linhas.
 >
 > ~~~
 > import glob
 > import pandas as pd
-> for filename in glob.glob('data/*.csv'):
->     contents = pd.read_csv(filename)
+> for nome_arquivo in glob.glob('data/*.csv'):
+>     conteudo = pd.read_csv(nome_arquivo)
 >     ____:
->         print(filename, len(contents))
+>         print(nome_arquivo, len(conteudo))
 > ~~~
 > {: .language-python}
-> > ## Solution
+> > ## Solução
 > >
 > > ~~~
 > > import glob
 > > import pandas as pd
-> > for filename in glob.glob('data/*.csv'):
-> >     contents = pd.read_csv(filename)
-> >     if len(contents) < 50:
-> >         print(filename, len(contents))
+> > for nome_arquivo in glob.glob('data/*.csv'):
+> >     conteudo = pd.read_csv(nome_arquivo)
+> >     if len(conteudo) < 50:
+> >         print(nome_arquivo, len(conteudo))
 > > ~~~
 > > {: .language-python}
 > {: .solution}
@@ -735,54 +736,54 @@ final velocity: 30.0
 {: .challenge}
  -->
 
-> ## Initializing
+> ## Inicializando
 >
-> Modify this program so that it finds the largest and smallest values in the list
-> no matter what the range of values originally is.
+> Modifique esse programa para que ele encontre o maior e menor valores da lista,
+> não importa qual seja o intervalo de valores original.
 >
 > ~~~
-> values = [...some test data...]
-> smallest, largest = None, None
-> for v in values:
+> valores = [...dados de teste...]
+> menor, maior = None, None
+> for v in valores:
 >     if ____:
->         smallest, largest = v, v
+>         menor, maior = v, v
 >     ____:
->         smallest = min(____, v)
->         largest = max(____, v)
-> print(smallest, largest)
+>         menor = min(____, v)
+>         maior = max(____, v)
+> print(menor, maior)
 > ~~~
 > {: .language-python}
 >
-> What are the advantages and disadvantages of using this method
-> to find the range of the data?
-> > ## Solution
+> Quais são as vantagens e desvantagens de se usar esse método
+> para achar o intervalo de valores?
+> > ## Solução
 > >
 > > ~~~
-> > values = [-2,1,65,78,-54,-24,100]
-> > smallest, largest = None, None
-> > for v in values:
-> >     if smallest == None and largest == None:
-> >         smallest, largest = v, v
+> > valores = [-2,1,65,78,-54,-24,100]
+> > menor, maior = None, None
+> > for v in valores:
+> >     if menor == None and maior == None:
+> >         menor, maior = v, v
 > >     else:
-> >         smallest = min(smallest, v)
-> >         largest = max(largest, v)
-> > print(smallest, largest)
+> >         menor = min(menor, v)
+> >         maior = max(maior, v)
+> > print(menor, maior)
 > > ~~~
 > > {: .language-python}
-> > It can be argued that an advantage of using this method would be to make the code more readable.
-> > However, a disadvantage is that this code is not efficient, as the `values` list is iterated three times:
-> > once in the `for` loop statement, then again when both the `min` and `max` functions are called.
-> > The most efficient method, while maintaining readability, would be to iterate the list only once:
+> > Pode ser argumentado que uma vantagem de usar esse método seria tornar o código mais legível.
+> > No entanto, uma desvantagem é que esse código não é eficiente, pois a lista `values` é iterada três vezes:
+> > uma no `for` loop, e de novo quando `max` e `min` são chamadas.
+> > O método mais eficiente e que mantém a legibilidade, é iterar a lista somente uma vez:
 > >
 > > ~~~
-> > values = [-2,1,65,78,-54,-24,100]
-> > smallest, largest = None, None
-> > for v in values:
-> >     if smallest == None or v < smallest:
-> >         smallest = v
-> >     if largest == None or v > largest:
-> >         largest = v
-> > print(smallest, largest)
+> > valores = [-2,1,65,78,-54,-24,100]
+> > menor, maior = None, None
+> > for v in valores:
+> >     if menor == None or v < menor:
+> >         menor = v
+> >     if maior == None or v > maior:
+> >         maior = v
+> > print(menor, maior)
 > > ~~~
 > > {: .language-python}
 > {: .solution}
@@ -840,7 +841,7 @@ final velocity: 30.0
 > value of this column for every row in the dataframe.
 {: .callout}
 -->
-
+<!-- 
 > ## Using Functions With Conditionals in Pandas
 >
 > Functions will often contain conditionals.  Here is a short example that
@@ -891,3 +892,4 @@ final velocity: 30.0
 > `apply()` to do what it says, apply the `calculate_life_quartile` to the
 > value of this column for every row in the dataframe.
 {: .callout}
+-->
