@@ -1,21 +1,21 @@
 ---
-title: "Conditionals"
+title: "Condicionais"
 teaching: 10
 exercises: 15
 questions:
-- "How can programs do different things for different data?"
+- "Como programas podem fazer várias coisas para diferentes dados?"
 objectives:
-- "Correctly write programs that use if and else statements and simple Boolean expressions (without logical operators)."
-- "Trace the execution of unnested conditionals and conditionals inside loops."
+- "Escreva corretamente programas que usam declarações `if` e `else` e expressões Booleanas simples (sem operadores lógicos)."
+- "Trace a execução de condicionais não-aninhadas e condicionais dentro de loops."
 keypoints:
-- "Use `if` statements to control whether or not a block of code is executed."
-- "Conditionals are often used inside loops."
-- "Use `else` to execute a block of code when an `if` condition is *not* true."
-- "Use `elif` to specify additional tests."
-- "Conditions are tested once, in order."
-- "Create a table showing variables' values to trace a program's execution."
+- "Use declarações `if` para controlar se um bloco de código será executado ou não."
+- "Condicionais são comumente usadas dentro de loops."
+- "Use `else` para executar um bloco de código quando uma condição `if` *não* é verdadeira."
+- "Use `elif` para especificar testes adicionais."
+- "Condições são testadas uma vez, em ordem."
+- "Crie uma tabela mostrando os valores das variáveis para traçar a execução de um programa."
 ---
-## Use `if` statements to control whether or not a block of code is executed.
+## Use declarações `if` para controlar se um bloco de código será executado ou não.
 
 *   An `if` statement (more properly called a *conditional* statement)
     controls whether some block of code is executed or not.
@@ -38,7 +38,7 @@ if mass > 3.0:
 ~~~
 {: .output}
 
-## Conditionals are often used inside loops.
+## Condicionais são comumente usadas dentro de loops.
 
 *   Not much point using a conditional when we know the value (as above).
 *   But useful when we have a collection to process.
@@ -56,7 +56,7 @@ for m in masses:
 ~~~
 {: .output}
 
-## Use `else` to execute a block of code when an `if` condition is *not* true.
+## Use `else` para executar um bloco de código quando uma condição `if` *não* é verdadeira.
 
 *   `else` can be used following an `if`.
 *   Allows us to specify an alternative to execute when the `if` *branch* isn't taken.
@@ -79,7 +79,7 @@ for m in masses:
 ~~~
 {: .output}
 
-## Use `elif` to specify additional tests.
+## Use `elif` para especificar testes adicionais.
 
 *   May want to provide several alternative choices, each with its own test.
 *   Use `elif` (short for "else if") and a condition to specify these.
@@ -106,7 +106,7 @@ for m in masses:
 ~~~
 {: .output}
 
-## Conditions are tested once, in order.
+## Condições são testadas uma vez, em ordem.
 
 *   Python steps through the branches of the conditional in order, testing each in turn.
 *   So ordering matters.
@@ -172,7 +172,7 @@ final velocity: 30.0
 ~~~
 {: .output}
 
-## Create a table showing variables' values to trace a program's execution.
+## Crie uma tabela mostrando os valores das variáveis para traçar a execução de um programa.
 
 <table>
   <tr>
