@@ -3,20 +3,20 @@ title: "For Loops"
 teaching: 10
 exercises: 15
 questions:
-- "How can I make a program do many things?"
+- "Como eu posso fazer um programa fazer muitas coisas?"
 objectives:
-- "Explain what for loops are normally used for."
-- "Trace the execution of a simple (unnested) loop and correctly state the values of variables in each iteration."
-- "Write for loops that use the Accumulator pattern to aggregate values."
+- "Explicar para que *for loops* normalmente são usados."
+- "Traçar a execução de um loop simples (não aninhado) e apontar corretamente os valores das variáveis em cada iteração."
+- "Escrever for loops que usem o padrão Acumulador para agregar valores."
 keypoints:
-- "A *for loop* executes commands once for each value in a collection."
-- "A `for` loop is made up of a collection, a loop variable, and a body."
-- "The first line of the `for` loop must end with a colon, and the body must be indented."
-- "Indentation is always meaningful in Python."
-- "Loop variables can be called anything (but it is strongly advised to have a meaningful name to the looping variable)."
-- "The body of a loop can contain many statements."
-- "Use `range` to iterate over a sequence of numbers."
-- "The Accumulator pattern turns many values into one."
+- "Um *for loop* executa comandos uma vez para cada valor em uma coleção."
+- "Um *for loop* consiste de uma coleção, uma variável do loop, e um corpo."
+- "A primeira linha de um for loop deve acabar com dois pontos, e o corpo deve ser indentado."
+- "Indentação é sempre importante no Python."
+- "Variáveis de loop podem ser chamadas de qualquer coisa (mas é fortemente recomendado de que seja usado um nome informativo)."
+- "O corpo de um loop pode conter muitos comandos."
+- "Use `range` para iterar sobre uma sequência de  números."
+- "O padrão Acumulador transforma muitos valores em um."
 ---
 ## A *for loop* executes commands once for each value in a collection.
 
