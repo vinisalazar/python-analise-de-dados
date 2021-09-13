@@ -3,11 +3,11 @@ title: "Feedback"
 teaching: 0
 exercises: 15
 questions:
-- "How did the class go?"
+- "Como foi o treinamento?"
 objectives:
-- "Gather feedback on the class"
+- "Obter feedback do curso."
 keypoints:
-- "We are constantly seeking to improve this course."
+- "Estamos constantemente tentando melhorar nosso curso."
 ---
 
-Gather feedback from participants.
+Obter feedback dos participantes.
