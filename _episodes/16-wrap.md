@@ -1,14 +1,14 @@
 ---
-title: "Wrap-Up"
+title: "Encerramento"
 teaching: 20
 exercises: 0
 questions:
-- "What have we learned?"
-- "What else is out there and where do I find it?"
+- "O que aprendemos?"
+- "O que mais tem por aí e onde consigo encontrar?"
 objectives:
-- "Name and locate scientific Python community sites for software, workshops, and help."
+- "Nomeie e localize sites da comunidade de Python científico para software, workshops, e ajuda."
 keypoints:
-- "Python supports a large and diverse community across academia and industry."
+- "Python apoia uma comunidade grande e diversa tanto na academia quanto na indústria."
 ---
 
 Leslie Lamport once said, "Writing is nature's way of showing you how sloppy your thinking is."
