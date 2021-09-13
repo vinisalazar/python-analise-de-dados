@@ -1,6 +1,6 @@
 ---
 layout: break
-title: "Afternoon Coffee"
+title: "Café da tarde"
 teaching: 0
 exercises: 0
 break: 15
