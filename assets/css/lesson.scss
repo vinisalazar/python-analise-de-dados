@@ -6,7 +6,7 @@
 //----------------------------------------
 
 // branding
-$color-brand:       #2b3990 !default;
+$color-brand:       #650965 !default;
 
 // code boxes
 $color-error:       #bd2c00 !default;
@@ -22,7 +22,7 @@ $color-checklist:   #dfd2a0 !default;
 $color-discussion:  #eec275 !default;
 $color-keypoints:   #7ae78e !default;
 $color-objectives:  #daee84 !default;
-$color-prereq:      #9cd6dc !default;
+$color-prereq:      #d1b3d1 !default;
 $color-solution:    #ded4b9 !default;
 $color-testimonial: #fc8dc1 !default;
 
@@ -211,7 +211,7 @@ a code {
 }
 
 a:link {
-  color: #196EBD;
+  color: #650965;
 }
 
 a:active,
@@ -221,7 +221,7 @@ a:hover {
 }
 
 a:visited {
-  color: #1AA4DA;
+  color: #500750;
 }
 
 code {
