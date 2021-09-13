@@ -1,17 +1,17 @@
 ---
-title: "Looping Over Data Sets"
+title: "Loops em Conjuntos de Dados"
 teaching: 5
 exercises: 10
 questions:
-- "How can I process many data sets with a single command?"
+- "Como eu posso processar muitos conjuntos de dados com um único comando?"
 objectives:
-- "Be able to read and write globbing expressions that match sets of files."
-- "Use glob to create lists of files."
-- "Write for loops to perform operations on files given their names in a list."
+- "Ser capaz de ler e escrever expressões de *globbing* que correspondam a conjuntos de arquivos."
+- "Usar glob para criar listas de arquivos."
+- "Escrever for loops para executar operações em arquivos dados os seus nomes em uma lista."
 keypoints:
-- "Use a `for` loop to process files given a list of their names."
-- "Use `glob.glob` to find sets of files whose names match a pattern."
-- "Use `glob` and `for` to process batches of files."
+- "Use um `for` loop para processar arquivos dada uma lista dos seus nomes."
+- "Use `glob.glob` para encontrar conjuntos de arquivos cujo os nomes correspondam a um padrão."
+- "Use `glob` e `for` para processar lotes de arquivos."
 ---
 
 ## Use a `for` loop to process files given a list of their names.
