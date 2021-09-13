@@ -1,18 +1,18 @@
 ---
-title: "Writing Functions"
+title: "Escrevendo Funções"
 teaching: 10
 exercises: 15
 questions:
-- "How can I create my own functions?"
+- "Como eu posso criar minhas próprias funções?"
 objectives:
-- "Explain and identify the difference between function definition and function call."
-- "Write a function that takes a small, fixed number of arguments and produces a single result."
+- "Explique e identifique a diferença entre a definição da função e a chamada da função."
+- "Escreva uma função que receba um número fixo de argumentos e produza um único resultado."
 keypoints:
-- "Break programs down into functions to make them easier to understand."
-- "Define a function using `def` with a name, parameters, and a block of code."
-- "Defining a function does not run it."
-- "Arguments in call are matched to parameters in definition."
-- "Functions may return a result to their caller using `return`."
+- "Deconstrua programas em funções e os torne mais fácil de entender."
+- "Defina uma função usado `def` com um nome, parâmetros, e um bloco de código."
+- "Definir uma função não roda ela."
+- "Argumentos em uma chamada correspondem aos parâmetros na definição."
+- "Funções podem retornar um resultado para quem está chamando usando `return`."
 ---
 ## Break programs down into functions to make them easier to understand.
 
