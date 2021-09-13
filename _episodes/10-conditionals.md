@@ -393,7 +393,7 @@ velocidade final: 30.0
     <td>.</td>
   </tr>
   <tr>
-    <td><strong>velocity</strong></td>
+    <td><strong>velocidade</strong></td>
     <td>10.0</td>
     <td>20.0</td>
     <td>.</td>
