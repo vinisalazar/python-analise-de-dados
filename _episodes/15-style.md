@@ -1,18 +1,18 @@
 ---
-title: "Programming Style"
+title: "Estilo de Programação"
 teaching: 15
 exercises: 15
 questions:
-- "How can I make my programs more readable?"
-- "How do most programmers format their code?"
-- "How can programs check their own operation?"
+- "Como posso tornar meus programas mais legíveis?"
+- "Como pessoas que programam formatam seus códigos?"
+- "Como programas podem checar sua própria operação?"
 objectives:
-- "Provide sound justifications for basic rules of coding style."
-- "Refactor one-page programs to make them more readable and justify the changes."
-- "Use Python community coding standards (PEP-8)."
+- "Prover boas justificativas para regras básicas de estilo de código."
+- "Refatore programas de uma página para torná-los mais legíveis e justifique as mudanças."
+- "Use os *standards* da comunidade Python (PEP-8)."
 keypoints:
-- "Follow standard Python style in your code."
-- "Use docstrings to provide builtin help."
+- "Siga o estilo padrão do Python em seu código."
+- "Use docstrings para adicionar ajuda embutida."
 ---
 
 ## Coding style
