@@ -1,16 +1,16 @@
 ---
-title: "Variable Scope"
+title: "Escopo de Variáveis"
 teaching: 10
 exercises: 10
 questions:
-- "How do function calls actually work?"
-- "How can I determine where errors occurred?"
+- "Como chamadas de função realmente funcionam?"
+- "Como posso determinar onde erros ocorreram?"
 objectives:
-- "Identify local and global variables."
-- "Identify parameters as local variables."
-- "Read a traceback and determine the file, function, and line number on which the error occurred, the type of error, and the error message."
+- "Identificar variáveis locais e globais."
+- "Identificar parâmetros como variáveis locais."
+- "Leia um *traceback* e determine o arquivo, função e número da linha no qual o erro ocorreu, o tipo de erro, e a mensagem de erro."
 keypoints:
-- "The scope of a variable is the part of a program that can 'see' that variable."
+- "O escopo de uma variável é a parte do programa que pode 'ver' essa variável."
 ---
 ## The scope of a variable is the part of a program that can 'see' that variable.
 
