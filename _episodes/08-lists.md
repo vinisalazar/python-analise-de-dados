@@ -314,8 +314,8 @@ print('caracter três:', elemento[3])
 ~~~
 {: .language-python}
 ~~~
-zeroth character: c
-third character: b
+caracter zero: c
+caracter três: b
 ~~~
 {: .output}
 <!-- 
@@ -358,7 +358,7 @@ TypeError: 'str' object does not support item assignment
 
 *   Listas e strings de caracteres são ambas *coleções*.
 <!-- 
-## Indexing beyond the end of the collection is an error.
+Indexing beyond the end of the collection is an error.
 
 *   Python reports an `IndexError` if we attempt to access a value that doesn't exist.
     *   This is a kind of [runtime error]({{ page.root }}/04-built-in/#runtime-error).

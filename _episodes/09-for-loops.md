@@ -183,6 +183,7 @@ IndentationError: unexpected indent
 
 *   Esse erro pode ser consertado ao remover o espaço extra
     no começo da segunda linha.
+
 <!-- 
 ## Loop variables can be called anything.
 
@@ -345,6 +346,7 @@ print(total)
     *   Some isso ao valor atual da variável acumuladora `total`.
     *   Assinalar isso à `total`, substituindo o valor atual.
 *   Temos que botar `numero + 1` porque `range` produz `0..9`, e não `1..10`.
+
 <!-- 
 > ## Classifying Errors
 >
@@ -364,6 +366,7 @@ print(total)
 > > Um programa com um erro de *runtime* vai iniciar mas o erro vai ocorrer em certas condições.
 > {: .solution}
 {: .challenge}
+
 <!-- 
 > ## Tracing Execution
 >
@@ -605,20 +608,21 @@ print(total)
 > > {: .language-python}
 > {: .solution}
 >
-> __Create an acronym:__ Starting from the list `["vermelho", "verde", "azul"]`, create the acronym `"RGB"` using
-> a for loop.
+> __Crie um acrônimo:__ Começando da lista `["vermelho", "verde", "azul"]`, crie o acrônimo `"VVA"` usando
+> um for loop.
 > 
-> __Hint:__ You may need to use a string method to properly format the acronym.
+> __Dica:__ Você pode precisar de um método de string para formatar adequadamente o acrônimo.
 > > ## Solução
 > > ~~~
-> > acronym = ""
+> > acronimo = ""
 > > for palavra in ["vermelho", "verde", "azul"]:
-> >     acronym = acronym + palavra[0].upper()
-> > print(acronym)
+> >     acronimo = acronimo + palavra[0].upper()
+> > print(acronimo)
 > > ~~~
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
+
 <!-- 
 > ## Cumulative Sum
 >

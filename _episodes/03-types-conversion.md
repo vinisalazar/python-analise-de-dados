@@ -764,6 +764,8 @@ primeiro é 2 e segundo é 5
 > > print(abrev)
 > > ~~~
 > > {: language-python}
+> {: .solution}
+{: .challenge}
 
 
 > ## Números Complexos

@@ -104,41 +104,6 @@ cosseno de pi é -1.0
 *   Temos que nos referir a cada item com o nome do módulo.
     *   `math.cos(pi)` não vai funcionar: a referência para `pi`
         não "herda" a referência da função para `math`.
-<!-- 
-## Use `help` to learn about the contents of a library module.
-
-*   Works just like help for a function.
-
-~~~
-help(math)
-~~~
-{: .language-python}
-~~~
-Help on module math:
-
-NAME
-    math
-
-MODULE REFERENCE
-    http://docs.python.org/3/library/math
-
-    The following documentation is automatically generated from the Python
-    source files.  It may be incomplete, incorrect or include features that
-    are considered implementation detail and may vary between Python
-    implementations.  When in doubt, consult the module reference at the
-    location listed above.
-
-DESCRIPTION
-    This module is always available.  It provides access to the
-    mathematical functions defined by the C standard.
-
-FUNCTIONS
-    acos(x, /)
-        Return the arc cosine (measured in radians) of x.
-⋮ ⋮ ⋮
-~~~
-{: .output}
- -->
 
 ## Use `help` para aprender sobre os conteúdos de um módulo de uma biblioteca.
 
