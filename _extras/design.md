@@ -138,7 +138,7 @@ I know...
 *   Final: extract data from Pandas dataframe
     and create comparative multi-line time series plot.
 
-### [Running and Quitting Interactively]({{page.root}}/01-run-quit/) (9:00)
+### [Running and Quitting Interactively]({{page.root}}/01-intro-jupyterlab/) (9:00)
 
 *   Teaching: 15 min (because setup issues)
     *   Launch the Jupyter Notebook, create new notebooks, and exit the Notebook.

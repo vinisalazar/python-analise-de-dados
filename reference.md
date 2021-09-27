@@ -4,7 +4,7 @@ layout: reference
 
 ## Reference
 
-## [Running and Quitting]({{ page.root }}/01-run-quit/)
+## [Running and Quitting]({{ page.root }}/01-intro-jupyterlab/)
 - Python files have the `.py` extension.
 - Can be written in a text file or a [Jupyter Notebook][jupyter].
   - Jupyter notebooks have the extension `.ipynb`
