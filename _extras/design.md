@@ -195,7 +195,7 @@ I know...
     *   Given what we have seen so far,
         what index expression will get the last character in a string?
 
-### [Coffee]({{page.root}}/05-coffee/): 15 min (10:20)
+### [Coffee]({{page.root}}/05-cafe/): 15 min (10:20)
 
 ### [Libraries]({{page.root}}/06-libraries/) (10:35)
 
