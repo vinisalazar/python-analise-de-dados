@@ -162,7 +162,7 @@ I know...
     *   Which is a better variable name, `m`, `min`, or `minutes`?
     *   What do the following slice expressions produce?
 
-### [Data Types and Type Conversion]({{page.root}}/03-types-conversion/) (09:35)
+### [Data Types and Type Conversion]({{page.root}}/03-tipos/) (09:35)
 
 *   Teaching: 10 min
     *   Explain key differences between integers and floating point numbers.

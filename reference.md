@@ -27,7 +27,7 @@ layout: reference
     - `stop` is the index of the element after the last desired element.
 - Use `len(...)` to find the length of a variable or string.
 
-## [Data Types and Type Conversion]({{ page.root }}/03-types-conversion/)
+## [Data Types and Type Conversion]({{ page.root }}/03-tipos/)
 - Each value has a type. This controls what can be done with it.
   - `int` represents an integer
   - `float` represents a floating point number.

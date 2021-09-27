@@ -449,7 +449,7 @@ print(ewr_422_yY, 'tem', flabadab, 'anos de idade.')
 >
 > > ## Solution
 > > Numbers are not strings or sequences and Python will raise an error if you try to perform an index operation on a
-> > number. In the [next lesson on types and type conversion]({{ page.root }}/03-types-conversion/#convert-numbers-and-strings)
+> > number. In the [next lesson on types and type conversion]({{ page.root }}/03-tipos/#convert-numbers-and-strings)
 > > we will learn more about types and how to convert between different types. If you want the Nth digit of a number you
 > > can convert it into a string using the `str` built-in function and then perform an index operation on that string.
 > >
@@ -484,7 +484,7 @@ print(ewr_422_yY, 'tem', flabadab, 'anos de idade.')
 >
 > > ## Solução
 > > Números não são strings ou sequências e o Python vai dar um erro quando você tentar fazer uma operação de index em um
-> > número. No [próximo episódio sobre tipos e conversão de dados]({{ page.root }}/03-types-conversion/#convert-numbers-and-strings)
+> > número. No [próximo episódio sobre tipos e conversão de dados]({{ page.root }}/03-tipos/#convert-numbers-and-strings)
 > > vamos aprender mais sobre tipos e como converter entre diferentes tipos. Se você quer o N-ésimo dígito de um número você
 > > pode convertê-lo para uma string usando a função embutida `str` e então executar uma operação de index nessa string.
 > >
