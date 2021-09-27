@@ -11,7 +11,7 @@ layout: reference
   - Jupyter notebooks can be opened from [Anaconda](https://docs.continuum.io/anaconda/install) or through the command line by entering `$ jupyter notebook`
     - Markdown and HTML are allowed in markdown cells for documenting code.
 
-## [Variables and Assignment]({{ page.root }}/02-variables/)
+## [Variables and Assignment]({{ page.root }}/02-variaveis/)
 - Variables are stored using `=`.
   - Strings are defined in quotations `'...'`.
   - Integers and floating point numbers are defined without quotations.

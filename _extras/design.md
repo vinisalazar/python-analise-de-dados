@@ -150,7 +150,7 @@ I know...
     *   Change an existing cell from code to Markdown
     *   Rendering LaTeX-style equations
 
-### [Variables and Assignment]({{page.root}}/02-variables/) (9:15)
+### [Variables and Assignment]({{page.root}}/02-variaveis/) (9:15)
 
 *   Teaching: 10 min
     *   Write programs that assign scalar values to variables and perform calculations with those values.
