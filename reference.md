@@ -49,7 +49,7 @@ layout: reference
   - `help()` displays documentation for the function in the parenthesis.
     - Other ways to get help include holding down `shift` and pressing `tab` in Jupyter Notebooks.
 
-## [Libraries]({{ page.root }}/06-libraries/)
+## [Libraries]({{ page.root }}/06-bibliotecas/)
 - Importing a library:
   - Use `import ...` to load a library.
   - Refer to this library by using `module_name.thing_name`.

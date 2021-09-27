@@ -197,7 +197,7 @@ I know...
 
 ### [Coffee]({{page.root}}/05-cafe/): 15 min (10:20)
 
-### [Libraries]({{page.root}}/06-libraries/) (10:35)
+### [Libraries]({{page.root}}/06-bibliotecas/) (10:35)
 
 *   Teaching: 10 min
     *   Explain what software libraries are and why programmers create and use them.
