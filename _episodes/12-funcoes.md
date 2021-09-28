@@ -8,7 +8,7 @@ objectives:
 - "Explique e identifique a diferença entre a definição da função e a chamada da função."
 - "Escreva uma função que receba um número fixo de argumentos e produza um único resultado."
 keypoints:
-- "Deconstrua programas em funções e os torne mais fácil de entender."
+- "Organize programas em funções para que sejam mais fáceis de entender."
 - "Defina uma função usado `def` com um nome, parâmetros, e um bloco de código."
 - "Definir uma função não roda ela."
 - "Argumentos em uma chamada correspondem aos parâmetros na definição."
@@ -27,16 +27,16 @@ keypoints:
     *   Write one time, use many times.
  -->
 
-## Break programs down into functions to make them easier to understand.
+## Organize programas em funções para que sejam mais fáceis de entender.
 
-*   Human beings can only keep a few items in working memory at a time.
-*   Understand larger/more complicated ideas by understanding and combining pieces.
-    *   Components in a machine.
-    *   Lemmas when proving theorems.
-*   Functions serve the same purpose in programs.
-    *   *Encapsulate* complexity so that we can treat it as a single "thing".
-*   Also enables *re-use*.
-    *   Write one time, use many times.
+*   Seres humanos só conseguem manter algumas coisas "em memória" de cada vez.
+*   Entenda ideias maiores/mais complicadas ao entender e combinar peças individuais.
+    *   Componentes em uma máquina.
+    *   Capítulos e subseções em um grande relatório.
+*   Funções servem o mesmo propósito em programas.
+    *   *Encapsular* complexidade para que possamos a tratar como uma única "coisa".
+*   Também permite o *re-uso*.
+    *   Escreva uma vez, use muitas vezes.
 
 <!-- 
 ## Define a function using `def` with a name, parameters, and a block of code.
@@ -50,16 +50,17 @@ keypoints:
 *   Then a colon.
 *   Then an indented block of code.
  -->
-## Define a function using `def` with a name, parameters, and a block of code.
 
-*   Begin the definition of a new function with `def`.
-*   Followed by the name of the function.
-    *   Must obey the same rules as variable names.
-*   Then *parameters* in parentheses.
-    *   Empty parentheses if the function doesn't take any inputs.
-    *   We will discuss this in detail in a moment.
-*   Then a colon.
-*   Then an indented block of code.
+## Defina uma função usando `def` com um nome, parâmetros, e um bloco de código.
+
+*   Comece a definição de uma nova função com  `def`.
+*   Seguido do nome da função.
+    *   Deve obedecer as mesmas regras que nomes de variáveis.
+*   Coloque os *parâmetros* entre parênteses.
+    *   Coloque parênteses em branco se a função não recebe nenhum input.
+    *   Vamos discutir isso em detalhe em um momento.
+*   Coloque dois pontos.
+*   E então um bloco indentado de código.
 
 <!-- 
 ~~~
@@ -70,8 +71,8 @@ def print_greeting():
  -->
 
 ~~~
-def print_greeting():
-    print('Hello!')
+def imprimir_saudacao():
+    print('Olá!')
 ~~~
 {: .language-python}
 
@@ -83,11 +84,11 @@ def print_greeting():
 *   Must call the function to execute the code it contains.
  -->
 
-## Defining a function does not run it.
+## Definir uma função não roda ela.
 
-*   Defining a function does not run it.
-    *   Like assigning a value to a variable.
-*   Must call the function to execute the code it contains.
+*   Definir uma função não roda ela.
+    *   É como assinalar um valor a uma variável.
+*   Precisamos chamar a função para executar o código que ela contém.
 
 <!-- 
 ~~~
@@ -101,13 +102,14 @@ Hello!
  -->
 
 ~~~
-print_greeting()
+imprimir_saudacao()
 ~~~
 {: .language-python}
 ~~~
-Hello!
+Olá!
 ~~~
 {: .output}
+
 <!-- 
 ## Arguments in call are matched to parameters in definition.
 
@@ -119,14 +121,14 @@ Hello!
     parameters in the order the parameters are defined in the function.
  -->
 
-## Arguments in call are matched to parameters in definition.
+## Argumentos em uma chamada correspondem aos parâmetros na definição.
 
-*   Functions are most useful when they can operate on different data.
-*   Specify *parameters* when defining a function.
-    *   These become variables when the function is executed.
-    *   Are assigned the arguments in the call (i.e., the values passed to the function).
-    *   If you don't name the arguments when using them in the call, the arguments will be matched to 
-    parameters in the order the parameters are defined in the function.
+*   Funções são úteis quando elas podem operar em diferentes dados.
+*   Especifique *parâmetros* quando for definir uma função.
+    *   Esses se tornam variáveis quando a função é executada.
+    *   São assinaladas aos argumentos na chamada, isto é, os valores passados para a função.
+    *   Se você não nomear os argumentos quando for usá-los na chamada, os argumentos vão ser correspondidos com os
+    parâmetros na ordem quem os parâmetros são definidos na função.
 
 <!-- 
 ~~~
@@ -144,15 +146,15 @@ print_date(1871, 3, 19)
  -->
 
 ~~~
-def print_date(year, month, day):
-    joined = str(year) + '/' + str(month) + '/' + str(day)
-    print(joined)
+def imprimir_data(ano, mes, dia)
+    data_formatada = str(ano) + '/' + str(mes) + '/' + str(dia)
+    print(data_formatada)
 
-print_date(1871, 3, 19)
+imprimir_data(2021, 3, 19)
 ~~~
 {: .language-python}
 ~~~
-1871/3/19
+2021/3/19
 ~~~
 {: .output}
 <!-- 
@@ -168,14 +170,14 @@ print_date(month=3, day=19, year=1871)
 {: .output}
  -->
 
-Or, we can name the arguments when we call the function, which allows us to
-specify them in any order:
+Ou, podemos nomear os argumentos quando chamamos a função, o que nos permite
+especificá-los em qualquer ordem:
 ~~~
-print_date(month=3, day=19, year=1871)
+imprimir_data(mes=3, dia=19, ano=2021)
 ~~~
 {: .language-python}
 ~~~
-1871/3/19
+2021/3/19
 ~~~
 {: .output}
 <!-- 
@@ -184,9 +186,7 @@ print_date(month=3, day=19, year=1871)
     while the body contains the recipe.
  -->
 
-*   Via [Twitter](https://twitter.com/minisciencegirl/status/693486088963272705):
-    `()` contains the ingredients for the function
-    while the body contains the recipe.
+*   É como se o `()` contivesse os ingredientes para a função e o corpo contém a receita.
 
 <!-- 
 ## Functions may return a result to their caller using `return`.
@@ -198,13 +198,13 @@ print_date(month=3, day=19, year=1871)
     *   At the very end, with a final result.
  -->
 
-## Functions may return a result to their caller using `return`.
+## Funções podem retornar um resultado para quem está chamando usando `return`.
 
-*   Use `return ...` to give a value back to the caller.
-*   May occur anywhere in the function.
-*   But functions are easier to understand if `return` occurs:
-    *   At the start to handle special cases.
-    *   At the very end, with a final result.
+*   Use `return ...` para retornar um valor a chamada da função.
+*   Pode ocorrer em qualquer lugar da função..
+*   Mas funções são mais fáceis de entender se `return` ocorre:
+    *   No começo para lidar com casos especiais.
+    *   Bem no fim da função, com um resultado final.
 
 <!-- 
 ~~~
@@ -217,10 +217,10 @@ def average(values):
  -->
 
 ~~~
-def average(values):
-    if len(values) == 0:
+def calcular_media(valores):
+    if len(valores) == 0:
         return None
-    return sum(values) / len(values)
+    return sum(valores) / len(valores)
 ~~~
 {: .language-python}
 <!-- 
@@ -236,12 +236,12 @@ average of actual values: 2.6666666666666665
  -->
 
 ~~~
-a = average([1, 3, 4])
-print('average of actual values:', a)
+a = calcular_media([1, 3, 4])
+print('Média de valores reais:', a)
 ~~~
 {: .language-python}
 ~~~
-average of actual values: 2.6666666666666665
+Média de valores reais: 2.6666666666666665
 ~~~
 {: .output}
 <!-- 
@@ -256,11 +256,11 @@ average of empty list: None
  -->
 
 ~~~
-print('average of empty list:', average([]))
+print('Média de uma lista vazia:', calcular_media([]))
 ~~~
 {: .language-python}
 ~~~
-average of empty list: None
+Média de uma lista vazia: None
 ~~~
 {: .output}
 <!-- 
@@ -268,8 +268,8 @@ average of empty list: None
 *   A function that doesn't explicitly `return` a value automatically returns `None`.
  -->
 
-*   Remember: [every function returns something]({{ page.root }}/04-built-in/).
-*   A function that doesn't explicitly `return` a value automatically returns `None`.
+*   Lembre-se: [toda função **retorna algo!**]({{ page.root }}/04-built-in/).
+*   Uma função que não tem um valor retornado por `return` automaticamente retorna `None`.
 
 <!-- 
 ~~~
@@ -285,15 +285,16 @@ result of call is: None
  -->
 
 ~~~
-result = print_date(1871, 3, 19)
-print('result of call is:', result)
+resultado = imprimir_data(2021, 3, 19)
+print('O resultado da chamada é:', resultado)
 ~~~
 {: .language-python}
 ~~~
-1871/3/19
-result of call is: None
+2021/3/19
+O resultado da chamada é: None
 ~~~
 {: .output}
+
 <!-- 
 > ## Identifying Syntax Errors
 >
@@ -325,30 +326,30 @@ result of call is: None
 {: .challenge}
  -->
 
-> ## Identifying Syntax Errors
+> ## Identificando erros de sintaxe
 >
-> 1. Read the code below and try to identify what the errors are
->    *without* running it.
-> 2. Run the code and read the error message.
->    Is it a `SyntaxError` or an `IndentationError`?
-> 3. Fix the error.
-> 4. Repeat steps 2 and 3 until you have fixed all the errors.
+> 1. Leia o código abaixo e tente identificar o que os erros são
+>    *sem* rodá-lo.
+> 2. Rode o código e leia a mensagem de erro.
+>    É do tipo `SyntaxError` ou `IndentationError`?
+> 3. Conserte o erro.
+> 4. Repita os passos 2 e 3 até que consertar todos os erros.
 >
 > ~~~
-> def another_function
->   print("Syntax errors are annoying.")
->    print("But at least python tells us about them!")
->   print("So they are usually not too hard to fix.")
+> def outra_funcao
+>   print("Erros de sintaxe são irritantes.")
+>    print("Mas pelo menos o Python nos avisa sobre eles!")
+>   print("Então não são muito difíceis de consertar.")
 > ~~~
 > {: .language-python}
 >
-> > ## Solution
+> > ## Solução
 > >
 > > ~~~
-> > def another_function():
-> >   print("Syntax errors are annoying.")
-> >   print("But at least Python tells us about them!")
-> >   print("So they are usually not too hard to fix.")
+> > def outra_funcao():
+> >   print("Erros de sintaxe são irritantes.")
+> >   print("Mas pelo menos o Python nos avisa sobre eles!")
+> >   print("Então não são muito difíceis de consertar.")
 > > ~~~
 > > {: .language-python}
 > {: .solution}
@@ -388,33 +389,33 @@ result of call is: None
 {: .challenge}
  -->
 
-> ## Definition and Use
+> ## Definição e Uso
 >
-> What does the following program print?
+> O que o programa a seguir imprime?
 >
 > ~~~
-> def report(pressure):
->     print('pressure is', pressure)
+> def relatorio(consumo):
+>     print('consumo é', consumo)
 >
-> print('calling', report, 22.5)
+> print('chamando', relatorio, 22.5)
 > ~~~
 > {: .language-python}
-> > ## Solution
+> > ## Solução
 > >
 > > ~~~
-> > calling <function report at 0x7fd128ff1bf8> 22.5
+> > chamando <function relatorio at 0x7fd128ff1bf8> 22.5
 > > ~~~ 
 > > {: .output}
 > >
-> > A function call always needs parenthesis, otherwise you get memory address of the function object. So, if we wanted to call the function named report, and give it the value 22.5 to report on, we could have our function call as follows
+> > Uma chamada de função sempre precisa de parênteses, caso contrário você recebe o endereço de memória do objeto função. Então, se queremos chamar a função chamada `relatorio`, e dar o valor 22.5 para ser reportado, podemos fazer nossa chamada de função assim:
 > > ~~~
-> > print("calling")
-> > report(22.5)
+> > print("chamando")
+> > relatorio(22.5)
 > > ~~~
 > > {: .language-python}
 > > ~~~
-> > calling
-> > pressure is 22.5
+> > chamando
+> > consumo é 22.5
 > > ~~~
 > > {: .output}
 > {: .solution}
@@ -467,14 +468,14 @@ result of call is: None
 {: .challenge}
  -->
 
-> ## Order of Operations
+> ## Ordem das Operações
 >
-> 1. What's wrong in this example?
+> 1. O que há de errado nesse exemplo?
 >
 >     ~~~
->     result = print_time(11, 37, 59)
+>     resultado = imprimir_tempo(11, 37, 59)
 >
->     def print_time(hour, minute, second):
+>     def imprimir_tempo(hour, minute, second):
 >        time_string = str(hour) + ':' + str(minute) + ':' + str(second)
 >        print(time_string)
 >     ~~~
@@ -483,8 +484,8 @@ result of call is: None
 > 2. After fixing the problem above, explain why running this example code:
 >
 >     ~~~
->     result = print_time(11, 37, 59)
->     print('result of call is:', result)
+>     resultado = imprimir_tempo(11, 37, 59)
+>     print('resultado of call is:', resultado)
 >     ~~~
 >     {: .language-python}
 >
@@ -492,26 +493,27 @@ result of call is: None
 >
 >     ~~~
 >     11:37:59
->     result of call is: None
+>     resultado of call is: None
 >     ~~~
 >     {: .output}
 >
-> 3. Why is the result of the call `None`?
+> 3. Por que o resultado da chamada é `None`?
 >
-> > ## Solution
+> > ## Solução
 > > 
-> > 1. The problem with the example is that the function `print_time()` is defined *after* the call to the function is made. Python
-> > doesn't know how to resolve the name `print_time` since it hasn't been defined yet and will raise a `NameError` e.g.,
-> > `NameError: name 'print_time' is not defined`
+> > 1. O problema no exemploe é que a função `imprimir_tempo()` é definida *após* a chamada ser feita. O Python
+> > não sabe como resolver o nome `imprimir_tempo` já que não foi definido e vai retornar um error `NameError` como
+> > `NameError: name 'imprimir_tempo' is not defined`
 > >
-> > 2. The first line of output `11:37:59` is printed by the first line of code, `result = print_time(11, 37, 59)` that binds the value 
-> > returned by invoking `print_time` to the variable `result`. The second line is from the second print call to print the contents 
-> > of the `result` variable.
+> > 2. A primeira linha da saída `11:37:59` é impressa pela primeira linha de código, `resultado = imprimir_tempo(11, 37, 59)` que assinala o valor
+> > retornado por `imprimir_tempo` a variavel `resultado`. A segunda linha linha de c´dogio é o resultado do segundo print, que imprime o conteúdo
+> > da variável `resultado`.
 > >
-> > 3. `print_time()` does not explicitly `return` a value, so it automatically returns `None`.
+> > 3. `imprimir_tempo()` não retorna um valor explicitamente com `return`, então automaticamente retorna `None`.
 > >
 > {: .solution}
 {: .challenge}
+
 <!-- 
 > ## Encapsulation
 >
@@ -541,28 +543,37 @@ result of call is: None
 {: .challenge}
  -->
 
-> ## Encapsulation
+> ## Encapsulação
 >
-> Fill in the blanks to create a function that takes a single filename as an argument,
-> loads the data in the file named by the argument,
-> and returns the minimum value in that data.
->
+> Preencha os brancos para criar uma função que recebe um único nome de arquivo como argumento,
+> carrega os dados do arquivo, e retorna o **comprimento da maior linha.**
 > ~~~
-> import pandas as pd
 >
-> def min_in_data(____):
->     data = ____
->     return ____
+> def detectar_tamanho_linha(____):
+>     with open(____) as f:
+>         dados = f.readlines()
+> 
+>     comprimentos = []
+>     for linha em dados:
+>         comprimentos.append(____)
+> 
+>     maior_comprimento = max(____) 
+>     return maior_comprimento
 > ~~~
 > {: .language-python}
-> > ## Solution
+> > ## Solução
 > >
 > > ~~~
-> > import pandas as pd
+> > def detectar_tamanho_linha(arquivo):
+> >     with open(arquivo) as f:
+> >         dados = f.readlines()
 > > 
-> > def min_in_data(filename):
-> >     data = pd.read_csv(filename)
-> >     return data.min()
+> >     comprimentos = []
+> >     for linha em dados:
+> >         comprimentos.append(len(linha))
+> > 
+> >     maior_comprimento = max(comprimentos) 
+> >     return maior_comprimento
 > > ~~~
 > > {: .language-python}
 > {: .solution}
@@ -604,32 +615,32 @@ result of call is: None
 {: .challenge}
  -->
 
-> ## Find the First
+> ## Encontre o Primeiro
 >
-> Fill in the blanks to create a function that takes a list of numbers as an argument
-> and returns the first negative value in the list.
-> What does your function do if the list is empty? What if the list has no negative numbers?
+> Preencha os brancos para criar uma função que receba uma lista de números como argumento
+> e imprima o primeiro valor negativo na lista.
+> O que a sua função faz se a lista estiver vazia? E se a lista não tiver números negativos?
 >
 > ~~~
-> def first_negative(values):
+> def primeiro_negativo(valores):
 >     for v in ____:
 >         if ____:
 >             return ____
 > ~~~
 > {: .language-python}
-> > ## Solution
+> > ## Solução
 > >
 > > ~~~
-> > def first_negative(values):
-> >     for v in values:
+> > def primeiro_negativo(valores):
+> >     for v in valores:
 > >         if v < 0:
 > >             return v
 > > ~~~
 > > {: .language-python}
-> > If an empty list or a list with all positive values is passed to this function, it returns `None`:
+> > Se uma lista vazia ou uma lista só com valores positivos for passada para essa função, ela retorna `None`:
 > > ~~~
-> > my_list = []
-> > print(first_negative(my_list))
+> > minha_lista = []
+> > print(primeiro_negativo(minha_lista))
 > > ~~~
 > > {: .language-python}
 > > ~~~
@@ -673,37 +684,6 @@ result of call is: None
 {: .challenge}
  -->
 
-> ## Calling by Name
->
-> Earlier we saw this function:
->
-> ~~~
-> def print_date(year, month, day):
->     joined = str(year) + '/' + str(month) + '/' + str(day)
->     print(joined)
-> ~~~
-> {: .language-python}
-> We saw that we can call the function using *named arguments*, like this:
-> ~~~
-> print_date(day=1, month=2, year=2003)
-> ~~~
-> {: .language-python}
->
-> 1.  What does `print_date(day=1, month=2, year=2003)` print?
-> 2.  When have you seen a function call like this before?
-> 3.  When and why is it useful to call functions this way?
->
-> > ## Solution
-> > 
-> > 1. `2003/2/1`
-> > 2. We saw examples of using *named arguments* when working with the pandas library. For example, when reading in a dataset 
-> > using `data = pd.read_csv('data/gapminder_gdp_europe.csv', index_col='country')`, the last argument `index_col` is a 
-> > named argument.  
-> > 3. Using named arguments can make code more readable since one can see from the function call what name the different arguments 
-> > have inside the function. It can also reduce the chances of passing arguments in the wrong order, since by using named arguments 
-> > the order doesn't matter.
-> {: .solution}
-{: .challenge}
 
 <!-- 
 > ## Encapsulation of an If/Print Block
@@ -781,75 +761,75 @@ result of call is: None
 {: .challenge}
  -->
 
-> ## Encapsulation of an If/Print Block
+> ## Encapsulando um bloco If/Else
 >
-> The code below will run on a label-printer for chicken eggs.  A digital scale will report a chicken egg mass (in grams) 
-> to the computer and then the computer will print a label.  
+> O código abaixo vai imprimir etiquetas para ovos de galinha. Uma balança digital vai reportar a massa de um ovo (em gramas)
+> para o computador e o computador precisa imprimir uma etiqueta.
 >
-> Please re-write the code so that the if-block is folded into a function.
+> Por favor reescreva o código abaixo para que o bloco de if seja dobrado em uma função.
 >
 > ~~~
 > import random
 > for i in range(10):
 >
->     # simulating the mass of a chicken egg
->     # the (random) mass will be 70 +/- 20 grams
->     mass = 70 + 20.0 * (2.0 * random.random() - 1.0)
+>     # simulando a massa de um ovo de galinha
+>     # o valor (aleatório) será de 70 +/- 20 gramas
+>     massa = 70 + 20.0 * (2.0 * random.random() - 1.0)
 >
->     print(mass)
+>     print(massa)
 >    
->     # egg sizing machinery prints a label
->     if mass >= 85:
+>     # a maquinaria de pesos de ovos imprime um valor
+>     if massa >= 85:
 >        print("jumbo")
->     elif mass >= 70:
->        print("large")
->     elif mass < 70 and mass >= 55:
->        print("medium")
+>     elif massa >= 70:
+>        print("grande")
+>     elif massa < 70 and massa >= 55:
+>        print("médio")
 >     else:
->        print("small")
+>        print("pequeno")
 > ~~~
 > {: .language-python}
 >
 >
-> The simplified program follows.  What function definition will make it functional?
+> O programa simplificado está a seguir. Que definição de função o tornará funcional?
 >
 > ~~~
-> # revised version
+> # versão revisada
 > import random
 > for i in range(10):
 >
->     # simulating the mass of a chicken egg
->     # the (random) mass will be 70 +/- 20 grams
->     mass = 70 + 20.0 * (2.0 * random.random() - 1.0)
+>     # simulando a massa de um ovo de galinha
+>     # o valor (aleatório) será de 70 +/- 20 gramas
+>     massa = 70 + 20.0 * (2.0 * random.random() - 1.0)
 >
->     print(mass, get_egg_label(mass))    
+>     print(massa, calcular_etiqueta(massa))    
 >
 > ~~~
 > {: .language-python}
 >
 >
-> 1. Create a function definition for `get_egg_label()` that will work with the revised program above.  Note that the `get_egg_label()` function's return value will be important. Sample output from the above program would be `71.23 large`.
-> 2. A dirty egg might have a mass of more than 90 grams, and a spoiled or broken egg will probably have a mass that's less than 50 grams.  Modify your `get_egg_label()` function to account for these error conditions. Sample output could be `25 too light, probably spoiled`.
+> 1. Crie uma definição de função para `calcular_etiqueta()` que vai funcionar com o programa revisado acima.  Note que o valor de retorno da função `calcular_etiqueta()` será importante. Um exemplo de saída desse programa seria `71.23 grande`.
+> 2. Um ovo sujo pode ter uma massa de mais de 90 gramas, e um ovo podre ou quebrado provavelmente vai ter uma massa menor que 50 gramas.  Modifique sua função `calcular_etiqueta()` para levar em conta essas condições de erro. Uma saída de exemplo poderia ser `25 muito leve, algo de errado`.
 >
-> > ## Solution
+> > ## Solução
 > >
 > > ~~~
-> > def get_egg_label(mass):
+> > def calcular_etiqueta(massa):
 > >     # egg sizing machinery prints a label
-> >     egg_label = "Unlabelled"
-> >     if mass >= 90:
-> >         egg_label = "warning: egg might be dirty"
-> >     elif mass >= 85:
-> >         egg_label = "jumbo"
-> >     elif mass >= 70:
-> >         egg_label = "large"
-> >     elif mass < 70 and mass >= 55:
-> >         egg_label = "medium"
-> >     elif mass < 50:
-> >         egg_label = "too light, probably spoiled"
+> >     etiqueta_ovo = "sem etiqueta"
+> >     if massa >= 90:
+> >         etiqueta_ovo = "aviso: o ovo pode estar sujo"
+> >     elif massa >= 85:
+> >         etiqueta_ovo = "jumbo"
+> >     elif massa >= 70:
+> >         etiqueta_ovo = "grande"
+> >     elif massa < 70 and massa >= 55:
+> >         etiqueta_ovo = "médio"
+> >     elif massa < 50:
+> >         etiqueta_ovo = "muito leve, algo de errado"
 > >     else:
-> >         egg_label = "small"
-> >     return egg_label
+> >         etiqueta_ovo = "pequeno"
+> >     return etiqueta_ovo
 > > ~~~
 > > {: .language-python}
 > {: .solution}
@@ -950,7 +930,7 @@ result of call is: None
 > {: .solution}
 {: .challenge}
  -->
-
+<!-- 
 > ## Encapsulating Data Analysis
 >
 > Assume that the following code has been executed:
@@ -991,7 +971,7 @@ result of call is: None
 >    (Hint: use the columns to filter out the ones that correspond to the decade,
 >    instead of enumerating them in the code.)
 >
-> > ## Solution
+> > ## Solução
 > >
 > > 1. The average GDP for Japan across the years reported for the 1980s is computed with:
 > >
@@ -1044,7 +1024,9 @@ result of call is: None
 > > {: .output}
 > {: .solution}
 {: .challenge}
+ -->
 
+<!-- 
 > ## Simulating a dynamical system
 >
 > In mathematics, a [dynamical system](https://en.wikipedia.org/wiki/Dynamical_system) is a system
@@ -1110,7 +1092,8 @@ result of call is: None
 > >    The population seems to be approaching zero.
 > {: .solution}
 {: .challenge}
-
+ -->
+<!-- 
 > ## Simulating a dynamical system
 >
 > In mathematics, a [dynamical system](https://en.wikipedia.org/wiki/Dynamical_system) is a system
@@ -1137,7 +1120,7 @@ result of call is: None
 >    the logistic map at times `t = [0,1,...,t_final]`. Run this function for periods `t_final = 100`
 >    and `1000` and print some of the values. Is the population trending toward a steady state?
 >
-> > ## Solution
+> > ## Solução
 > >
 > > 1. ~~~
 > >    def logistic_map(x, r):
@@ -1176,3 +1159,4 @@ result of call is: None
 > >    The population seems to be approaching zero.
 > {: .solution}
 {: .challenge}
+ -->
