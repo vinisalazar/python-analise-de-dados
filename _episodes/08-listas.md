@@ -19,6 +19,7 @@ keypoints:
 - "Strings de caracteres são imutáveis."
 - "Indexar além do fim de uma coleção é um erro."
 ---
+
 <!-- 
 ## A list stores many values in a single structure.
 
@@ -62,6 +63,7 @@ consumos: [0.273, 0.275, 0.277, 0.275, 0.276]
 comprimento: 5
 ~~~
 {: .output}
+
 <!-- 
 ## Use an item's index to fetch it from a list.
 
@@ -357,6 +359,7 @@ TypeError: 'str' object does not support item assignment
 {: .error}
 
 *   Listas e strings de caracteres são ambas *coleções*.
+
 <!-- 
 Indexing beyond the end of the collection is an error.
 
