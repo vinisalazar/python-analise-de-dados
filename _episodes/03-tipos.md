@@ -105,7 +105,7 @@ TypeError: unsupported operand type(s) for -: 'str' and 'str'
 
 ## Você pode usar os operadores `+` e `*` em strings.
 
-*   "Adding" character strings concatenates them.
+*   "Somar" caracteres de strings concatena ("junta") elas:
 
 ~~~
 nome_completo = 'Felipe' + ' ' + 'da Silva'

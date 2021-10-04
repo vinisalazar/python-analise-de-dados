@@ -163,6 +163,7 @@ print("Antes do TAB:\tDepois.")
 > ~~~
 > {: .language-python}
 > ~~~
+> 
 > Uma linha com espaço em branco no início e fim.Outra linha, com espaço em branco no início.
 > ~~~
 > {: .output}

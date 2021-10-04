@@ -620,7 +620,7 @@ print(ewr_422_yY, 'tem', flabadab, 'anos de idade.')
 > 5.  O que `coisa[numero:algum-numero-negativo]` faz?
 > 6.  O que acontece se você escolhar um valor `cima` que está fora de alcance (*i.e.*, tente `nome_atomo[0:15]`)?
 >
-> > ## Solutions
+> > ## Soluções
 > >
 > > 1. `coisa[baixo:cima]` retorna uma fatia de `baixo` até o valor antes de `cima`.
 > > 2. `coisa[baixo:]` retorna uma fatia de `baixo` até o final de coisa `coisa`.
