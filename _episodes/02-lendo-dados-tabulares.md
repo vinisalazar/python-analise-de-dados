@@ -1,9 +1,9 @@
 ---
-title: "Reading Tabular Data into DataFrames"
+title: "Lendo Dados Tabulares"
 teaching: 10
 exercises: 10
 questions:
-- "How can I read tabular data?"
+- "Como posso ler dados tabulares?"
 objectives:
 - "Import the Pandas library."
 - "Use Pandas to load a simple CSV data set."
