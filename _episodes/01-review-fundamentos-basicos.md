@@ -20,8 +20,8 @@ keypoints:
 - "A biblioteca padrão conta com vários módulos que já vem com o Python."
 - "Listas são um tipo de coleção para armazenar múltiplos valores."
 - "Condicionais são usadas para controlar o fluxo de um programa."
-- "Funções são usadas para decompôr programas em partes menores."
 - "Funções recebem zero ou mais argumentos e sempre retornam algum valor."
+- "Funções são usadas para decompôr programas em partes menores."
 ---
 
 ## Variáveis são nomes que assinalamos a valores, ou objetos.
@@ -105,5 +105,32 @@ if consumo > 100:
     print("Consumo agora é:", consumo)
 ```
 
-## Funções são usadas para decompôr programas em partes menores.
 ## Funções recebem zero ou mais argumentos e sempre retornam algum valor.
+
+- A função `print` recebe zero ou mais argumentos e retorna o valor None.
+- As funções `max` e `min` recebem um ou mais argumentos do mesmo tipo e retornam o maior ou menor valor.
+
+## Funções são usadas para decompôr programas em partes menores.
+
+Se eu tenho, por exemplo, um programa que lê um arquivo, calcula uma estatística, e envia ela para um email, poderíamos dividi-lo em três funções:
+
+1. Uma para ler o arquivo:
+    ```python
+    def ler_arquivo(caminho_do_arquivo):
+        with open(caminho_do_arquivo) as f:
+            ...
+    ```
+2. Uma para calcular a estatística (que poderia receber o conteúdo do arquivo como uma string ou lista):
+    ```python
+    def calcular_estatistica(conteudo_do_arquivo):
+        maior_valor, menor_valor = None, None
+        for valor in conteudo_do_arquivo:
+            ...
+    ```
+
+3. Uma para enviar o email:
+    ```python
+    def enviar_email(estatistica, endereco_email):
+        ...
+    ```
+
