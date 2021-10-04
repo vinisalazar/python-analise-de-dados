@@ -33,7 +33,7 @@ Para poder aproveitar a aula, é necessário ter completado o workshop ou ter co
 
 > ## Pré-requisitos
 >
-> 1.  É necessário ter completo o workshop de [Fundamentos Básicos com Python](https://vinisalazar.github.io/python-fundamentos-basicos).
+> 1.  É necessário ter completado o workshop de [Fundamentos Básicos com Python](https://vinisalazar.github.io/python-fundamentos-basicos).
 >
 > 2. Participantes devem instalar o Python antes da aula começar.
 >
