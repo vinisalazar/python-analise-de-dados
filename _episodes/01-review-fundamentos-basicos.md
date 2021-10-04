@@ -134,3 +134,16 @@ Se eu tenho, por exemplo, um programa que lê um arquivo, calcula uma estatísti
         ...
     ```
 
+Assim poderia escrever algo assim no programa:
+
+```python
+arquivos = [
+    ...
+]
+
+for caminho in arquivos:
+    conteudo = ler_arquivo(caminho)
+    estatistica = calcular_estatistica(conteudo)
+    enviar_email(estatistica, "usuario@mail.com")
+
+```
