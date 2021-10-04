@@ -10,8 +10,16 @@ both [Data Carpentry][dc-lessons] and [Software Carpentry][swc-lessons] workshop
 This lesson references [JupyterLab][jupyterlab], but can be taught using a regular Python interpreter 
 as well. Please note that this lesson uses Python 3. -->
 
-Essa aula é uma introdução à programação com Python para pessoas com pouca ou nenhuma experiência
-prévia de programação. Ela usa plotagem como seu exemplo motivacional e usa o [JupyterLab][jupyterlab] como ferramenta. Essa aula usa Python 3.
+Essa aula é uma continuação do workshop de [Fundamentos Básicos com Python](https://vinisalazar.github.io/python-fundamentos-basicos).
+Para poder aproveitar a aula, é necessário ter completado o workshop ou ter conhecimento equivalente, como domínio de:
+- Uso do JupyterLab
+- Variáveis
+- Tipos de dados
+- Listas
+- For loops
+- Condicionais
+- Leitura e Escrita de Arquivos
+- Funções
 
 <!-- > ## Under Design
 >
@@ -25,15 +33,10 @@ prévia de programação. Ela usa plotagem como seu exemplo motivacional e usa o
 
 > ## Pré-requisitos
 >
-> 1.  É necessário entender o que são arquivos e diretórios,
->     o que é o *working directory*,
->     e como iniciar um interpretador Python.
+> 1.  É necessário ter completo o workshop de [Fundamentos Básicos com Python](https://vinisalazar.github.io/python-fundamentos-basicos).
 >
 > 2. Participantes devem instalar o Python antes da aula começar.
 >
-> 3. Participantes precisam baixar os dados antes da aula começar:
->    por favor baixe e faça o unzip do arquivo
->    [python-novice-gapminder-data.zip]({{page.root}}/files/python-novice-gapminder-data.zip).
 >
 >    Por favor, veja as [instruções de setup][lesson-setup]
 >    para detalhes.
