@@ -5,16 +5,16 @@ exercises: 10
 questions:
 - "Como posso ler dados tabulares?"
 objectives:
-- "Import the Pandas library."
-- "Use Pandas to load a simple CSV data set."
-- "Get some basic information about a Pandas DataFrame."
+- "Importe a biblioteca Pandas."
+- "Use Pandas para carregar um arquivo CSV simples."
+- "Consiga informações básicas sobre um DataFrame Pandas."
 keypoints:
-- "Use the Pandas library to get basic statistics out of tabular data."
-- "Use `index_col` to specify that a column's values should be used as row headings."
-- "Use `DataFrame.info` to find out more about a dataframe."
-- "The `DataFrame.columns` variable stores information about the dataframe's columns."
-- "Use `DataFrame.T` to transpose a dataframe."
-- "Use `DataFrame.describe` to get summary statistics about data."
+- "Use a biblioteca Pandas para conseguir estatísticas básicas de dados tabulares."
+- "Use `index_col` para especificar os valores de uma coluna que devem ser usados como nomes de linha."
+- "Use `DataFrame.info` para saber mais sobre um dataframe."
+- "Use `DataFrame.columns` para acessar o nome das colunas de um dataframe."
+- "Use `DataFrame.T` para transpôr um dataframe."
+- "Use `DataFrame.describe` para conseguir um sumário de estatísticas sobre os dados."
 ---
 ## Use the Pandas library to do statistics on tabular data.
 
