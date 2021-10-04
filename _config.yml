@@ -10,7 +10,7 @@
 carpentry: "custom"
 
 # Overall title for pages.
-title: "Fundamentos Básicos de Python"
+title: "Análise de Dados com Python"
 
 # Life cycle stage of the lesson
 # possible values: "pre-alpha", "alpha", "beta", "stable"
