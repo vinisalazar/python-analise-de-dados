@@ -16,275 +16,269 @@ keypoints:
 - "Use `DataFrame.T` para transpôr um dataframe."
 - "Use `DataFrame.describe` para conseguir um sumário de estatísticas sobre os dados."
 ---
+
+<!-- 
+## Use the Pandas library to do statistics on tabular data.
+
+*   Pandas is a widely-used Python library for statistics, particularly on tabular data.
+*   Borrows many features from R's dataframes.
+    *   A 2-dimensional table whose columns have names
+        and potentially have different data types.
+*   Load it with `import pandas as pd`. The alias pd is commonly used for Pandas.
+*   Read a Comma Separated Values (CSV) data file with `pd.read_csv`.
+    *   Argument is the name of the file to be read.
+    *   Assign result to a variable to store the data that was read.
+ -->
+
 ## Use a biblioteca Pandas para conseguir estatísticas básicas de dados tabulares.
+
+*   Pandas is a widely-used Python library for statistics, particularly on tabular data.
+*   Borrows many features from R's dataframes.
+    *   A 2-dimensional table whose columns have names
+        and potentially have different data types.
+*   Load it with `import pandas as pd`. The alias pd is commonly used for Pandas.
+*   Read a Comma Separated Values (CSV) data file with `pd.read_csv`.
+    *   Argument is the name of the file to be read.
+    *   Assign result to a variable to store the data that was read.
+
+<!-- 
+~~~
+import pandas as pd
+
+data = pd.read_csv('data/gapminder_gdp_oceania.csv')
+print(data)
+~~~
+{: .language-python}
+~~~
+       country  gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  \
+0    Australia     10039.59564     10949.64959     12217.22686
+1  New Zealand     10556.57566     12247.39532     13175.67800
+
+   gdpPercap_1967  gdpPercap_1972  gdpPercap_1977  gdpPercap_1982  \
+0     14526.12465     16788.62948     18334.19751     19477.00928
+1     14463.91893     16046.03728     16233.71770     17632.41040
+
+   gdpPercap_1987  gdpPercap_1992  gdpPercap_1997  gdpPercap_2002  \
+0     21888.88903     23424.76683     26997.93657     30687.75473
+1     19007.19129     18363.32494     21050.41377     23189.80135
+
+   gdpPercap_2007
+0     34435.36744
+1     25185.00911
+~~~
+{: .output}
+ -->
+
+~~~
+import pandas as pd
+
+data = pd.read_csv('data/gapminder_gdp_oceania.csv')
+print(data)
+~~~
+{: .language-python}
+~~~
+       country  gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  \
+0    Australia     10039.59564     10949.64959     12217.22686
+1  New Zealand     10556.57566     12247.39532     13175.67800
+
+   gdpPercap_1967  gdpPercap_1972  gdpPercap_1977  gdpPercap_1982  \
+0     14526.12465     16788.62948     18334.19751     19477.00928
+1     14463.91893     16046.03728     16233.71770     17632.41040
+
+   gdpPercap_1987  gdpPercap_1992  gdpPercap_1997  gdpPercap_2002  \
+0     21888.88903     23424.76683     26997.93657     30687.75473
+1     19007.19129     18363.32494     21050.41377     23189.80135
+
+   gdpPercap_2007
+0     34435.36744
+1     25185.00911
+~~~
+{: .output}
+<!-- 
+*   The columns in a dataframe are the observed variables, and the rows are the observations.
+*   Pandas uses backslash `\` to show wrapped lines when output is too wide to fit the screen.
+ -->
+
+*   The columns in a dataframe are the observed variables, and the rows are the observations.
+*   Pandas uses backslash `\` to show wrapped lines when output is too wide to fit the screen.
+<!-- 
+> ## File Not Found
+>
+> Our lessons store their data files in a `data` sub-directory,
+> which is why the path to the file is `data/gapminder_gdp_oceania.csv`.
+> If you forget to include `data/`,
+> or if you include it but your copy of the file is somewhere else,
+> you will get a [runtime error]({{ page.root }}/04-built-in/#runtime-error)
+> that ends with a line like this:
+>
+> ~~~
+> FileNotFoundError: [Errno 2] No such file or directory: 'data/gapminder_gdp_oceania.csv'
+> ~~~
+> {: .error}
+{: .callout}
+ -->
+
+> ## File Not Found
+>
+> Our lessons store their data files in a `data` sub-directory,
+> which is why the path to the file is `data/gapminder_gdp_oceania.csv`.
+> If you forget to include `data/`,
+> or if you include it but your copy of the file is somewhere else,
+> you will get a [runtime error]({{ page.root }}/04-built-in/#runtime-error)
+> that ends with a line like this:
+>
+> ~~~
+> FileNotFoundError: [Errno 2] No such file or directory: 'data/gapminder_gdp_oceania.csv'
+> ~~~
+> {: .error}
+{: .callout}
+<!-- 
+## Use `index_col` to specify that a column's values should be used as row headings.
+
+*   Row headings are numbers (0 and 1 in this case).
+*   Really want to index by country.
+*   Pass the name of the column to `read_csv` as its `index_col` parameter to do this.
+ -->
+
 ## Use `index_col` para especificar os valores de uma coluna que devem ser usados como nomes de linha.
-## Use `DataFrame.info` para saber mais sobre um dataframe.
+
+*   Row headings are numbers (0 and 1 in this case).
+*   Really want to index by country.
+*   Pass the name of the column to `read_csv` as its `index_col` parameter to do this.
+
+<!-- 
+~~~
+data = pd.read_csv('data/gapminder_gdp_oceania.csv', index_col='country')
+print(data)
+~~~
+{: .language-python}
+~~~
+             gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  gdpPercap_1967  \
+country
+Australia       10039.59564     10949.64959     12217.22686     14526.12465
+New Zealand     10556.57566     12247.39532     13175.67800     14463.91893
+
+             gdpPercap_1972  gdpPercap_1977  gdpPercap_1982  gdpPercap_1987  \
+country
+Australia       16788.62948     18334.19751     19477.00928     21888.88903
+New Zealand     16046.03728     16233.71770     17632.41040     19007.19129
+
+             gdpPercap_1992  gdpPercap_1997  gdpPercap_2002  gdpPercap_2007
+country
+Australia       23424.76683     26997.93657     30687.75473     34435.36744
+New Zealand     18363.32494     21050.41377     23189.80135     25185.00911
+~~~
+{: .output}
+ -->
+
+~~~
+data = pd.read_csv('data/gapminder_gdp_oceania.csv', index_col='country')
+print(data)
+~~~
+{: .language-python}
+~~~
+             gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  gdpPercap_1967  \
+country
+Australia       10039.59564     10949.64959     12217.22686     14526.12465
+New Zealand     10556.57566     12247.39532     13175.67800     14463.91893
+
+             gdpPercap_1972  gdpPercap_1977  gdpPercap_1982  gdpPercap_1987  \
+country
+Australia       16788.62948     18334.19751     19477.00928     21888.88903
+New Zealand     16046.03728     16233.71770     17632.41040     19007.19129
+
+             gdpPercap_1992  gdpPercap_1997  gdpPercap_2002  gdpPercap_2007
+country
+Australia       23424.76683     26997.93657     30687.75473     34435.36744
+New Zealand     18363.32494     21050.41377     23189.80135     25185.00911
+~~~
+{: .output}
+
+<!-- 
+~~~
+data.info()
+~~~
+{: .language-python}
+~~~
+<class 'pandas.core.frame.DataFrame'>
+Index: 2 entries, Australia to New Zealand
+Data columns (total 12 columns):
+gdpPercap_1952    2 non-null float64
+gdpPercap_1957    2 non-null float64
+gdpPercap_1962    2 non-null float64
+gdpPercap_1967    2 non-null float64
+gdpPercap_1972    2 non-null float64
+gdpPercap_1977    2 non-null float64
+gdpPercap_1982    2 non-null float64
+gdpPercap_1987    2 non-null float64
+gdpPercap_1992    2 non-null float64
+gdpPercap_1997    2 non-null float64
+gdpPercap_2002    2 non-null float64
+gdpPercap_2007    2 non-null float64
+dtypes: float64(12)
+memory usage: 208.0+ bytes
+~~~
+{: .output}
+ -->
+ ## Use `DataFrame.info()` para saber mais sobre um dataframe.
+
+~~~
+data.info()
+~~~
+{: .language-python}
+~~~
+<class 'pandas.core.frame.DataFrame'>
+Index: 2 entries, Australia to New Zealand
+Data columns (total 12 columns):
+gdpPercap_1952    2 non-null float64
+gdpPercap_1957    2 non-null float64
+gdpPercap_1962    2 non-null float64
+gdpPercap_1967    2 non-null float64
+gdpPercap_1972    2 non-null float64
+gdpPercap_1977    2 non-null float64
+gdpPercap_1982    2 non-null float64
+gdpPercap_1987    2 non-null float64
+gdpPercap_1992    2 non-null float64
+gdpPercap_1997    2 non-null float64
+gdpPercap_2002    2 non-null float64
+gdpPercap_2007    2 non-null float64
+dtypes: float64(12)
+memory usage: 208.0+ bytes
+~~~
+{: .output}
+
+<!-- 
+*   This is a `DataFrame`
+*   Two rows named `'Australia'` and `'New Zealand'`
+*   Twelve columns, each of which has two actual 64-bit floating point values.
+    *   We will talk later about null values, which are used to represent missing observations.
+*   Uses 208 bytes of memory.
+ -->
+
+*   This is a `DataFrame`
+*   Two rows named `'Australia'` and `'New Zealand'`
+*   Twelve columns, each of which has two actual 64-bit floating point values.
+    *   We will talk later about null values, which are used to represent missing observations.
+*   Uses 208 bytes of memory.
+
+<!-- 
+## The `DataFrame.columns` variable stores information about the dataframe's columns.
+
+*   Note that this is data, *not* a method.  (It doesn't have parentheses.)
+    *   Like `math.pi`.
+    *   So do not use `()` to try to call it.
+*   Called a *member variable*, or just *member*.
+ -->
+<!-- 
+## The `DataFrame.columns` variable stores information about the dataframe's columns.
+
+*   Note that this is data, *not* a method.  (It doesn't have parentheses.)
+    *   Like `math.pi`.
+    *   So do not use `()` to try to call it.
+*   Called a *member variable*, or just *member*.
+ -->
+
 ## Use `DataFrame.columns` para acessar o nome das colunas de um dataframe.
-## Use `DataFrame.T` para transpôr um dataframe.
-## Use `DataFrame.describe` para conseguir um sumário de estatísticas sobre os dados.
-
-<!-- 
-## Use the Pandas library to do statistics on tabular data.
-
-*   Pandas is a widely-used Python library for statistics, particularly on tabular data.
-*   Borrows many features from R's dataframes.
-    *   A 2-dimensional table whose columns have names
-        and potentially have different data types.
-*   Load it with `import pandas as pd`. The alias pd is commonly used for Pandas.
-*   Read a Comma Separated Values (CSV) data file with `pd.read_csv`.
-    *   Argument is the name of the file to be read.
-    *   Assign result to a variable to store the data that was read.
- -->
-
-## Use the Pandas library to do statistics on tabular data.
-
-*   Pandas is a widely-used Python library for statistics, particularly on tabular data.
-*   Borrows many features from R's dataframes.
-    *   A 2-dimensional table whose columns have names
-        and potentially have different data types.
-*   Load it with `import pandas as pd`. The alias pd is commonly used for Pandas.
-*   Read a Comma Separated Values (CSV) data file with `pd.read_csv`.
-    *   Argument is the name of the file to be read.
-    *   Assign result to a variable to store the data that was read.
-
-<!-- 
-~~~
-import pandas as pd
-
-data = pd.read_csv('data/gapminder_gdp_oceania.csv')
-print(data)
-~~~
-{: .language-python}
-~~~
-       country  gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  \
-0    Australia     10039.59564     10949.64959     12217.22686
-1  New Zealand     10556.57566     12247.39532     13175.67800
-
-   gdpPercap_1967  gdpPercap_1972  gdpPercap_1977  gdpPercap_1982  \
-0     14526.12465     16788.62948     18334.19751     19477.00928
-1     14463.91893     16046.03728     16233.71770     17632.41040
-
-   gdpPercap_1987  gdpPercap_1992  gdpPercap_1997  gdpPercap_2002  \
-0     21888.88903     23424.76683     26997.93657     30687.75473
-1     19007.19129     18363.32494     21050.41377     23189.80135
-
-   gdpPercap_2007
-0     34435.36744
-1     25185.00911
-~~~
-{: .output}
- -->
-
-~~~
-import pandas as pd
-
-data = pd.read_csv('data/gapminder_gdp_oceania.csv')
-print(data)
-~~~
-{: .language-python}
-~~~
-       country  gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  \
-0    Australia     10039.59564     10949.64959     12217.22686
-1  New Zealand     10556.57566     12247.39532     13175.67800
-
-   gdpPercap_1967  gdpPercap_1972  gdpPercap_1977  gdpPercap_1982  \
-0     14526.12465     16788.62948     18334.19751     19477.00928
-1     14463.91893     16046.03728     16233.71770     17632.41040
-
-   gdpPercap_1987  gdpPercap_1992  gdpPercap_1997  gdpPercap_2002  \
-0     21888.88903     23424.76683     26997.93657     30687.75473
-1     19007.19129     18363.32494     21050.41377     23189.80135
-
-   gdpPercap_2007
-0     34435.36744
-1     25185.00911
-~~~
-{: .output}
-<!-- 
-*   The columns in a dataframe are the observed variables, and the rows are the observations.
-*   Pandas uses backslash `\` to show wrapped lines when output is too wide to fit the screen.
- -->
-
-*   The columns in a dataframe are the observed variables, and the rows are the observations.
-*   Pandas uses backslash `\` to show wrapped lines when output is too wide to fit the screen.
-<!-- 
-> ## File Not Found
->
-> Our lessons store their data files in a `data` sub-directory,
-> which is why the path to the file is `data/gapminder_gdp_oceania.csv`.
-> If you forget to include `data/`,
-> or if you include it but your copy of the file is somewhere else,
-> you will get a [runtime error]({{ page.root }}/04-built-in/#runtime-error)
-> that ends with a line like this:
->
-> ~~~
-> FileNotFoundError: [Errno 2] No such file or directory: 'data/gapminder_gdp_oceania.csv'
-> ~~~
-> {: .error}
-{: .callout}
- -->
-
-> ## File Not Found
->
-> Our lessons store their data files in a `data` sub-directory,
-> which is why the path to the file is `data/gapminder_gdp_oceania.csv`.
-> If you forget to include `data/`,
-> or if you include it but your copy of the file is somewhere else,
-> you will get a [runtime error]({{ page.root }}/04-built-in/#runtime-error)
-> that ends with a line like this:
->
-> ~~~
-> FileNotFoundError: [Errno 2] No such file or directory: 'data/gapminder_gdp_oceania.csv'
-> ~~~
-> {: .error}
-{: .callout}
-<!-- 
-## Use `index_col` to specify that a column's values should be used as row headings.
-
-*   Row headings are numbers (0 and 1 in this case).
-*   Really want to index by country.
-*   Pass the name of the column to `read_csv` as its `index_col` parameter to do this.
- -->
-
-## Use `index_col` to specify that a column's values should be used as row headings.
-
-*   Row headings are numbers (0 and 1 in this case).
-*   Really want to index by country.
-*   Pass the name of the column to `read_csv` as its `index_col` parameter to do this.
-
-<!-- 
-~~~
-data = pd.read_csv('data/gapminder_gdp_oceania.csv', index_col='country')
-print(data)
-~~~
-{: .language-python}
-~~~
-             gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  gdpPercap_1967  \
-country
-Australia       10039.59564     10949.64959     12217.22686     14526.12465
-New Zealand     10556.57566     12247.39532     13175.67800     14463.91893
-
-             gdpPercap_1972  gdpPercap_1977  gdpPercap_1982  gdpPercap_1987  \
-country
-Australia       16788.62948     18334.19751     19477.00928     21888.88903
-New Zealand     16046.03728     16233.71770     17632.41040     19007.19129
-
-             gdpPercap_1992  gdpPercap_1997  gdpPercap_2002  gdpPercap_2007
-country
-Australia       23424.76683     26997.93657     30687.75473     34435.36744
-New Zealand     18363.32494     21050.41377     23189.80135     25185.00911
-~~~
-{: .output}
- -->
-
-~~~
-data = pd.read_csv('data/gapminder_gdp_oceania.csv', index_col='country')
-print(data)
-~~~
-{: .language-python}
-~~~
-             gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  gdpPercap_1967  \
-country
-Australia       10039.59564     10949.64959     12217.22686     14526.12465
-New Zealand     10556.57566     12247.39532     13175.67800     14463.91893
-
-             gdpPercap_1972  gdpPercap_1977  gdpPercap_1982  gdpPercap_1987  \
-country
-Australia       16788.62948     18334.19751     19477.00928     21888.88903
-New Zealand     16046.03728     16233.71770     17632.41040     19007.19129
-
-             gdpPercap_1992  gdpPercap_1997  gdpPercap_2002  gdpPercap_2007
-country
-Australia       23424.76683     26997.93657     30687.75473     34435.36744
-New Zealand     18363.32494     21050.41377     23189.80135     25185.00911
-~~~
-{: .output}
-
-## Use the `DataFrame.info()` method to find out more about a dataframe.
-<!-- 
-~~~
-data.info()
-~~~
-{: .language-python}
-~~~
-<class 'pandas.core.frame.DataFrame'>
-Index: 2 entries, Australia to New Zealand
-Data columns (total 12 columns):
-gdpPercap_1952    2 non-null float64
-gdpPercap_1957    2 non-null float64
-gdpPercap_1962    2 non-null float64
-gdpPercap_1967    2 non-null float64
-gdpPercap_1972    2 non-null float64
-gdpPercap_1977    2 non-null float64
-gdpPercap_1982    2 non-null float64
-gdpPercap_1987    2 non-null float64
-gdpPercap_1992    2 non-null float64
-gdpPercap_1997    2 non-null float64
-gdpPercap_2002    2 non-null float64
-gdpPercap_2007    2 non-null float64
-dtypes: float64(12)
-memory usage: 208.0+ bytes
-~~~
-{: .output}
- -->
-
-~~~
-data.info()
-~~~
-{: .language-python}
-~~~
-<class 'pandas.core.frame.DataFrame'>
-Index: 2 entries, Australia to New Zealand
-Data columns (total 12 columns):
-gdpPercap_1952    2 non-null float64
-gdpPercap_1957    2 non-null float64
-gdpPercap_1962    2 non-null float64
-gdpPercap_1967    2 non-null float64
-gdpPercap_1972    2 non-null float64
-gdpPercap_1977    2 non-null float64
-gdpPercap_1982    2 non-null float64
-gdpPercap_1987    2 non-null float64
-gdpPercap_1992    2 non-null float64
-gdpPercap_1997    2 non-null float64
-gdpPercap_2002    2 non-null float64
-gdpPercap_2007    2 non-null float64
-dtypes: float64(12)
-memory usage: 208.0+ bytes
-~~~
-{: .output}
-
-<!-- 
-*   This is a `DataFrame`
-*   Two rows named `'Australia'` and `'New Zealand'`
-*   Twelve columns, each of which has two actual 64-bit floating point values.
-    *   We will talk later about null values, which are used to represent missing observations.
-*   Uses 208 bytes of memory.
- -->
-
-*   This is a `DataFrame`
-*   Two rows named `'Australia'` and `'New Zealand'`
-*   Twelve columns, each of which has two actual 64-bit floating point values.
-    *   We will talk later about null values, which are used to represent missing observations.
-*   Uses 208 bytes of memory.
-
-<!-- 
-## The `DataFrame.columns` variable stores information about the dataframe's columns.
-
-*   Note that this is data, *not* a method.  (It doesn't have parentheses.)
-    *   Like `math.pi`.
-    *   So do not use `()` to try to call it.
-*   Called a *member variable*, or just *member*.
- -->
-<!-- 
-## The `DataFrame.columns` variable stores information about the dataframe's columns.
-
-*   Note that this is data, *not* a method.  (It doesn't have parentheses.)
-    *   Like `math.pi`.
-    *   So do not use `()` to try to call it.
-*   Called a *member variable*, or just *member*.
- -->
-
-## The `DataFrame.columns` variable stores information about the dataframe's columns.
 
 *   Note that this is data, *not* a method.  (It doesn't have parentheses.)
     *   Like `math.pi`.
@@ -310,7 +304,7 @@ Index(['gdpPercap_1952', 'gdpPercap_1957', 'gdpPercap_1962', 'gdpPercap_1967',
 *   Like `columns`, it is a member variable.
  -->
 
-## Use `DataFrame.T` to transpose a dataframe.
+## Use `DataFrame.T` para transpôr um dataframe.
 
 *   Sometimes want to treat columns as rows and vice versa.
 *   Transpose (written `.T`) doesn't copy the data, just changes the program's view of it.
@@ -406,7 +400,7 @@ max      23424.766830    26997.936570    30687.754730    34435.367440
     but very helpful when there are thousands.
  -->
 
-## Use `DataFrame.describe()` to get summary statistics about data.
+## Use `DataFrame.describe()` para conseguir um sumário de estatísticas sobre os dados.
 
 `DataFrame.describe()` gets the summary statistics of only the columns that have numerical data. 
 All other columns are ignored, unless you use the argument `include='all'`.
