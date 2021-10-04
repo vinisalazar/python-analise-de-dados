@@ -34,6 +34,7 @@ def main():
     df.columns = anos
     df = df.T.dropna()
     df.index.name = "ANO"
+    df = df.drop("BRASIL", axis=1)
 
     # Exportar
     df.to_csv(sys.argv[2])
