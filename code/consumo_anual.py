@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 Formatar dados de consumo anual da EPE.
 
@@ -17,7 +18,7 @@ def main():
 
     # Obter dados de consumo
     consumos_idx = df[df["Unnamed: 0"] == "CONSUMO (GWh)"].index
-    consumos_idx = [range(i, i+6) for i in consumos_idx]
+    consumos_idx = [range(i, i + 6) for i in consumos_idx]
     consumos_idx = [item for sublist in consumos_idx for item in sublist]
 
     # Obter e formatar anos
