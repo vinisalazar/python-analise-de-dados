@@ -1,21 +1,21 @@
 ---
-title: "Plotting"
+title: "Plotando"
 teaching: 15
 exercises: 15
 questions:
-- "How can I plot my data?"
-- "How can I save my plot for publishing?"
+- "Como posso plotar meus dados?"
+- "Como posso salvar meus dados para publicação?"
 objectives:
-- "Create a time series plot showing a single data set."
-- "Create a scatter plot showing relationship between two data sets."
+- "Crie um plot de série temporal ilustrando um conjunto de dados."
+- "Crie um scatter plot para mostrar o relacionamento entre dois conjuntos de dados."
 keypoints:
-- "[`matplotlib`](https://matplotlib.org/) is the most widely used scientific plotting library in Python."
-- "Plot data directly from a Pandas dataframe."
-- "Select and transform data, then plot it."
-- "Many styles of plot are available: see the [Python Graph Gallery](https://python-graph-gallery.com/matplotlib/) for more options."
-- "Can plot many sets of data together."
+- "[`matplotlib`](https://matplotlib.org/) é a biblioteca de plotagem mais utilizada para o Python."
+- "Plote dados diretamente de um dataframe Pandas."
+- "Selecione e transforme os dados, e então plote-os."
+- "Muitos estilos de plot estão disponíveis: veja a [Python Graph Gallery](https://python-graph-gallery.com/matplotlib/) para mais opções."
+- "É possível plotar muitos conjuntos de dados juntos."
 ---
-## [`matplotlib`](https://matplotlib.org/) is the most widely used scientific plotting library in Python.
+## [`matplotlib`](https://matplotlib.org/) é a biblioteca de plotagem mais utilizada para o Python."
 
 *   Commonly use a sub-library called [`matplotlib.pyplot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot).
 *   The Jupyter Notebook will render plots inline by default.
@@ -57,7 +57,7 @@ plt.ylabel('Position (km)')
 >
 {: .callout}
 
-## Plot data directly from a [`Pandas dataframe`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html).
+## Plote dados diretamente de um dataframe Pandas.
 
 *   We can also plot [Pandas dataframes](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html).
 *   This implicitly uses [`matplotlib.pyplot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot).
@@ -85,7 +85,8 @@ data.loc['Australia'].plot()
 {: .language-python}
 
 ![GDP plot for Australia](../fig/9_gdp_australia.svg)
-## Select and transform data, then plot it.
+
+## Selecione e transforme os dados, e então plote-os.
 
 *   By default, [`DataFrame.plot`](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.plot.html#pandas.DataFrame.plot) plots with the rows as the X axis.
 *   We can transpose the data in order to plot multiple series.
@@ -97,8 +98,10 @@ plt.ylabel('GDP per capita')
 {: .language-python}
 
 ![GDP plot for Australia and New Zealand](../fig/9_gdp_australia_nz.svg)
-## Many styles of plot are available.
 
+## Muitos estilos de plot estão disponíveis
+
+* Veja a [Python Graph Gallery](https://python-graph-gallery.com/matplotlib/) para mais opções.
 *   For example, do a bar plot using a fancier style.
 
 ~~~
@@ -126,7 +129,7 @@ plt.plot(years, gdp_australia, 'g--')
 
 ![GDP formatted plot for Australia](../fig/9_gdp_australia_formatted.svg)
 
-## Can plot many sets of data together.
+## É possível plotar muitos conjuntos de dados juntos.
 
 ~~~
 # Select two countries' worth of data.
