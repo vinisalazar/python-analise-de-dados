@@ -3,22 +3,22 @@ title: "Pandas DataFrames"
 teaching: 15
 exercises: 15
 questions:
-- "How can I do statistical analysis of tabular data?"
+- "Como posso fazer a análise estatística de dados tabulares?"
 objectives:
-- "Select individual values from a Pandas dataframe."
-- "Select entire rows or entire columns from a dataframe."
-- "Select a subset of both rows and columns from a dataframe in a single operation."
-- "Select a subset of a dataframe by a single Boolean criterion."
+- "Selecionar valores individuais de um dataframe Pandas."
+- "Selecionar linhas inteiras ou colunas inteiras de um dataframe Pandas."
+- "Selecionar um subconjunto de colunas E linhas de um dataframe em uma única operação."
+- "Selecionar um subset do dataframe por um único critério Booleano (verdadeiro ou falso)."
 keypoints:
-- "Use `DataFrame.iloc[..., ...]` to select values by integer location."
-- "Use `:` on its own to mean all columns or all rows."
-- "Select multiple columns or rows using `DataFrame.loc` and a named slice."
-- "Result of slicing can be used in further operations."
-- "Use comparisons to select data based on value."
-- "Select values or NaN using a Boolean mask."
+- "Use `DataFrame.iloc[..., ...]` para selecionar os valores por uma posição de um inteiro."
+- "Use `:` para se referir a todas as colunas ou todas as linhas."
+- "Selecione múltiplas colunas ou linhas usando `DataFrame.loc` e uma fatia nomeada."
+- "O resultado de uma fatia pode ser usado em operações subsequentes."
+- "Use comparações para selecionar dados baseados em um valor."
+- "Selecionar valores ou NaN usando uma máscara Booleana (*Boolean mask*)."
 ---
 
-## Note about Pandas DataFrames/Series
+## Nota sobre Pandas DataFrame/Series
 
 A [DataFrame][pandas-dataframe] is a collection of [Series][pandas-series];
 The DataFrame is the way Pandas represents a table, and Series is the data-structure
@@ -39,7 +39,7 @@ Remember that a DataFrame provides an *index* as a way to identify the rows of t
 a row, then, has a *position* inside the table as well as a *label*, which
 uniquely identifies its *entry* in the DataFrame.
 
-## Use `DataFrame.iloc[..., ...]` to select values by their (entry) position
+## Use `DataFrame.iloc[..., ...]` para selecionar os valores por uma posição de um inteiro.
 
 *   Can specify location by numerical index analogously to 2D version of character selection in strings.
 
@@ -66,7 +66,8 @@ print(data.loc["Albania", "gdpPercap_1952"])
 1601.056136
 ~~~
 {: .output}
-## Use `:` on its own to mean all columns or all rows.
+
+## Use `:` para se referir a todas as colunas ou todas as linhas.
 
 *   Just like Python's usual slicing notation.
 
@@ -113,7 +114,7 @@ Name: gdpPercap_1952, dtype: float64
 *   Would get the same result printing `data["gdpPercap_1952"]`
 *   Also get the same result printing `data.gdpPercap_1952` (not recommended, because easily confused with `.` notation for methods)
 
-## Select multiple columns or rows using `DataFrame.loc` and a named slice.
+## Selecione múltiplas colunas ou linhas usando `DataFrame.loc` e uma fatia nomeada.
 
 ~~~
 print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'])
@@ -135,7 +136,7 @@ ends**, which differs from **slicing using `iloc`**, where slicing indicates
 everything up to but not including the final index. 
 
 
-## Result of slicing can be used in further operations.
+## O resultado de uma fatia pode ser usado em operações subsequentes.
 
 *   Usually don't just print a slice.
 *   All the statistical operators that work on entire dataframes
@@ -166,7 +167,7 @@ dtype: float64
 ~~~
 {: .output}
 
-## Use comparisons to select data based on value.
+## Use comparações para selecionar dados baseados em um valor.
 
 *   Comparison is applied element by element.
 *   Returns a similarly-shaped dataframe of `True` and `False`.
@@ -201,7 +202,7 @@ Poland               False          False          False
 ~~~
 {: .output}
 
-## Select values or NaN using a Boolean mask.
+## Selecionar valores ou NaN usando uma máscara Booleana (*Boolean mask*).
 
 *   A frame full of Booleans is sometimes called a *mask* because of how it can be used.
 
