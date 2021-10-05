@@ -11,6 +11,7 @@ objectives:
 - "Selecionar um subset do dataframe por um único critério Booleano (verdadeiro ou falso)."
 keypoints:
 - "Use `DataFrame.iloc[..., ...]` para selecionar os valores por uma posição de um inteiro."
+- "Use `DataFrame.loc[..., ...]` para selecionar valores por sua label."
 - "Use `:` para se referir a todas as colunas ou todas as linhas."
 - "Selecione múltiplas colunas ou linhas usando `DataFrame.loc` e uma fatia nomeada."
 - "O resultado de uma fatia pode ser usado em operações subsequentes."
@@ -35,16 +36,16 @@ between DataFrames.
 
 ## Nota sobre Pandas DataFrame/Series
 
-A [DataFrame][pandas-dataframe] is a collection of [Series][pandas-series];
-The DataFrame is the way Pandas represents a table, and Series is the data-structure
-Pandas use to represent a column.
+Um [DataFrame][pandas-dataframe] é uma coleção de [Series][pandas-series];
+O DataFrame é o jeito do Pandas de representar uma tabela, e uma Series (série) é a estrutura de dados
+que o Pandas usa para representar uma linha ou coluna.
 
-Pandas is built on top of the [Numpy][numpy] library, which in practice means that
-most of the methods defined for Numpy Arrays apply to Pandas Series/DataFrames.
+O Pandas é construído com base na biblioteca [NumPy][numpy], o que na prática significa que 
+a maioria dos métodos definidos para os Arrays NumPy se aplicam para Series/DataFrames Pandas.
 
-What makes Pandas so attractive is the powerful interface to access individual records
-of the table, proper handling of missing values, and relational-databases operations
-between DataFrames.
+O que torna Pandas tão atrativo é a interface poderosa para acessar registros individuais da tabela,
+lidar adequadamente com valores faltantes (*missing values*), e operações de banco de dados relacionais entre
+DataFrames.
 
 <!-- 
 ## Selecting values
@@ -56,13 +57,13 @@ a row, then, has a *position* inside the table as well as a *label*, which
 uniquely identifies its *entry* in the DataFrame.
  -->
 
-## Selecting values
+## Selecionando Valores
 
-To access a value at the position `[i,j]` of a DataFrame, we have two options, depending on
-what is the meaning of `i` in use.
-Remember that a DataFrame provides an *index* as a way to identify the rows of the table;
-a row, then, has a *position* inside the table as well as a *label*, which
-uniquely identifies its *entry* in the DataFrame.
+Para acessar um valor na posição `[i,j]` de um DataFrame, temos duas opções, dependendo de 
+qual é o significado do `i` em uso.
+Lembre-se que o DataFrame provê um **index** como uma forma de identificar as linhas da tabela;
+uma linha, portanto, tem uma **posição** dentro da tabela bem como um **label**, que 
+identifica unicamente aquela **entrada** no DataFrame.
 
 <!-- 
 ## Use `DataFrame.iloc[..., ...]` para selecionar os valores por uma posição de um inteiro.
@@ -72,7 +73,7 @@ uniquely identifies its *entry* in the DataFrame.
 ~~~
 import pandas as pd
 data = pd.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
-print(data.iloc[0, 0])
+print(df.iloc[0, 0])
 ~~~
 {: .language-python}
 ~~~
@@ -83,16 +84,15 @@ print(data.iloc[0, 0])
 
 ## Use `DataFrame.iloc[..., ...]` para selecionar os valores por uma posição de um inteiro.
 
-*   Can specify location by numerical index analogously to 2D version of character selection in strings.
+*   Pode especificar uma localidade por um index numérico, de forma analógica a uma versão 2D de seleção de caracteres em strings.
 
-~~~
+```python
 import pandas as pd
-data = pd.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
-print(data.iloc[0, 0])
+df = pd.read_csv("data/EPE/consumo_anual_energia_por_classe_1995-2018.csv", index_col="ANO")
+print(df.iloc[0, 0])
+```
 ~~~
-{: .language-python}
-~~~
-1601.056136
+63576.09392
 ~~~
 {: .output}
 
@@ -102,7 +102,7 @@ print(data.iloc[0, 0])
 *   Can specify location by row name analogously to 2D version of dictionary keys.
 
 ~~~
-print(data.loc["Albania", "gdpPercap_1952"])
+print(df.loc["Albania", "gdpPercap_1952"])
 ~~~
 {: .language-python}
 ~~~
@@ -111,16 +111,14 @@ print(data.loc["Albania", "gdpPercap_1952"])
 {: .output}
  -->
 
-## Use `DataFrame.loc[..., ...]` to select values by their (entry) label.
+## Use `DataFrame.loc[..., ...]` para selecionar valores por sua label.
 
-*   Can specify location by row name analogously to 2D version of dictionary keys.
+```python
+print(df.loc[1995, "INDUSTRIAL"])
+```
 
 ~~~
-print(data.loc["Albania", "gdpPercap_1952"])
-~~~
-{: .language-python}
-~~~
-1601.056136
+111626.16092999998
 ~~~
 {: .output}
 
@@ -130,7 +128,7 @@ print(data.loc["Albania", "gdpPercap_1952"])
 *   Just like Python's usual slicing notation.
 
 ~~~
-print(data.loc["Albania", :])
+print(df.loc["Albania", :])
 ~~~
 {: .language-python}
 ~~~
@@ -153,33 +151,25 @@ Name: Albania, dtype: float64
 
 ## Use `:` para se referir a todas as colunas ou todas as linhas.
 
-*   Just like Python's usual slicing notation.
+*   Assim como a notação de fatias do Python
 
 ~~~
-print(data.loc["Albania", :])
+print(df.loc[1995, :])
 ~~~
 {: .language-python}
 ~~~
-gdpPercap_1952    1601.056136
-gdpPercap_1957    1942.284244
-gdpPercap_1962    2312.888958
-gdpPercap_1967    2760.196931
-gdpPercap_1972    3313.422188
-gdpPercap_1977    3533.003910
-gdpPercap_1982    3630.880722
-gdpPercap_1987    3738.932735
-gdpPercap_1992    2497.437901
-gdpPercap_1997    3193.054604
-gdpPercap_2002    4604.211737
-gdpPercap_2007    5937.029526
-Name: Albania, dtype: float64
+RESIDENCIAL     63576.09392
+INDUSTRIAL     111626.16093
+COMERCIAL       32276.26017
+OUTROS          35595.69503
+Name: 1995, dtype: float64
 ~~~
 {: .output}
 <!-- 
-*   Would get the same result printing `data.loc["Albania"]` (without a second index).
+*   Would get the same result printing `df.loc["Albania"]` (without a second index).
 
 ~~~
-print(data.loc[:, "gdpPercap_1952"])
+print(df.loc[:, "gdpPercap_1952"])
 ~~~
 {: .language-python}
 ~~~
@@ -195,37 +185,55 @@ Name: gdpPercap_1952, dtype: float64
 ~~~
 {: .output}
 
-*   Would get the same result printing `data["gdpPercap_1952"]`
-*   Also get the same result printing `data.gdpPercap_1952` (not recommended, because easily confused with `.` notation for methods)
+*   Would get the same result printing `df["gdpPercap_1952"]`
+*   Also get the same result printing `df.gdpPercap_1952` (not recommended, because easily confused with `.` notation for methods)
  -->
 
-*   Would get the same result printing `data.loc["Albania"]` (without a second index).
+*   Teríamos o mesmo resultado imprimindo `df.loc[1995]` (sem um segundo index).
+
+```python
+print(df.loc[:, "INDUSTRIAL"])
+```
 
 ~~~
-print(data.loc[:, "gdpPercap_1952"])
-~~~
-{: .language-python}
-~~~
-country
-Albania                    1601.056136
-Austria                    6137.076492
-Belgium                    8343.105127
-⋮ ⋮ ⋮
-Switzerland               14734.232750
-Turkey                     1969.100980
-United Kingdom             9979.508487
-Name: gdpPercap_1952, dtype: float64
+ANO
+1995    111626.160930
+1996    117127.595430
+1997    121717.133000
+1998    121979.135500
+1999    123892.588420
+2000    131278.172050
+2001    122538.811220
+2002    130927.331740
+2003    136220.613000
+2004    156320.675381
+2005    159662.496549
+2006    163180.400829
+2007    174368.774000
+2008    175834.058410
+2009    161798.661500
+2010    179478.307300
+2011    183575.548000
+2012    183424.839240
+2013    184684.557000
+2014    179105.677880
+2015    169562.779620
+2016    165602.890200
+2017    167711.086710
+2018    170041.486550
+2019    167403.936870
+Name: INDUSTRIAL, dtype: float64
 ~~~
 {: .output}
 
-*   Would get the same result printing `data["gdpPercap_1952"]`
-*   Also get the same result printing `data.gdpPercap_1952` (not recommended, because easily confused with `.` notation for methods)
+*   Teria o mesmo resultado com `df["INDUSTRIAL"]`
+*   Também podemos ter o mesmo resultado com `df.INDUSTRIAL` (não recomendado, pois pode dar conflito com a notação de `.` para métodos.
 
 <!-- 
 ## Selecione múltiplas colunas ou linhas usando `DataFrame.loc` e uma fatia nomeada.
 
 ~~~
-print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'])
+print(df.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'])
 ~~~
 {: .language-python}
 ~~~
@@ -239,31 +247,33 @@ Poland          5338.752143     6557.152776     8006.506993
 ~~~
 {: .output}
 
-In the above code, we discover that **slicing using `loc` is inclusive at both
-ends**, which differs from **slicing using `iloc`**, where slicing indicates
+In the above code, we discover that **slicing usando `loc` is inclusive at both
+ends**, which differs from **slicing usando `iloc`**, where slicing indicates
 everything up to but not including the final index. 
  -->
 
 ## Selecione múltiplas colunas ou linhas usando `DataFrame.loc` e uma fatia nomeada.
 
+```python
+print(df.loc[1995: 2002, "INDUSTRIAL":"COMERCIAL"])
+```
+
 ~~~
-print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'])
-~~~
-{: .language-python}
-~~~
-             gdpPercap_1962  gdpPercap_1967  gdpPercap_1972
-country
-Italy           8243.582340    10022.401310    12269.273780
-Montenegro      4649.593785     5907.850937     7778.414017
-Netherlands    12790.849560    15363.251360    18794.745670
-Norway         13450.401510    16361.876470    18965.055510
-Poland          5338.752143     6557.152776     8006.506993
+        INDUSTRIAL    COMERCIAL
+ANO                            
+1995  111626.16093  32276.26017
+1996  117127.59543  34387.69450
+1997  121717.13300  38197.50400
+1998  121979.13550  41544.09420
+1999  123892.58842  43587.93405
+2000  131278.17205  47626.19304
+2001  122538.81122  44433.62070
+2002  130927.33174  45221.51735
 ~~~
 {: .output}
 
-In the above code, we discover that **slicing using `loc` is inclusive at both
-ends**, which differs from **slicing using `iloc`**, where slicing indicates
-everything up to but not including the final index. 
+No código acima, descobrimos que **fatias usando `loc` são inclusivas em ambas extremidades**, diferente de **fatias usando `iloc`**, aonde a fatia indica
+tudo até mas sem incluir o último index. 
 
 <!-- 
 ## O resultado de uma fatia pode ser usado em operações subsequentes.
@@ -274,7 +284,7 @@ everything up to but not including the final index.
 *   E.g., calculate max of a slice.
 
 ~~~
-print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].max())
+print(df.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].max())
 ~~~
 {: .language-python}
 ~~~
@@ -286,7 +296,7 @@ dtype: float64
 {: .output}
 
 ~~~
-print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].min())
+print(df.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].min())
 ~~~
 {: .language-python}
 ~~~
@@ -300,34 +310,31 @@ dtype: float64
 
 ## O resultado de uma fatia pode ser usado em operações subsequentes.
 
-*   Usually don't just print a slice.
-*   All the statistical operators that work on entire dataframes
-    work the same way on slices.
-*   E.g., calculate max of a slice.
+*   Normalmente não fazemos somente a impressão de uma fatia.
+*   Todos os operadores estatísticos que atuam no DataFrame 
+    funcionam da mesma forma em fatias.
+*   E.g., calcular o máximo de uma fatia.
 
+```python
+print(df.loc[1995: 2002, "INDUSTRIAL":"COMERCIAL"].max())
+```
 ~~~
-print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].max())
-~~~
-{: .language-python}
-~~~
-gdpPercap_1962    13450.40151
-gdpPercap_1967    16361.87647
-gdpPercap_1972    18965.05551
+INDUSTRIAL    131278.17205
+COMERCIAL      47626.19304
 dtype: float64
 ~~~
 {: .output}
 
+```python
+print(df.loc[1995: 2002, "INDUSTRIAL":"COMERCIAL"].min())
+```
 ~~~
-print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].min())
-~~~
-{: .language-python}
-~~~
-gdpPercap_1962    4649.593785
-gdpPercap_1967    5907.850937
-gdpPercap_1972    7778.414017
+INDUSTRIAL    111626.16093
+COMERCIAL      32276.26017
 dtype: float64
 ~~~
 {: .output}
+
 
 <!-- 
 ## Use comparações para selecionar dados baseados em um valor.
@@ -337,7 +344,7 @@ dtype: float64
 
 ~~~
 # Use a subset of data to keep output readable.
-subset = data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972']
+subset = df.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972']
 print('Subset of data:\n', subset)
 
 # Which values were greater than 10000 ?
@@ -368,36 +375,42 @@ Poland               False          False          False
 
 ## Use comparações para selecionar dados baseados em um valor.
 
-*   Comparison is applied element by element.
-*   Returns a similarly-shaped dataframe of `True` and `False`.
+*   A comparação é aplicada elemento por elemento.
+*   Retorna um DataFrame com o mesmo shape, mas de `True` e `False`.
 
 ~~~
-# Use a subset of data to keep output readable.
-subset = data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972']
-print('Subset of data:\n', subset)
+# Use um subset de dados para manter os dados legíveis
+subset = df.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972']
+print('Subset de dados:\n', subset)
 
-# Which values were greater than 10000 ?
-print('\nWhere are values large?\n', subset > 10000)
+# Que valores são maiores que 100000 ?
+print('\nQue valores são grandes?\n', subset > 100000)
 ~~~
 {: .language-python}
 ~~~
-Subset of data:
-             gdpPercap_1962  gdpPercap_1967  gdpPercap_1972
-country
-Italy           8243.582340    10022.401310    12269.273780
-Montenegro      4649.593785     5907.850937     7778.414017
-Netherlands    12790.849560    15363.251360    18794.745670
-Norway         13450.401510    16361.876470    18965.055510
-Poland          5338.752143     6557.152776     8006.506993
+Subset de dados:
+        INDUSTRIAL    COMERCIAL
+ANO                            
+1995  111626.16093  32276.26017
+1996  117127.59543  34387.69450
+1997  121717.13300  38197.50400
+1998  121979.13550  41544.09420
+1999  123892.58842  43587.93405
+2000  131278.17205  47626.19304
+2001  122538.81122  44433.62070
+2002  130927.33174  45221.51735
 
-Where are values large?
-            gdpPercap_1962 gdpPercap_1967 gdpPercap_1972
-country
-Italy                False           True           True
-Montenegro           False          False          False
-Netherlands           True           True           True
-Norway                True           True           True
-Poland               False          False          False
+Que valores são grandes?
+      INDUSTRIAL  COMERCIAL
+ANO                        
+1995        True      False
+1996        True      False
+1997        True      False
+1998        True      False
+1999        True      False
+2000        True      False
+2001        True      False
+2002        True      False
 ~~~
 {: .output}
 
@@ -445,41 +458,44 @@ max      13450.401510    16361.876470    18965.055510
 
 ## Selecionar valores ou NaN usando uma máscara Booleana (*Boolean mask*).
 
-*   A frame full of Booleans is sometimes called a *mask* because of how it can be used.
+*   Um frame cheio de valores Booleanos também é chamado de *mask* por causa de como pode ser usado:
+
+```python
+mask = subset > 100000
+print(subset[mask])
+```
 
 ~~~
-mask = subset > 10000
-print(subset[mask])
-~~~
-{: .language-python}
-~~~
-             gdpPercap_1962  gdpPercap_1967  gdpPercap_1972
-country
-Italy                   NaN     10022.40131     12269.27378
-Montenegro              NaN             NaN             NaN
-Netherlands     12790.84956     15363.25136     18794.74567
-Norway          13450.40151     16361.87647     18965.05551
-Poland                  NaN             NaN             NaN
+	INDUSTRIAL	COMERCIAL
+ANO		
+1995	111626.16093	NaN
+1996	117127.59543	NaN
+1997	121717.13300	NaN
+1998	121979.13550	NaN
+1999	123892.58842	NaN
+2000	131278.17205	NaN
+2001	122538.81122	NaN
+2002	130927.33174	NaN
 ~~~
 {: .output}
 
-*   Get the value where the mask is true, and NaN (Not a Number) where it is false.
-*   Useful because NaNs are ignored by operations like max, min, average, etc.
+*   Retorna o valor aonde a condição é verdadeira, e NaN (*Not a Number*) aonde é falsa.
+*   Útil por que NaNs são ignorados por operações como max, min, average, etc.
+
+```python
+print(subset[subset > 100000].describe())
+```
 
 ~~~
-print(subset[subset > 10000].describe())
-~~~
-{: .language-python}
-~~~
-       gdpPercap_1962  gdpPercap_1967  gdpPercap_1972
-count        2.000000        3.000000        3.000000
-mean     13120.625535    13915.843047    16676.358320
-std        466.373656     3408.589070     3817.597015
-min      12790.849560    10022.401310    12269.273780
-25%      12955.737547    12692.826335    15532.009725
-50%      13120.625535    15363.251360    18794.745670
-75%      13285.513523    15862.563915    18879.900590
-max      13450.401510    16361.876470    18965.055510
+          INDUSTRIAL  COMERCIAL
+count       8.000000        0.0
+mean   122635.866036        NaN
+std      6523.108861        NaN
+min    111626.160930        NaN
+25%    120569.748608        NaN
+50%    122258.973360        NaN
+75%    125651.274250        NaN
+max    131278.172050        NaN
 ~~~
 {: .output}
 
@@ -487,7 +503,7 @@ max      13450.401510    16361.876470    18965.055510
 ## Group By: split-apply-combine
 
 Pandas vectorizing methods and grouping operations are features that provide users 
-much flexibility to analyse their data.
+much flexibility to analyse their df.
 
 For instance, let's say we want to have a clearer view on how the European countries 
 split themselves according to their GDP.
@@ -498,8 +514,8 @@ split themselves according to their GDP.
     where we account how many times a country has participated in the groups of *lower* or *higher* GDP
 
 ~~~
-mask_higher = data > data.mean()
-wealth_score = mask_higher.aggregate('sum', axis=1) / len(data.columns)
+mask_higher = data > df.mean()
+wealth_score = mask_higher.aggregate('sum', axis=1) / len(df.columns)
 wealth_score
 ~~~
 {: .language-python}
@@ -540,10 +556,10 @@ dtype: float64
 {: .output}
 
 Finally, for each group in the `wealth_score` table, we sum their (financial) contribution
-across the years surveyed using chained methods:
+across the years surveyed usando chained methods:
 
 ~~~
-data.groupby(wealth_score).sum()
+df.groupby(wealth_score).sum()
 ~~~
 {: .language-python}
 ~~~
@@ -567,10 +583,10 @@ data.groupby(wealth_score).sum()
 ~~~
 {: .output}
  -->
-## Group By: split-apply-combine
+<!-- 
+## Group By: divide-aplique-combine
 
-Pandas vectorizing methods and grouping operations are features that provide users 
-much flexibility to analyse their data.
+Os métodos de vetorização e operações de agregação do Pandas são funcionalidades que provém os usuários de muita flexibilidade para analisar seu DataFrame.
 
 For instance, let's say we want to have a clearer view on how the European countries 
 split themselves according to their GDP.
@@ -581,8 +597,8 @@ split themselves according to their GDP.
     where we account how many times a country has participated in the groups of *lower* or *higher* GDP
 
 ~~~
-mask_higher = data > data.mean()
-wealth_score = mask_higher.aggregate('sum', axis=1) / len(data.columns)
+mask_higher = data > df.mean()
+wealth_score = mask_higher.aggregate('sum', axis=1) / len(df.columns)
 wealth_score
 ~~~
 {: .language-python}
@@ -623,10 +639,10 @@ dtype: float64
 {: .output}
 
 Finally, for each group in the `wealth_score` table, we sum their (financial) contribution
-across the years surveyed using chained methods:
+across the years surveyed usando chained methods:
 
 ~~~
-data.groupby(wealth_score).sum()
+df.groupby(wealth_score).sum()
 ~~~
 {: .language-python}
 ~~~
@@ -649,72 +665,58 @@ data.groupby(wealth_score).sum()
 1.000000   315238.235970   346930.926170   385109.939210   427850.333420
 ~~~
 {: .output}
+ -->
 
-
-> ## Selection of Individual Values
+> ## Seleção de Valores Individuais
 >
-> Assume Pandas has been imported into your notebook
-> and the Gapminder GDP data for Europe has been loaded:
+> Escreva uma expressão para os seguintes valores:
 >
-> ~~~
-> import pandas as pd
->
-> df = pd.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
-> ~~~
-> {: .language-python}
->
-> Write an expression to find the Per Capita GDP of Serbia in 2007.
-> > ## Solution
-> > The selection can be done by using the labels for both the row ("Serbia") and the column ("gdpPercap_2007"):
-> > ~~~
-> > print(df.loc['Serbia', 'gdpPercap_2007'])
-> > ~~~
-> > {: .language-python}
-> > The output is
-> > ~~~
-> > 9786.534714
-> > ~~~
-> >{: .output}
+> 1. Consumo do setor 'Industrial' em 2002.
+> 2. Consumo do setor 'Comercial' durante 2000-2010.
+> 3. Consumo dos setores 'Residencial' e 'Outros' no ano 2000.
+> 4. Consumo do setor 'Outros' em todos os anos.
+> 
+> > ## Solução
+> > 1. `df.loc[2002, "Industrial"]`
+> > 2. `df.loc[2000:2010, "Comercial"]`
+> > 3. `df.loc[2000, ["Residencial", "Outros"]]`
+> > 4. `df["Outros"]` ou `df.loc[:, "Outros"]`
 > {: .solution}
 {: .challenge}
 
-> ## Extent of Slicing
+> ## Extensão de uma Fatia
 >
-> 1.  Do the two statements below produce the same output?
-> 2.  Based on this,
->     what rule governs what is included (or not) in numerical slices and named slices in Pandas?
+> 1.  As duas declarações abaixo imprimem a mesma coisa?
+> 2.  Baseado nisso, que regra governa o que é incluído (ou não) em fatias numéricas e nomeadas no Pandas?
 > 
 > ~~~
 > print(df.iloc[0:2, 0:2])
-> print(df.loc['Albania':'Belgium', 'gdpPercap_1952':'gdpPercap_1962'])
+> print(df.loc[1995:1997, "RESIDENCIAL":"COMERCIAL"])
 > ~~~
 > {: .language-python}
 > 
-> > ## Solution
-> > No, they do not produce the same output! The output of the first statement is:
+> > ## Solução
+> > Não, não produzem a mesma saída. A primeira declaração imprime:
 > > ~~~
-> >         gdpPercap_1952  gdpPercap_1957
-> > country                                
-> > Albania     1601.056136     1942.284244
-> > Austria     6137.076492     8842.598030
-> > ~~~
-> >{: .output}
-> > The second statement gives:
-> > ~~~
-> >         gdpPercap_1952  gdpPercap_1957  gdpPercap_1962
-> > country                                                
-> > Albania     1601.056136     1942.284244     2312.888958
-> > Austria     6137.076492     8842.598030    10750.721110
-> > Belgium     8343.105127     9714.960623    10991.206760
+> >       RESIDENCIAL    INDUSTRIAL
+> > ANO                            
+> > 1995  63576.09392  111626.16093
+> > 1996  68581.28330  117127.59543
 > > ~~~
 > >{: .output}
-> > Clearly, the second statement produces an additional column and an additional row compared to the first statement.  
-> > What conclusion can we draw? We see that a numerical slice, 0:2, *omits* the final index (i.e. index 2)
-> > in the range provided,
-> > while a named slice, 'gdpPercap_1952':'gdpPercap_1962', *includes* the final element.
+> > E a segunda imprime:
+> > ~~~
+> >       RESIDENCIAL    INDUSTRIAL    COMERCIAL
+> > ANO                                         
+> > 1995  63576.09392  111626.16093  32276.26017
+> > 1996  68581.28330  117127.59543  34387.69450
+> > 1997  74089.15430  121717.13300  38197.50400
+> > ~~~
+> >{: .output}
+> > A fatia com `iloc` **omite** o valor do fim, enquanto a com `loc` **inclui** o valor do fim.
 > {: .solution}
 {: .challenge}
-
+<!-- 
 > ## Reconstructing Data
 >
 > Explain what each line in the following short program does:
@@ -769,27 +771,28 @@ data.groupby(wealth_score).sum()
 > > file will be written in the directory from which you started the Jupyter or Python session.
 > {: .solution}
 {: .challenge}
+ -->
 
-> ## Selecting Indices
+> ## Selecionando Índices
 >
-> Explain in simple terms what `idxmin` and `idxmax` do in the short program below.
-> When would you use these methods?
+> Explique em termos simples o que `idxmin` e `idxmax` fazem no programa abaixo.
+> Quando usaríamos esses métodos?
 >
 > ~~~
-> data = pd.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
-> print(data.idxmin())
-> print(data.idxmax())
+> df = pd.read_csv("../data/EPE/consumo_anual_energia_por_classe_1995-2018.csv", index_col="ANO")
+> print(df.idxmin())
+> print(df.idxmax())
 > ~~~
 > {: .language-python}
 >
-> > ## Solution
-> > For each column in `data`, `idxmin` will return the index value corresponding to each column's minimum;
-> > `idxmax` will do accordingly the same for each column's maximum value.
+> > ## Solução
+> > Para cada coluna em `df`, `idxmin` vai retornar o index correspondo ao valor mínimo da coluna.
+> > `idxmax` vai fazer o mesmo, mas com o valor máximo.
 > >
-> > You can use these functions whenever you want to get the row index of the minimum/maximum value and not the actual minimum/maximum value.
+> > Podemos usar essas funções sempre que quisermos pegar o index da linha do valor mínimo/máximo e não o valor mínimo/máximo em si.
 > {: .solution}
 {: .challenge}
-
+<!-- 
 > ## Practice with Selection
 >
 > Assume Pandas has been imported and the Gapminder GDP data for Europe has been loaded.
@@ -804,192 +807,191 @@ data.groupby(wealth_score).sum()
 > > ## Solution
 > > 1:
 > > ~~~
-> > data['gdpPercap_1982']
+> > df['gdpPercap_1982']
 > > ~~~
 > > {: .language-python}
 > >
 > > 2:
 > > ~~~
-> > data.loc['Denmark',:]
+> > df.loc['Denmark',:]
 > > ~~~
 > > {: .language-python}
 > >
 > > 3:
 > > ~~~
-> > data.loc[:,'gdpPercap_1985':]
+> > df.loc[:,'gdpPercap_1985':]
 > > ~~~
 > > {: .language-python}
 > > Pandas is smart enough to recognize the number at the end of the column label and does not give you an error, although no column named `gdpPercap_1985` actually exists. This is useful if new columns are added to the CSV file later.
 > >
 > > 4:
 > > ~~~
-> > data['gdpPercap_2007']/data['gdpPercap_1952']
+> > df['gdpPercap_2007']/df['gdpPercap_1952']
 > > ~~~
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
+ -->
 
-> ## Many Ways of Access
+> ## Muitas Formas de Acesso
 >
-> There are at least two ways of accessing a value or slice of a DataFrame: by name or index.
-> However, there are many others. For example, a single column or row can be accessed either as a `DataFrame`
-> or a `Series` object.
+> Existem pelo menos duas formas de acessar um valor ou fatia de um DataFrame: por nome ou por index (posição).
+> No entanto, existem muitas outras. Por exemplo, uma única coluna ou linha pode ser acessada tanto como `DataFrame` quanto
+> como um objeto do tipo `Series`.
 >
-> Suggest different ways of doing the following operations on a DataFrame:
-> 1. Access a single column
-> 2. Access a single row
-> 3. Access an individual DataFrame element
-> 4. Access several columns
-> 5. Access several rows
-> 6. Access a subset of specific rows and columns
-> 7. Access a subset of row and column ranges
+> Sugira diferentes formas de fazer o seguinte:
+> 1. Acessar uma única coluna
+> 2. Acessar uma única linha
+> 3. Acessar um elemento individual do DataFrame
+> 4. Acessar muitas colunas
+> 5. Acessar muitas linhas
+> 6. Acessar um subset de linhas e colunas específicas
+> 7. Acessar um subset de intervalos específicos de linhas e colunas
 >
-{: .challenge}
->
-> > ## Solution
-> > 1\. Access a single column:
+> > ## Solução
+> > 1\. Acessar uma única coluna
 > > ~~~
-> > # by name
-> > data["col_name"]   # as a Series
-> > data[["col_name"]] # as a DataFrame
+> > # por nome
+> > df["nome_coluna"]   # como Series
+> > df[["nome_coluna"]] # como DataFrame
 > >
-> > # by name using .loc
-> > data.T.loc["col_name"]  # as a Series
-> > data.T.loc[["col_name"]].T  # as a DataFrame
+> > # por nome usando .loc
+> > df.T.loc["nome_coluna"]  # como Series
+> > df.T.loc[["nome_coluna"]].T  # como DataFrame
 > >
-> > # Dot notation (Series)
-> > data.col_name
+> > # notação de ponto (Series)
+> > df.nome_coluna
 > >
-> > # by index (iloc)
-> > data.iloc[:, col_index]   # as a Series
-> > data.iloc[:, [col_index]] # as a DataFrame
+> > # por index (iloc)
+> > df.iloc[:, col_index]   # como Series
+> > df.iloc[:, [col_index]] # como DataFrame
 > >
-> > # using a mask
-> > data.T[data.T.index == "col_name"].T
+> > # usando a mask
+> > df.T[df.T.index == "nome_coluna"].T
 > > ~~~
 > > {: .language-python}
 > >
-> > 2\. Access a single row:
+> > 2\. Acessar uma única linha
 > > ~~~
-> > # by name using .loc
-> > data.loc["row_name"] # as a Series
-> > data.loc[["row_name"]] # as a DataFrame
+> > # por nome usando .loc
+> > df.loc["nome_linha"] # como Series
+> > df.loc[["nome_linha"]] # como DataFrame
 > >
-> > # by name
-> > data.T["row_name"] # as a Series
-> > data.T[["row_name"]].T as a DataFrame
+> > # por nome
+> > df.T["nome_linha"] # como Series
+> > df.T[["nome_linha"]].T como DataFrame
 > >
-> > # by index
-> > data.iloc[row_index]   # as a Series
-> > data.iloc[[row_index]]   # as a DataFrame
+> > # por index
+> > df.iloc[row_index]   # como Series
+> > df.iloc[[row_index]]   # como DataFrame
 > >
-> > # using mask
-> > data[data.index == "row_name"]
+> > # usando mask
+> > df[df.index == "nome_linha"]
 > > ~~~
 > > {: .language-python}
 > >
-> > 3\. Access an individual DataFrame element:
+> > 3\. Acessar um elemento individual do DataFrame
 > > ~~~
-> > # by column/row names
-> > data["column_name"]["row_name"]         # as a Series
+> > # por nome de linha/coluna
+> > df["nome_coluna"]["nome_linha"]         # como Series
 > >
-> > data[["col_name"]].loc["row_name"]  # as a Series
-> > data[["col_name"]].loc[["row_name"]]  # as a DataFrame
+> > df[["nome_coluna"]].loc["nome_linha"]  # como Series
+> > df[["nome_coluna"]].loc[["nome_linha"]]  # como DataFrame
 > >
-> > data.loc["row_name"]["col_name"]  # as a value
-> > data.loc[["row_name"]]["col_name"]  # as a Series
-> > data.loc[["row_name"]][["col_name"]]  # as a DataFrame
+> > df.loc["nome_linha"]["nome_coluna"]  # como um valor
+> > df.loc[["nome_linha"]]["nome_coluna"]  # como Series
+> > df.loc[["nome_linha"]][["nome_coluna"]]  # como DataFrame
 > >
-> > data.loc["row_name", "col_name"]  # as a value
-> > data.loc[["row_name"], "col_name"]  # as a Series. Preserves index. Column name is moved to `.name`.
-> > data.loc["row_name", ["col_name"]]  # as a Series. Index is moved to `.name.` Sets index to column name.
-> > data.loc[["row_name"], ["col_name"]]  # as a DataFrame (preserves original index and column name)
+> > df.loc["nome_linha", "nome_coluna"]  # como um valor
+> > df.loc[["nome_linha"], "nome_coluna"]  # como Series.
+> > df.loc["nome_linha", ["nome_coluna"]]  # como Series.
+> > df.loc[["nome_linha"], ["nome_coluna"]]  # como DataFrame
 > >
-> > # by column/row names: Dot notation
-> > data.col_name.row_name
+> > # por nome de linha/coluna: notação de ponto
+> > df.nome_coluna.nome_linha
 > >
-> > # by column/row indices
-> > data.iloc[row_index, col_index] # as a value
-> > data.iloc[[row_index], col_index] # as a Series. Preserves index. Column name is moved to `.name`
-> > data.iloc[row_index, [col_index]] # as a Series. Index is moved to `.name.` Sets index to column name.
-> > data.iloc[[row_index], [col_index]] # as a DataFrame (preserves original index and column name)
+> > # por index de linha/coluna
+> > df.iloc[row_index, col_index] # como um valor
+> > df.iloc[[row_index], col_index] # como Series.
+> > df.iloc[row_index, [col_index]] # como Series.
+> > df.iloc[[row_index], [col_index]] # como DataFrame
 > >
 > > # column name + row index
-> > data["col_name"][row_index]
-> > data.col_name[row_index]
-> > data["col_name"].iloc[row_index]
+> > df["nome_coluna"][row_index]
+> > df.nome_coluna[row_index]
+> > df["nome_coluna"].iloc[row_index]
 > >
 > > # column index + row name
-> > data.iloc[:, [col_index]].loc["row_name"]  # as a Series
-> > data.iloc[:, [col_index]].loc[["row_name"]]  # as a DataFrame
+> > df.iloc[:, [col_index]].loc["nome_linha"]  # como Series
+> > df.iloc[:, [col_index]].loc[["nome_linha"]]  # como DataFrame
 > >
-> > # using masks
-> > data[data.index == "row_name"].T[data.T.index == "col_name"].T
+> > # usando masks
+> > df[df.index == "nome_linha"].T[df.T.index == "nome_coluna"].T
 > > ~~~
 > > {: .language-python}
-> > 4\. Access several columns:
+> > 4\. Acessar muitas colunas
 > > ~~~
-> > # by name
-> > data[["col1", "col2", "col3"]]
-> > data.loc[:, ["col1", "col2", "col3"]]
+> > # por nome
+> > df[["col1", "col2", "col3"]]
+> > df.loc[:, ["col1", "col2", "col3"]]
 > >
-> > # by index
-> > data.iloc[:, [col1_index, col2_index, col3_index]]
+> > # por index
+> > df.iloc[:, [col1_index, col2_index, col3_index]]
 > > ~~~
 > > {: .language-python}
-> > 5\. Access several rows
+> > 5\. Acessar muitas linhas
 > > ~~~
-> > # by name
-> > data.loc[["row1", "row2", "row3"]]
+> > # por nome
+> > df.loc[["row1", "row2", "row3"]]
 > >
-> > # by index
-> > data.iloc[[row1_index, row2_index, row3_index]]
+> > # por index
+> > df.iloc[[row1_index, row2_index, row3_index]]
 > > ~~~
 > > {: .language-python}
-> > 6\. Access a subset of specific rows and columns
+> > 6\. Acessar um subset de linhas e colunas específicas
 > > ~~~
-> > # by names
-> > data.loc[["row1", "row2", "row3"], ["col1", "col2", "col3"]]
+> > # por nomes
+> > df.loc[["row1", "row2", "row3"], ["col1", "col2", "col3"]]
 > >
 > > # by indices
-> > data.iloc[[row1_index, row2_index, row3_index], [col1_index, col2_index, col3_index]]
+> > df.iloc[[row1_index, row2_index, row3_index], [col1_index, col2_index, col3_index]]
 > >
 > > # column names + row indices
-> > data[["col1", "col2", "col3"]].iloc[[row1_index, row2_index, row3_index]]
+> > df[["col1", "col2", "col3"]].iloc[[row1_index, row2_index, row3_index]]
 > >
 > > # column indices + row names
-> > data.iloc[:, [col1_index, col2_index, col3_index]].loc[["row1", "row2", "row3"]]
+> > df.iloc[:, [col1_index, col2_index, col3_index]].loc[["row1", "row2", "row3"]]
 > > ~~~
 > > {: .language-python}
-> > 7\. Access a subset of row and column ranges
+> > 7\. Acessar um subset de intervalos específicos de linhas e colunas
 > > ~~~
-> > # by name
-> > data.loc["row1":"row2", "col1":"col2"]
+> > # por nome
+> > df.loc["row1":"row2", "col1":"col2"]
 > >
-> > # by index
-> > data.iloc[row1_index:row2_index, col1_index:col2_index]
+> > # por index
+> > df.iloc[row1_index:row2_index, col1_index:col2_index]
 > >
 > > # column names + row indices
-> > data.loc[:, "col1_name":"col2_name"].iloc[row1_index:row2_index]
+> > df.loc[:, "col1_name":"col2_name"].iloc[row1_index:row2_index]
 > >
 > > # column indices + row names
-> > data.iloc[:, col1_index:col2_index].loc["row1":"row2"]
+> > df.iloc[:, col1_index:col2_index].loc["row1":"row2"]
 > > ~~~
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
 
-> ## Exploring available methods using the `dir()` function
+> ## Explorando métodos disponíveis usando a função `dir()`
 >
-> Python includes a `dir()` function that can be used to display all of the available methods (functions) that are built into a data object.  In Episode 4, we used some methods with a string. But we can see many more are available by using `dir()`:
+> Python inclui a função `dir()` que pode ser usada para mostrar todos os métodos (funções) disponíveis em um dado objeto. Já usamos alguns métodos com as strings e listas. Podemos ver que existem muitos métodos de string usando `dir()`:
 >
 > ~~~
-> my_string = 'Hello world!'   # creation of a string object 
-> dir(my_string)
+> minha_string = "Olá Mundo!"
+> dir(minha_string)
 > ~~~
 > {: .language-python}
 >
-> This command returns:
+> Esse comando retorna:
 >
 > ~~~
 > ['__add__',
@@ -1004,30 +1006,19 @@ data.groupby(wealth_score).sum()
 > ~~~
 > {: .language-python}
 >
-> You can use `help()` or <kbd>Shift</kbd>+<kbd>Tab</kbd> to get more information about what these methods do.
+> Você pode usar o `help()` ou <kbd>Shift</kbd>+<kbd>Tab</kbd> para obter mais informações sobre o que esses métodos fazem.
 >
-> Assume Pandas has been imported and the Gapminder GDP data for Europe has been loaded as `data`.  Then, use `dir()` 
-> to find the function that prints out the median per-capita GDP across all European countries for each year that information is available.
->
-> > ## Solution
-> > Among many choices, `dir()` lists the `median()` function as a possibility.  Thus,
+> Use o `dir` para encontrar o método que traz o valor da mediana para as colunas do DataFrame.
+> 
+> > ## Solução
+> > Podemos ver que existe um método `median` no DataFrame, então podemos rodar:
 > > ~~~
-> > data.median()
+> > df.median()
 > > ~~~
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
 
-
-> ## Interpretation
->
-> Poland's borders have been stable since 1945,
-> but changed several times in the years before then.
-> How would you handle this if you were creating a table of GDP per capita for Poland
-> for the entire twentieth century?
-{: .challenge}
-
-
-[pandas-dataframe]: https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html
-[pandas-series]: https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html
+[pandas-dataframe]: https://pandas.pydf.org/pandas-docs/stable/generated/pandas.DataFrame.html
+[pandas-series]: https://pandas.pydf.org/pandas-docs/stable/generated/pandas.Series.html
 [numpy]: http://www.numpy.org/
