@@ -18,6 +18,21 @@ keypoints:
 - "Selecionar valores ou NaN usando uma máscara Booleana (*Boolean mask*)."
 ---
 
+<!-- 
+## Nota sobre Pandas DataFrame/Series
+
+A [DataFrame][pandas-dataframe] is a collection of [Series][pandas-series];
+The DataFrame is the way Pandas represents a table, and Series is the data-structure
+Pandas use to represent a column.
+
+Pandas is built on top of the [Numpy][numpy] library, which in practice means that
+most of the methods defined for Numpy Arrays apply to Pandas Series/DataFrames.
+
+What makes Pandas so attractive is the powerful interface to access individual records
+of the table, proper handling of missing values, and relational-databases operations
+between DataFrames.
+ -->
+
 ## Nota sobre Pandas DataFrame/Series
 
 A [DataFrame][pandas-dataframe] is a collection of [Series][pandas-series];
@@ -31,6 +46,7 @@ What makes Pandas so attractive is the powerful interface to access individual r
 of the table, proper handling of missing values, and relational-databases operations
 between DataFrames.
 
+<!-- 
 ## Selecting values
 
 To access a value at the position `[i,j]` of a DataFrame, we have two options, depending on
@@ -38,6 +54,32 @@ what is the meaning of `i` in use.
 Remember that a DataFrame provides an *index* as a way to identify the rows of the table;
 a row, then, has a *position* inside the table as well as a *label*, which
 uniquely identifies its *entry* in the DataFrame.
+ -->
+
+## Selecting values
+
+To access a value at the position `[i,j]` of a DataFrame, we have two options, depending on
+what is the meaning of `i` in use.
+Remember that a DataFrame provides an *index* as a way to identify the rows of the table;
+a row, then, has a *position* inside the table as well as a *label*, which
+uniquely identifies its *entry* in the DataFrame.
+
+<!-- 
+## Use `DataFrame.iloc[..., ...]` para selecionar os valores por uma posição de um inteiro.
+
+*   Can specify location by numerical index analogously to 2D version of character selection in strings.
+
+~~~
+import pandas as pd
+data = pd.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
+print(data.iloc[0, 0])
+~~~
+{: .language-python}
+~~~
+1601.056136
+~~~
+{: .output}
+ -->
 
 ## Use `DataFrame.iloc[..., ...]` para selecionar os valores por uma posição de um inteiro.
 
@@ -54,6 +96,7 @@ print(data.iloc[0, 0])
 ~~~
 {: .output}
 
+<!-- 
 ## Use `DataFrame.loc[..., ...]` to select values by their (entry) label.
 
 *   Can specify location by row name analogously to 2D version of dictionary keys.
@@ -66,6 +109,47 @@ print(data.loc["Albania", "gdpPercap_1952"])
 1601.056136
 ~~~
 {: .output}
+ -->
+
+## Use `DataFrame.loc[..., ...]` to select values by their (entry) label.
+
+*   Can specify location by row name analogously to 2D version of dictionary keys.
+
+~~~
+print(data.loc["Albania", "gdpPercap_1952"])
+~~~
+{: .language-python}
+~~~
+1601.056136
+~~~
+{: .output}
+
+<!-- 
+## Use `:` para se referir a todas as colunas ou todas as linhas.
+
+*   Just like Python's usual slicing notation.
+
+~~~
+print(data.loc["Albania", :])
+~~~
+{: .language-python}
+~~~
+gdpPercap_1952    1601.056136
+gdpPercap_1957    1942.284244
+gdpPercap_1962    2312.888958
+gdpPercap_1967    2760.196931
+gdpPercap_1972    3313.422188
+gdpPercap_1977    3533.003910
+gdpPercap_1982    3630.880722
+gdpPercap_1987    3738.932735
+gdpPercap_1992    2497.437901
+gdpPercap_1997    3193.054604
+gdpPercap_2002    4604.211737
+gdpPercap_2007    5937.029526
+Name: Albania, dtype: float64
+~~~
+{: .output}
+ -->
 
 ## Use `:` para se referir a todas as colunas ou todas as linhas.
 
@@ -91,6 +175,29 @@ gdpPercap_2007    5937.029526
 Name: Albania, dtype: float64
 ~~~
 {: .output}
+<!-- 
+*   Would get the same result printing `data.loc["Albania"]` (without a second index).
+
+~~~
+print(data.loc[:, "gdpPercap_1952"])
+~~~
+{: .language-python}
+~~~
+country
+Albania                    1601.056136
+Austria                    6137.076492
+Belgium                    8343.105127
+⋮ ⋮ ⋮
+Switzerland               14734.232750
+Turkey                     1969.100980
+United Kingdom             9979.508487
+Name: gdpPercap_1952, dtype: float64
+~~~
+{: .output}
+
+*   Would get the same result printing `data["gdpPercap_1952"]`
+*   Also get the same result printing `data.gdpPercap_1952` (not recommended, because easily confused with `.` notation for methods)
+ -->
 
 *   Would get the same result printing `data.loc["Albania"]` (without a second index).
 
@@ -114,6 +221,29 @@ Name: gdpPercap_1952, dtype: float64
 *   Would get the same result printing `data["gdpPercap_1952"]`
 *   Also get the same result printing `data.gdpPercap_1952` (not recommended, because easily confused with `.` notation for methods)
 
+<!-- 
+## Selecione múltiplas colunas ou linhas usando `DataFrame.loc` e uma fatia nomeada.
+
+~~~
+print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'])
+~~~
+{: .language-python}
+~~~
+             gdpPercap_1962  gdpPercap_1967  gdpPercap_1972
+country
+Italy           8243.582340    10022.401310    12269.273780
+Montenegro      4649.593785     5907.850937     7778.414017
+Netherlands    12790.849560    15363.251360    18794.745670
+Norway         13450.401510    16361.876470    18965.055510
+Poland          5338.752143     6557.152776     8006.506993
+~~~
+{: .output}
+
+In the above code, we discover that **slicing using `loc` is inclusive at both
+ends**, which differs from **slicing using `iloc`**, where slicing indicates
+everything up to but not including the final index. 
+ -->
+
 ## Selecione múltiplas colunas ou linhas usando `DataFrame.loc` e uma fatia nomeada.
 
 ~~~
@@ -135,6 +265,38 @@ In the above code, we discover that **slicing using `loc` is inclusive at both
 ends**, which differs from **slicing using `iloc`**, where slicing indicates
 everything up to but not including the final index. 
 
+<!-- 
+## O resultado de uma fatia pode ser usado em operações subsequentes.
+
+*   Usually don't just print a slice.
+*   All the statistical operators that work on entire dataframes
+    work the same way on slices.
+*   E.g., calculate max of a slice.
+
+~~~
+print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].max())
+~~~
+{: .language-python}
+~~~
+gdpPercap_1962    13450.40151
+gdpPercap_1967    16361.87647
+gdpPercap_1972    18965.05551
+dtype: float64
+~~~
+{: .output}
+
+~~~
+print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].min())
+~~~
+{: .language-python}
+~~~
+gdpPercap_1962    4649.593785
+gdpPercap_1967    5907.850937
+gdpPercap_1972    7778.414017
+dtype: float64
+~~~
+{: .output}
+ -->
 
 ## O resultado de uma fatia pode ser usado em operações subsequentes.
 
@@ -166,6 +328,43 @@ gdpPercap_1972    7778.414017
 dtype: float64
 ~~~
 {: .output}
+
+<!-- 
+## Use comparações para selecionar dados baseados em um valor.
+
+*   Comparison is applied element by element.
+*   Returns a similarly-shaped dataframe of `True` and `False`.
+
+~~~
+# Use a subset of data to keep output readable.
+subset = data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972']
+print('Subset of data:\n', subset)
+
+# Which values were greater than 10000 ?
+print('\nWhere are values large?\n', subset > 10000)
+~~~
+{: .language-python}
+~~~
+Subset of data:
+             gdpPercap_1962  gdpPercap_1967  gdpPercap_1972
+country
+Italy           8243.582340    10022.401310    12269.273780
+Montenegro      4649.593785     5907.850937     7778.414017
+Netherlands    12790.849560    15363.251360    18794.745670
+Norway         13450.401510    16361.876470    18965.055510
+Poland          5338.752143     6557.152776     8006.506993
+
+Where are values large?
+            gdpPercap_1962 gdpPercap_1967 gdpPercap_1972
+country
+Italy                False           True           True
+Montenegro           False          False          False
+Netherlands           True           True           True
+Norway                True           True           True
+Poland               False          False          False
+~~~
+{: .output}
+ -->
 
 ## Use comparações para selecionar dados baseados em um valor.
 
@@ -201,6 +400,48 @@ Norway                True           True           True
 Poland               False          False          False
 ~~~
 {: .output}
+
+<!-- 
+## Selecionar valores ou NaN usando uma máscara Booleana (*Boolean mask*).
+
+*   A frame full of Booleans is sometimes called a *mask* because of how it can be used.
+
+~~~
+mask = subset > 10000
+print(subset[mask])
+~~~
+{: .language-python}
+~~~
+             gdpPercap_1962  gdpPercap_1967  gdpPercap_1972
+country
+Italy                   NaN     10022.40131     12269.27378
+Montenegro              NaN             NaN             NaN
+Netherlands     12790.84956     15363.25136     18794.74567
+Norway          13450.40151     16361.87647     18965.05551
+Poland                  NaN             NaN             NaN
+~~~
+{: .output}
+
+*   Get the value where the mask is true, and NaN (Not a Number) where it is false.
+*   Useful because NaNs are ignored by operations like max, min, average, etc.
+
+~~~
+print(subset[subset > 10000].describe())
+~~~
+{: .language-python}
+~~~
+       gdpPercap_1962  gdpPercap_1967  gdpPercap_1972
+count        2.000000        3.000000        3.000000
+mean     13120.625535    13915.843047    16676.358320
+std        466.373656     3408.589070     3817.597015
+min      12790.849560    10022.401310    12269.273780
+25%      12955.737547    12692.826335    15532.009725
+50%      13120.625535    15363.251360    18794.745670
+75%      13285.513523    15862.563915    18879.900590
+max      13450.401510    16361.876470    18965.055510
+~~~
+{: .output}
+ -->
 
 ## Selecionar valores ou NaN usando uma máscara Booleana (*Boolean mask*).
 
@@ -242,6 +483,90 @@ max      13450.401510    16361.876470    18965.055510
 ~~~
 {: .output}
 
+<!-- 
+## Group By: split-apply-combine
+
+Pandas vectorizing methods and grouping operations are features that provide users 
+much flexibility to analyse their data.
+
+For instance, let's say we want to have a clearer view on how the European countries 
+split themselves according to their GDP.
+
+1.  We may have a glance by splitting the countries in two groups during the years surveyed,
+    those who presented a GDP *higher* than the European average and those with a *lower* GDP.
+2.  We then estimate a *wealthy score* based on the historical (from 1962 to 2007) values,
+    where we account how many times a country has participated in the groups of *lower* or *higher* GDP
+
+~~~
+mask_higher = data > data.mean()
+wealth_score = mask_higher.aggregate('sum', axis=1) / len(data.columns)
+wealth_score
+~~~
+{: .language-python}
+~~~
+country
+Albania                   0.000000
+Austria                   1.000000
+Belgium                   1.000000
+Bosnia and Herzegovina    0.000000
+Bulgaria                  0.000000
+Croatia                   0.000000
+Czech Republic            0.500000
+Denmark                   1.000000
+Finland                   1.000000
+France                    1.000000
+Germany                   1.000000
+Greece                    0.333333
+Hungary                   0.000000
+Iceland                   1.000000
+Ireland                   0.333333
+Italy                     0.500000
+Montenegro                0.000000
+Netherlands               1.000000
+Norway                    1.000000
+Poland                    0.000000
+Portugal                  0.000000
+Romania                   0.000000
+Serbia                    0.000000
+Slovak Republic           0.000000
+Slovenia                  0.333333
+Spain                     0.333333
+Sweden                    1.000000
+Switzerland               1.000000
+Turkey                    0.000000
+United Kingdom            1.000000
+dtype: float64
+~~~
+{: .output}
+
+Finally, for each group in the `wealth_score` table, we sum their (financial) contribution
+across the years surveyed using chained methods:
+
+~~~
+data.groupby(wealth_score).sum()
+~~~
+{: .language-python}
+~~~
+          gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  gdpPercap_1967  \
+0.000000    36916.854200    46110.918793    56850.065437    71324.848786   
+0.333333    16790.046878    20942.456800    25744.935321    33567.667670   
+0.500000    11807.544405    14505.000150    18380.449470    21421.846200   
+1.000000   104317.277560   127332.008735   149989.154201   178000.350040   
+
+          gdpPercap_1972  gdpPercap_1977  gdpPercap_1982  gdpPercap_1987  \
+0.000000    88569.346898   104459.358438   113553.768507   119649.599409   
+0.333333    45277.839976    53860.456750    59679.634020    64436.912960   
+0.500000    25377.727380    29056.145370    31914.712050    35517.678220   
+1.000000   215162.343140   241143.412730   263388.781960   296825.131210   
+
+          gdpPercap_1992  gdpPercap_1997  gdpPercap_2002  gdpPercap_2007  
+0.000000    92380.047256   103772.937598   118590.929863   149577.357928  
+0.333333    67918.093220    80876.051580   102086.795210   122803.729520  
+0.500000    36310.666080    40723.538700    45564.308390    51403.028210  
+1.000000   315238.235970   346930.926170   385109.939210   427850.333420
+~~~
+{: .output}
+ -->
 ## Group By: split-apply-combine
 
 Pandas vectorizing methods and grouping operations are features that provide users 
