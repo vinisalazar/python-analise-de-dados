@@ -17,6 +17,7 @@ Over coffee, reflect on and discuss the following:
 ## Exercício de Reflexão
 
 Com um cafézinho, reflita e discuta o seguinte:
-* Que tipos de erros o Python vai reportar?
-* O código sempre produziu os resultados esperados? Se não, por quê?
-* Tem algo que podemos fazer para prevenir erros quando escrevemos código?
+* Que tipos de dados você costuma lidar no seu cotidiano?
+* Você conseguiria importá-los facilmente no Python?
+* Você conseguiria filtrar, selecionar ou plotar os dados no com Python?
+* Como que os dados que você trabalha diferem dos que vimos aqui?

@@ -15,176 +15,161 @@ keypoints:
 - "Muitos estilos de plot estão disponíveis: veja a [Python Graph Gallery](https://python-graph-gallery.com/matplotlib/) para mais opções."
 - "É possível plotar muitos conjuntos de dados juntos."
 ---
-## [`matplotlib`](https://matplotlib.org/) é a biblioteca de plotagem mais utilizada para o Python."
+## [Matplotlib](https://matplotlib.org/) é a biblioteca de plotagem mais utilizada para o Python."
 
-*   Commonly use a sub-library called [`matplotlib.pyplot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot).
-*   The Jupyter Notebook will render plots inline by default.
-
-~~~
-import matplotlib.pyplot as plt
-~~~
-{: .language-python}
-
-*   Simple plots are then (fairly) simple to create.
+*   Geralmente utiliza o módulo [`matplotlib.pyplot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot).
+*   O Jupyter Notebook vai renderizar os plots *inline* por padrão.
 
 ~~~
-time = [0, 1, 2, 3]
-position = [0, 100, 200, 300]
-
-plt.plot(time, position)
-plt.xlabel('Time (hr)')
-plt.ylabel('Position (km)')
+from matplotlib import pyplot as plt
 ~~~
 {: .language-python}
 
+*   Plots simples são (relativemente) fáceis de criar
+
+~~~
+tempo = [0, 1, 2, 3]
+posicao = [0, 100, 200, 300]
+
+plt.plot(tempo, posicao)
+plt.xlabel('Tempo (horas)')
+plt.ylabel('Posição (km)')
+~~~
+{: .language-python}
+
+<!-- 
 ![Simple Position-Time Plot](../fig/9_simple_position_time_plot.svg)
+ -->
 
-> ## Display All Open Figures
+> ## Mostre a Figura
 > 
-> In our Jupyter Notebook example, running the cell should generate the figure directly below the code. 
-> The figure is also included in the Notebook document for future viewing.
-> However, other Python environments like an interactive Python session started from a terminal 
-> or a Python script executed via the command line require an additional command to display the figure.
+> Em um notebook Jupyter, executar a célula deve gerar a figura diretamente abaixo do código.
+> A figura também é incluída no documento do Notebook para visualização futura.
+> No entanto, outros ambientes Python como um interpretador interativo Python
+> ou um script Python executado via linha de comando requerem um comando adicional para mostrar a figura.
 >
-> Instruct `matplotlib` to show a figure:
+> Instrua o `matplotlib` a mostrar a figura:
 > ~~~
 > plt.show()
 > ~~~
 > {: .language-python}
 >
-> This command can also be used within a Notebook - for instance, to display multiple figures
-> if several are created by a single cell.
+> Esse comando pode ser usado dentro de um Notebook - por exemplo, para mostrar múltiplas figuras,
+> se muitas são criadas dentro de uma única célula.
 >
 {: .callout}
 
 ## Plote dados diretamente de um dataframe Pandas.
 
-*   We can also plot [Pandas dataframes](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html).
-*   This implicitly uses [`matplotlib.pyplot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot).
-*   Before plotting, we convert the column headings from a `string` to `integer` data type, since they represent numerical values
+*   Podemos plotar diretamente de um [dataframe Pandas](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html).
+*   Isso implicitamente usa o módulo [`matplotlib.pyplot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot).
 
 ~~~
-import pandas as pd
-
-data = pd.read_csv('data/gapminder_gdp_oceania.csv', index_col='country')
-
-# Extract year from last 4 characters of each column name
-# The current column names are structured as 'gdpPercap_(year)', 
-# so we want to keep the (year) part only for clarity when plotting GDP vs. years
-# To do this we use strip(), which removes from the string the characters stated in the argument
-# This method works on strings, so we call str before strip()
-
-years = data.columns.str.strip('gdpPercap_')
-
-# Convert year values to integers, saving results back to dataframe
-
-data.columns = years.astype(int)
-
-data.loc['Australia'].plot()
+df.plot()
 ~~~
 {: .language-python}
-
-![GDP plot for Australia](../fig/9_gdp_australia.svg)
 
 ## Selecione e transforme os dados, e então plote-os.
 
-*   By default, [`DataFrame.plot`](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.plot.html#pandas.DataFrame.plot) plots with the rows as the X axis.
-*   We can transpose the data in order to plot multiple series.
-
 ~~~
-data.T.plot()
-plt.ylabel('GDP per capita')
+df['RESIDENCIAL'].plot()
+mask = df > 100000
+df[mask].plot()
 ~~~
 {: .language-python}
-
-![GDP plot for Australia and New Zealand](../fig/9_gdp_australia_nz.svg)
 
 ## Muitos estilos de plot estão disponíveis
 
 * Veja a [Python Graph Gallery](https://python-graph-gallery.com/matplotlib/) para mais opções.
-*   For example, do a bar plot using a fancier style.
+* Por exemplo, faça um boxplot com barras de erro: 
 
 ~~~
 plt.style.use('ggplot')
-data.T.plot(kind='bar')
-plt.ylabel('GDP per capita')
+df.plot(kind='box')
 ~~~
 {: .language-python}
 
+<!-- 
 ![GDP barplot for Australia](../fig/9_gdp_bar.svg)
+ -->
 
-## Data can also be plotted by calling the `matplotlib` `plot` function directly.
-*   The command is `plt.plot(x, y)`
-*   The color and format of markers can also be specified as an additional optional argument e.g., `b-` is a blue line, `g--` is a green dashed line.
+## Dados também podem ser plotados usando a função `plot` do `matplotlib`
 
-## Get Australia data from dataframe
+*   O comando é `plt.plot(x, y)`
+*   A cor e formato dos marcadores também podem ser especificados como um argumento adicional opcional, por exemplo, `b-` é uma linha azul, `g--` é uma linha tracejada verde.
+
 
 ~~~
-years = data.columns
-gdp_australia = data.loc['Australia']
+anos = df.index
 
-plt.plot(years, gdp_australia, 'g--')
+plt.plot(anos, df["RESIDENCIAL"], 'g--')
 ~~~
 {: .language-python}
-
+<!-- 
 ![GDP formatted plot for Australia](../fig/9_gdp_australia_formatted.svg)
-
+ -->
 ## É possível plotar muitos conjuntos de dados juntos.
 
 ~~~
-# Select two countries' worth of data.
-gdp_australia = data.loc['Australia']
-gdp_nz = data.loc['New Zealand']
+# Selecione os dois setores
+residencial = df["RESIDENCIAL"]
+comercial = df["COMERCIAL"]
 
-# Plot with differently-colored markers.
-plt.plot(years, gdp_australia, 'b-', label='Australia')
-plt.plot(years, gdp_nz, 'g-', label='New Zealand')
+# Plote com cores diferentes
+plt.plot(anos, residencial, 'b-', label='Residencial')
+plt.plot(anos, comercial, 'g-', label='Comercial')
 
-# Create legend.
+# Crie uma legenda
 plt.legend(loc='upper left')
-plt.xlabel('Year')
-plt.ylabel('GDP per capita ($)')
+plt.xlabel('Ano')
+plt.ylabel('Consumo (GWh)')
 ~~~
 {: .language-python}
 
-> ## Adding a Legend
+> ## Adicionando uma legenda
 > 
-> Often when plotting multiple datasets on the same figure it is desirable to have 
-> a legend describing the data.
+> Normalmente quando plotamos vários dados juntos, queremos ter
+> uma legenda descrevendo os dados.
 >
-> This can be done in `matplotlib` in two stages:
+> Isso pode ser feito com `matplotlib` em dois estágios.
 > 
-> * Provide a label for each dataset in the figure:
+> * Dê uma legenda para cada conjunto na figura:
 >
 > ~~~
-> plt.plot(years, gdp_australia, label='Australia')
-> plt.plot(years, gdp_nz, label='New Zealand')
+> plt.plot(anos, residencial, 'b-', label='Residencial')
+> plt.plot(anos, comercial, 'g-', label='Comercial')
 > ~~~
 > {: .language-python}
 >
-> * Instruct `matplotlib` to create the legend.
+> * Instrua o `matplotlib` a criar a legenda.
 >
 > ~~~
 > plt.legend()
 > ~~~
 > {: .language-python}
 >
-> By default matplotlib will attempt to place the legend in a suitable position. If you
-> would rather specify a position this can be done with the `loc=` argument, e.g to place
-> the legend in the upper left corner of the plot, specify `loc='upper left'`
+> Por padrão o Matplotlib vai tentar criar a legenda em uma posição adequada. Se você
+> preferir especificar uma posição, isso pode ser feito com o argumento `loc=`, e.g.
+> para colocar a legenda no canto superior esquerdo, use `loc='upper left'`.
 >
 {: .callout}
 
 
-![GDP formatted plot for Australia and New Zealand](../fig/9_gdp_australia_nz_formatted.svg)
-*   Plot a scatter plot correlating the GDP of Australia and New Zealand
-*   Use either `plt.scatter` or `DataFrame.plot.scatter`
+<!-- ![GDP formatted plot for Australia and New Zealand](../fig/9_gdp_australia_nz_formatted.svg) -->
+*   Crie um scatter plot correlacionando o crescimento do setor 'Comercial' e do setor 'Outros'.
 
 ~~~
-plt.scatter(gdp_australia, gdp_nz)
+plt.scatter(df['COMERCIAL'], df['OUTROS'])
 ~~~
 {: .language-python}
 
+Ou, direto do dataframe:
+
+~~~
+df.plot.scatter(x="COMERCIAL", y="OUTROS")
+~~~
+{: .language-python}
+<!-- 
 ![GDP correlation using plt.scatter](../fig/9_gdp_correlation_plt.svg)
 ~~~
 data.T.plot.scatter(x = 'Australia', y = 'New Zealand')
@@ -192,8 +177,9 @@ data.T.plot.scatter(x = 'Australia', y = 'New Zealand')
 {: .language-python}
 
 ![GDP correlation using data.T.plot.scatter](../fig/9_gdp_correlation_data.svg)
-
-> ## Minima and Maxima
+ -->
+<!-- 
+> ## Mínimos e Máximos
 >
 > Fill in the blanks below to plot the minimum GDP per capita over time
 > for all the countries in Europe.
@@ -296,48 +282,58 @@ data.T.plot.scatter(x = 'Australia', y = 'New Zealand')
 > > of the plotted points.
 > {: .solution}
 {: .challenge}
+ -->
 
-> ## Saving your plot to a file
+> ## Salvado Plots em um Arquivo
 > 
-> If you are satisfied with the plot you see you may want to save it to a file,
-> perhaps to include it in a publication. There is a function in the
-> matplotlib.pyplot module that accomplishes this:
+> Se você está satisfeito com um plot, talvez você queira salvá-lo,
+> seja para enviar para outra pessoa ou para incluir em um relatório. Existe uma função
+> no módulo `pyplot` que faz isso: 
 > [savefig](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.savefig.html).
-> Calling this function, e.g. with
+> Chamando essa função, por exemplo, dessa forma:
 > ~~~
-> plt.savefig('my_figure.png')
+> plt.savefig('minha_figura.png')
 > ~~~
 > {: .language-python}
 > 
-> will save the current figure to the file `my_figure.png`. The file format
-> will automatically be deduced from the file name extension (other formats
-> are pdf, ps, eps and svg).
+> vai salvar a figura atual como `minha_figura.png`. O formato de arquivo
+> vai ser automaticamente deduzido da extensão do nome de arquivo (formatos válidos
+> são png, pdf, ps, eps e svg).
 >
-> Note that functions in `plt` refer to a global figure variable
-> and after a figure has been displayed to the screen (e.g. with `plt.show`) 
-> matplotlib will make this  variable refer to a new empty figure.
-> Therefore, make sure you call `plt.savefig` before the plot is displayed to
-> the screen, otherwise you may find a file with an empty plot.
+> Note que métodos chamados com `plt.` se referem a uma variável de figura global
+> e depois que a figura for mostrada na tela (por exemplo, com `plt.show`)
+> essa variável vai se referir a uma figura vazia.
+> Portanto, certifique-se de chamar `plt.savefig` **ANTES** do plot ser mostrado na tela,
+> caso contrário você pode acabar com um plot vazio.
 >
-> When using dataframes, data is often generated and plotted to screen in one line,
-> and `plt.savefig` seems not to be a possible approach.
-> One possibility to save the figure to file is then to
+> Quando usamos dataframes, os dados costumam ser gerados e plotados em uma única linha,
+> e `plt.savefig` não parece uma abordagem possível.
+> Uma possibilidade para salvar a figura em um arquivo é:
 >
-> * save a reference to the current figure in a local variable (with `plt.gcf`) 
-> * call the `savefig` class method from that variable.
+> * salvar uma referência para a figura atual em uma variável local (com `plt.gcf`),
+> * chamar a função `savefig` daquela variável.
 >
 > ~~~
-> fig = plt.gcf() # get current figure
+> fig = plt.gcf() # pega a figura atual
 > data.plot(kind='bar')
-> fig.savefig('my_figure.png')
+> fig.savefig('minha_figura.png')
 > ~~~
 > {: .language-python}
 {: .callout}
-
+<!-- 
 > ## Making your plots accessible
 >
 > Whenever you are generating plots to go into a paper or a presentation, there are a few things you can do to make sure that everyone can understand your plots.
-> * Always make sure your text is large enough to read. Use the `fontsize` parameter in `xlabel`, `ylabel`, `title`, and `legend`, and [`tick_params` with `labelsize`](https://matplotlib.org/2.1.1/api/_as_gen/matplotlib.pyplot.tick_params.html) to increase the text size of the numbers on your axes.
+> * Always make sure your text is large enough to read. Use the `fontsize` parameter in `xlabel`, `ylabel`, `title`, and `legend`, and [`tick_params` with `labelsize`](https://matplotlib.org/latest/api/_as_gen/matplotlib.pyplot.tick_params.html) to increase the text size of the numbers on your axes.
 > * Similarly, you should make your graph elements easy to see. Use `s` to increase the size of your scatterplot markers and `linewidth` to increase the sizes of your plot lines.
 > * Using color (and nothing else) to distinguish between different plot elements will make your plots unreadable to anyone who is colorblind, or who happens to have a black-and-white office printer. For lines, the `linestyle` parameter lets you use different types of lines. For scatterplots, `marker` lets you change the shape of your points. If you're unsure about your colors, you can use [Coblis](https://www.color-blindness.com/coblis-color-blindness-simulator/) or [Color Oracle](https://colororacle.org/) to simulate what your plots would look like to those with colorblindness.
+{: .callout}
+ -->
+
+> ## Tornando seus plots acessíveis
+>
+> Sempre que você está gerando plots para colocar em um relatório ou apresentação, 
+> * Sempre assegure que seu texto está grande o suficiente para ler. Use os parâmetros `fontsize` em `xlabel`, `ylabel`, `title`, e `legend`, e outros para customizar seu plots.
+> * Similarmente, torne os elementos do seu gráfico fáceis de enxergar. Use `s` para aumentar o tamanho do marcador do scatterplot e `linewdith` para aumentar o tamanho das linhas do plot.
+> * Usar cor (e mais nada) para distinguir entre diferentes elementos do plot pode torná-lo ilegível para quem for daltônico, ou só tem uma impressora/display preto-e-branco. Para linhas, use `linestyle` ou `marker` para customizar suas linhas e marcadores.
 {: .callout}
