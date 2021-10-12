@@ -1,20 +1,20 @@
 ---
-title: Combining DataFrames with Pandas
+title: Combinando DataFrames com Pandas
 teaching: 20
 exercises: 25
 questions:
-  - "Can I work with data from multiple sources?"
-  - "How can I combine data from different data sets?"
+  - "Como posso trabalhar com dados de múltiplas fontes?"
+  - "Como eu posso combinar dados de diferentes datasets?"
 objectives:
-    - "Combine data from multiple files into a single DataFrame using merge and concat."
-    - "Combine two DataFrames using a unique ID found in both DataFrames."
-    - "Employ `to_csv` to export a DataFrame in CSV format."
-    - "Join DataFrames using common fields (join keys)."
+   - "Combinar dados de múltiplos arquivos em um único DataFrame usando merge e concat."
+   - "Combinar dois DataFrames usando um ID único encontrado em ambos os DataFrames."
+   - "Empregar `to_csv` para exportar um DataFrame no formato CSV."
+   - "Unir DataFrames usando campos em comum (chaves de join)."
 keypoints:
-    - "Pandas' `merge` and `concat` can be used to combine subsets of a DataFrame, or even data from different files."
-    - "`join` function combines DataFrames based on index or column."
-    - "Joining two DataFrames can be done in multiple ways (left, right, and inner) depending on what data must be in the final DataFrame."
-    - "`to_csv` can be used to write out DataFrames in CSV format."
+   - "Pandas' `merge` and `concat` can be used to combine subsets of a DataFrame, or even data from different files."
+   - "`join` function combines DataFrames based on index or column."
+   - "Joining two DataFrames can be done in multiple ways (left, right, and inner) depending on what data must be in the final DataFrame."
+   - "`to_csv` can be used to write out DataFrames in CSV format."
 ---
 
 In many "real world" situations, the data that we want to use come in multiple

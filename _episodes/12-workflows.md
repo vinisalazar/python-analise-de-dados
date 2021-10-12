@@ -1,10 +1,10 @@
 ---
-title: Data Ingest and Visualization - Matplotlib and Pandas
+title: Workflows de Dados
 teaching: 40
 exercises: 65
 questions:
-    - "What other tools can I use to create plots apart from ggplot?"
-    - "Why should I use Python to create plots?"
+    - "Como posso criar workflows para processamento de dados?"
+    - "Como posso criar plots com múltiplos painéis?"
 objectives:
     - "Import the pyplot toolbox to create figures in Python."
     - "Use matplotlib to make adjustments to Pandas or plotnine objects."

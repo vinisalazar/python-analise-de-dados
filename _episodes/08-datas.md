@@ -1,14 +1,14 @@
 ---
-title: "Dates and Time"
+title: "Datas e Tempo"
 teaching: 15
 exercises: 10
 questions:
-- "How are dates and time represented in Python?"
-- "How can I manipulate dates and times?"
+- "Como datas e tempo são representados no Python?"
+- "Como posso manipular datas e tempo?"
 objectives:
-- "Describe some of the datetime functions available in Python"
-- "Describe the use of format strings to describe the layout of a date and/or time string"
-- "Make use of date arithmetic"
+- "Descreva algumas funções do módulo `datetime` do Python"
+- "Descreva o uso de strings de formatação para descrever o layout de um string de data e/ou tempo."
+- "Faça aritmética com datas."
 keypoints:
 - "Date and Time functions in Python come from the datetime library, which needs to be imported"
 - "You can use format strings to have dates/times displayed in any representation you like"

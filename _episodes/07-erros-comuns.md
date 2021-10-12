@@ -1,11 +1,11 @@
 ---
-title: "Formatting problems"
+title: "Erros Comuns de Formatação"
 teaching: 20
 exercises: 0
 questions:
-- "What are some common challenges with formatting data in spreadsheets and how can we avoid them?"
+- "Quais são alguns desafios comuns ao formatar dados em planilhas e como evitá-los?"
 objectives:
-- "Recognize and resolve common spreadsheet formatting problems."
+- "Reconhecer e resolver problemas comuns de formatação em planilhas."
 keypoints:
 - "Avoid using multiple tables within one spreadsheet."
 - "Avoid spreading data across multiple tabs."

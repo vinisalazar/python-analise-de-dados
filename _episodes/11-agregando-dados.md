@@ -1,14 +1,13 @@
 ---
-title: "Data Aggregation using Pandas"
+title: "Agregando Dados com Pandas"
 teaching: 20
 exercises: 10
 questions:
-- "How can I summarise the data in a data frame?"
+- "Como eu posso agrupar dados categóricos com Pandas?"
 objectives:
-- "Access and summarize data stored in a Data Frame"
-- "Perform basic mathematical operations and summary statistics on data in a Pandas Data Frame"
-- "Understand missing data"
-- "Changing to and from 'NaN' values"
+- "Descrever uso do método `groupby`."
+- "Descrever uso do método `value_counts`."
+- "Lidando com valores omissos (*missing values*)."
 keypoints:
 - "Summarising numerical and categorical variables is a very common requirement"
 - "Missing data can interfere with how statistical summaries are calculated"
