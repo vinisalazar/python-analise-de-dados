@@ -1,16 +1,16 @@
 ---
-title: "Formatting data tables in Spreadsheets"
+title: "Formatando Dados em Planilhas"
 teaching: 15
 exercises: 20
 questions:
-- "How do we format data in spreadsheets for effective data use?"
+- "Como formatar dados em planilhas para uso efetivo dos dados?"
 objectives:
-- "Describe best practices for data entry and formatting in spreadsheets."
-- "Apply best practices to arrange variables and observations in a spreadsheet."
+- "Descrever as melhores práticas para entrada e formatação dos dados em planilhas."
+- "Aplicar as melhores práticas para organizar variáveis e observações em uma planilha."
 keypoints:
-- "Never modify your raw data. Always make a copy before making any changes."  
-- "Keep track of all of the steps you take to clean your data in a plain text file."  
-- "Organize your data according to tidy data principles."  
+- "Nunca modifique seus dados brutos. Sempre faça uma cópia antes de fazer suas próprias modificações."
+- "Mantenha um registro de todos os passos que você toma para limpar os seus dados em um arquivo de texto plano."
+- "Organize seus dados conforme os princípios de '*tidy data*'."
 ---
 
 The most common mistake made is treating spreadsheet programs like lab notebooks, that is,
