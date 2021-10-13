@@ -13,105 +13,61 @@ keypoints:
 - "Organize seus dados conforme os princípios de '*tidy data*'."
 ---
 
-The most common mistake made is treating spreadsheet programs like lab notebooks, that is,
-relying on context, notes in the margin,
-spatial layout of data and fields to convey information. As humans, we
-can (usually) interpret these things, but computers don't view information the same way, and
-unless we explain to the computer what every single thing means (and
-that can be hard!), it will not be able to see how our data fits
-together.
+Um erro comum é tratar programas de planilhas como cadernos, ou seja,
+depender de contexto, notas na margem, e outras formas de representar informação.
+Como humanos, nós (geralmente) conseguimos interpretar essas coisas, mas computadores não veem informações da mesma forma,
+e a não ser que expliquemos para o computador o que cada coisa significa (e isso pode ser difícil!), ele não será capaz
+de entender o que os dados significam.
 
-Using the power of computers, we can manage and analyze data in much more 
-effective and faster ways, but to use that power, we have to set up
-our data for the computer to be able to understand it (and computers are very 
-literal).
+Usando computadores, podemos gerenciar e analisar dados de formas muito mais rápidas e efetivas,
+mas para usar esse poder, precisamos arrumar nossos dados de uma forma que o computador possa entendê-los
+(e computadores são muito literais).
 
-This is why it’s extremely important to set up well-formatted
-tables from the outset - before you even start entering data from
-your very first preliminary experiment. Data organization is the
-foundation of your research project. It can make it easier or harder
-to work with your data throughout your analysis, so it's worth
-thinking about when you're doing your data entry or setting up your
-experiment. You can set things up in different ways in spreadsheets,
-but some of these choices can limit your ability to work with the data in other programs or
-have the you-of-6-months-from-now or your collaborator work with the
-data.
+Por isso, é muito importante organizar e mantar tabelas bem formatadas
+desde o início - antes de mesmo de começar a registrar ou gerar algum tipo de dado.
+Organização de dados é a fundação de um projeto de análise. Pode ser o que torna sua
+análise muito fácil ou muito difícil, então vale a pena pensar sobre como você vai fazer
+a entrada e armazenamento dos dados. Você pode fazer o set up de suas planilhas de diferentes formas,
+mas algumas dessas escolhas podem limitar sua habilidade de trabalhar com dados em outros programas
+ou como você-do-futuro ou seu colaborador vai trabalhar com os dados.
 
-> Note: the best layouts/formats (as well as software and
+> ## Formatos de arquivo
+> Nota: the best layouts/formats (as well as software and
 > interfaces) for data entry and data analysis might be
 > different. It is important to take this into account, and ideally
 > automate the conversion from one to another.
+{: .callout}
 
-### Keeping track of your analyses
+### Mantendo um registro de suas análises
 
-When you're working with spreadsheets, during data clean up or analyses, it's
-very easy to end up with a spreadsheet that looks very different from the one
-you started with. In order to be able to reproduce your analyses or figure out
-what you did when Reviewer #3 asks for a different analysis, you should
+Quando estamos trabalhando com planilhas, é
+muito fácil acabar com uma planilha que é totalmente diferente da que começamos.
+Para que possamos reproduzir as análises ou recapitular o que fizemos quando
+alguém pedir para mudar alguma coisa, devemos:
 
-- create a new file with your cleaned or analyzed data. Don't modify
-the original dataset, or you will never know where you started!
-- keep track of the steps you took in your clean up or analysis. You should track 
-these steps as you would any step in an experiment. We recommend that you 
-do this in a plain text file stored in the same folder as the data file. 
+- criar um novo arquivo somente com os dados limpos e/ou analisados. 
+Não modifique o dataset original, ou você nunca vai saber por onde começou!
+- mantenha um registro de todos os passos que você usou para limpar ou analisar os dados.
+Você deve registrar esses passos assim como qualquer outro protocolo da sua operação.
+Uma sugestão é manter isso num arquivo de texto na mesma pasta que o arquivo com os dados.
 
-This might be an example of a spreadsheet setup:
+Esse pode ser um exemplo de um registro dos passos usados para limpar os dados:
 
 ![spreadsheet setup](../fig/spreadsheet-setup-updated.png)
 
-Put these principles in to practice today during your Exercises.
+### Estruturando dados em planilhas
 
->Note: This is out of scope for this lesson, but for information on how to maintain version control over your data, look at our lesson on ['Git'](http://swcarpentry.github.io/git-novice/).
+A regra cardinal para usar programas de planilhas é manter os dados "arrumadinhos", ou "*tidy*":
 
+1. Coloque todas as suas variáveis em colunas. A coisa que você está medindo,
+como 'peso' ou 'temperatura'.
+2. Coloque cada observação em sua própria linha.
+3. Não combine múltiplas informações em uma mesma célula.
+4. Deixe os dados brutos como estão - não modifique-os!
+5. Exporte os dados limpos em um formato de texto como CSV (valores separados por vírgula).
+   Isso garante que qualquer usuário(a) ou programa consiga ver os dados com facilidade.
 
-### Structuring data in spreadsheets
-
-
-The cardinal rule of using spreadsheet programs for data is to keep it "tidy":
-
-1. Put all your variables in columns - the thing you're measuring,
-   like 'weight' or 'temperature'.
-2. Put each observation in its own row.
-3. Don't combine multiple pieces of information in one
-   cell. Sometimes it just seems like one thing, but think if that's
-   the only way you'll want to be able to use or sort that data.
-4. Leave the raw data raw - don't change it!
-5. Export the cleaned data to a text-based format like CSV (comma-separated values) format. This
-   ensures that anyone can use the data, and is required by
-   most data repositories.
-
-For instance, we have data from a survey of small mammals in a desert
-ecosystem. Different people have gone to the field and entered data into a spreadsheet. They keep track of things like species, plot,
-weight, sex and date collected.
-
-If they were to keep track of the data like this:
-
-![multiple-info example](../fig/multiple-info.png)
-
-the problem is that species and sex are in the same field. So, if they wanted to 
-look at all of one species or look at different weight distributions by sex, 
-it would be hard to do this using this data setup. If instead we put sex and species 
-in different columns, you can see that it would be much easier. 
-
-### Columns for variables and rows for observations
-
-The rule of thumb, when setting up a datasheet, is columns =
-variables, rows = observations, cells = data (values).
-
-So, instead we should have:
-
-![single-info example](../fig/single-info.png)
-
-> ## Discussion
-> If not already discussed, introduce the dataset that will be used in this
-> lesson, and in the other ecology lessons, the [Portal Project Teaching Dataset](http://www.datacarpentry.org/ecology-workshop/data/). 
->
-> The data used in the ecology lessons are observations of a small mammal community in southern Arizona. This is part of a project studying the effects of rodents and ants on the plant community that has been running for almost 40 years. The rodents are sampled on a series of 24 plots, with different experimental manipulations controlling which rodents are allowed to access which plots.
-> 
-> This is a real dataset that has been used in over 100 publications. We’ve simplified it just a little bit for the workshop, but you can download the full dataset and work with it using exactly the same tools we’ll learn about today.  
-{: .discussion}
-
-
+<!-- 
 > ## Exercise
 > 
 > We're going to take a messy version of the survey data and describe how we would clean it up.
@@ -149,9 +105,7 @@ start analyzing the data.
 > {: .solution}
 {: .challenge}
 
-An excellent reference, in particular with regard to R scripting is
-
 > Hadley Wickham, *Tidy Data*, Vol. 59, Issue 10, Sep 2014, Journal of
 > Statistical Software. [http://www.jstatsoft.org/v59/i10](http://www.jstatsoft.org/v59/i10).
-
+ -->
 
