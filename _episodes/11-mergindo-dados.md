@@ -11,139 +11,55 @@ objectives:
    - "Empregar `to_csv` para exportar um DataFrame no formato CSV."
    - "Unir DataFrames usando campos em comum (chaves de join)."
 keypoints:
-   - "Pandas' `merge` and `concat` can be used to combine subsets of a DataFrame, or even data from different files."
-   - "`join` function combines DataFrames based on index or column."
-   - "Joining two DataFrames can be done in multiple ways (left, right, and inner) depending on what data must be in the final DataFrame."
-   - "`to_csv` can be used to write out DataFrames in CSV format."
+   - "As funções `merge` and `concat` do Pandas podem ser usados para combinar subsets de um DataFrame, ou até dados de diferentes arquivos."
+   - "O 'join' de dois dataframes pode ser feito de várias formas (*left*, *right*, *outer*, e *inner*) dependendo do que precisa estar no DataFrame final."
+   - "`to_csv` pode ser usado para exportar DataFrames."
 ---
 
-In many "real world" situations, the data that we want to use come in multiple
-files. We often need to combine these files into a single DataFrame to analyze
-the data. The pandas package provides [various methods for combining
-DataFrames](http://pandas.pydata.org/pandas-docs/stable/merging.html) including
-`merge` and `concat`.
+Em muitas situações reais, os dados que queremos utilizar vêm em múltiplos arquivos.
+É comum precisarmos combinar esses arquivos em um único DataFrame para poder analisar os dados. O Pandas provê várias funções para combinar DataFrames, vamos ver duas delas: `concat` e `merge`.
 
-To work through the examples below, we first need to load the species and
-surveys files into pandas DataFrames. In iPython:
+## Concatenando DataFrames
 
+A função `concat` permite concatenar DataFrames tanto no eixo horizontal (das linhas)
+quanto vertical (das colunas). Para usar o método `concat`, precisamos de uma lista de DataFrames. Nos nossos dados, temos os dados de consumo anual de energia separados por setor. Vamos supôr por um momento que não temos o DataFrame com todos os dados combinados (`consumo_anual_energia_por_classe_1995-2018.csv`). Vamos criar uma lista de arquivos com `glob`, depois uma lista de DataFrames com `pd.read_csv`.
+
+```python
+arquivos = glob("data/EPE/consumo_anual_energia_setor_*.csv")
+
+dataframes = []
+for arq in arquivos:
+   df_setor = pd.read_csv(arq, index_col=0)
+   dataframes.append(df_setor)
+
+# Ou com list comprehension
+dataframes = [pd.read_csv(arq, index_col=0) for arq in arquivos]
+```
+
+Agora temos uma lista de objetos do tipo DataFrame na variável `dataframes`. Podemos rodar `pd.concat` diretamente nela:
+```python
+df = pd.concat(dataframes, axis=1)
+df.head()
+```
 ~~~
-import pandas as pd
-surveys_df = pd.read_csv("data/surveys.csv",
-                         keep_default_na=False, na_values=[""])
-surveys_df
-
-       record_id  month  day  year  plot species  sex  hindfoot_length weight
-0              1      7   16  1977     2      NA    M               32  NaN
-1              2      7   16  1977     3      NA    M               33  NaN
-2              3      7   16  1977     2      DM    F               37  NaN
-3              4      7   16  1977     7      DM    M               36  NaN
-4              5      7   16  1977     3      DM    M               35  NaN
-...          ...    ...  ...   ...   ...     ...  ...              ...  ...
-35544      35545     12   31  2002    15      AH  NaN              NaN  NaN
-35545      35546     12   31  2002    15      AH  NaN              NaN  NaN
-35546      35547     12   31  2002    10      RM    F               15   14
-35547      35548     12   31  2002     7      DO    M               36   51
-35548      35549     12   31  2002     5     NaN  NaN              NaN  NaN
-
-[35549 rows x 9 columns]
-
-species_df = pd.read_csv("data/species.csv",
-                         keep_default_na=False, na_values=[""])
-species_df
-  species_id             genus          species     taxa
-0          AB        Amphispiza        bilineata     Bird
-1          AH  Ammospermophilus          harrisi   Rodent
-2          AS        Ammodramus       savannarum     Bird
-3          BA           Baiomys          taylori   Rodent
-4          CB   Campylorhynchus  brunneicapillus     Bird
-..        ...               ...              ...      ...
-49         UP            Pipilo              sp.     Bird
-50         UR            Rodent              sp.   Rodent
-51         US           Sparrow              sp.     Bird
-52         ZL       Zonotrichia       leucophrys     Bird
-53         ZM           Zenaida         macroura     Bird
-
-[54 rows x 4 columns]
+ANO   COMERCIAL	INDUSTRIAL	RESIDENCIAL	OUTROS				
+1995	32276.26017	111626.16093	63576.09392	35595.69503
+1996	34387.69450	117127.59543	68581.28330	37233.73579
+1997	38197.50400	121717.13300	74089.15430	39276.17100
+1998	41544.09420	121979.13550	79340.00033	41658.90937
+1999	43587.93405	123892.58842	81291.21490	43416.38964
 ~~~
-{: .language-python}
+{: .output}
 
-Take note that the `read_csv` method we used can take some additional options which
-we didn't use previously. Many functions in Python have a set of options that
-can be set by the user if needed. In this case, we have told pandas to assign
-empty values in our CSV to NaN `keep_default_na=False, na_values=[""]`.
-[More about all of the read_csv options here.](http://pandas.pydata.org/pandas-docs/dev/generated/pandas.io.parsers.read_csv.html)
-
-# Concatenating DataFrames
-
-We can use the `concat` function in pandas to append either columns or rows from
-one DataFrame to another.  Let's grab two subsets of our data to see how this
-works.
-
-~~~
-# Read in first 10 lines of surveys table
-survey_sub = surveys_df.head(10)
-# Grab the last 10 rows
-survey_sub_last10 = surveys_df.tail(10)
-# Reset the index values to the second dataframe appends properly
-survey_sub_last10=survey_sub_last10.reset_index(drop=True)
-# drop=True option avoids adding new index column with old index values
-~~~
-{: .language-python}
-
-When we concatenate DataFrames, we need to specify the axis. `axis=0` tells
-pandas to stack the second DataFrame under the first one. It will automatically
-detect whether the column names are the same and will stack accordingly.
-`axis=1` will stack the columns in the second DataFrame to the RIGHT of the
-first DataFrame. To stack the data vertically, we need to make sure we have the
-same columns and associated column format in both datasets. When we stack
-horizonally, we want to make sure what we are doing makes sense (ie the data are
-related in some way).
-
-~~~
-# Stack the DataFrames on top of each other
-vertical_stack = pd.concat([survey_sub, survey_sub_last10], axis=0)
-
-# Place the DataFrames side by side
-horizontal_stack = pd.concat([survey_sub, survey_sub_last10], axis=1)
-~~~
-{: .language-python}
-
-### Row Index Values and Concat
-Have a look at the `vertical_stack` dataframe? Notice anything unusual?
-The row indexes for the two data frames `survey_sub` and `survey_sub_last10`
-have been repeated. We can reindex the new dataframe using the `reset_index()` method.
+> ## Combinando dados
+>
+> Na nossa pasta de dados, temos medições de energia da PJM para a EKPC - Eastern Kentucky Power Company.
+> Esses dados estão divididos por ano. Use o `glob` e `pd.concat` para juntar todos os dados em um único DataFrame.
+> **Dica:** copie o exemplo acima, mas omita os parâmetros `index_col` e `axis`.
+## Solução
 
 ## Writing Out Data to CSV
 
-We can use the `to_csv` command to do export a DataFrame in CSV format. Note that the code
-below will by default save the data into the current working directory. We can
-save it to a different folder by adding the foldername and a slash to the file
-`vertical_stack.to_csv('foldername/out.csv')`. We use the 'index=False' so that
-pandas doesn't include the index number for each line.
-
-~~~
-# Write DataFrame to CSV
-vertical_stack.to_csv('data_output/out.csv', index=False)
-~~~
-{: .language-python}
-
-Check out your working directory to make sure the CSV wrote out properly, and
-that you can open it! If you want, try to bring it back into Python to make sure
-it imports properly.
-
-~~~
-# For kicks read our output back into Python and make sure all looks good
-new_output = pd.read_csv('data_output/out.csv', keep_default_na=False, na_values=[""])
-~~~
-{: .language-python}
-
-> ## Challenge - Combine Data
->
-> In the data folder, there are two survey data files: `survey2001.csv` and
-> `survey2002.csv`. Read the data into Python and combine the files to make one
-> new data frame. Create a plot of average plot weight by year grouped by sex.
-> Export your results as a CSV and make sure it reads back into Python properly.
-{: .challenge}
 
 # Joining DataFrames
 
@@ -397,28 +313,5 @@ The pandas `merge` function supports two other join types:
   the result DataFrame will `NaN` where data is missing in one of the dataframes. This join type is
   very rarely used.
 
-# Final Challenges
-
-> ## Challenge - Distributions
-> Create a new DataFrame by joining the contents of the `surveys.csv` and
-> `species.csv` tables. Then calculate and plot the distribution of:
->
-> 1. taxa by plot
-> 2. taxa by sex by plot
-{: .challenge}
-
-> ## Challenge - Diversity Index
->
-> 1. In the data folder, there is a `plots.csv` file that contains information about the
->    type associated with each plot. Use that data to summarize the number of
->    plots by plot type.
-> 2. Calculate a diversity index of your choice for control vs rodent exclosure
->    plots. The index should consider both species abundance and number of
->    species. You might choose to use the simple [biodiversity index described
->    here](http://www.amnh.org/explore/curriculum-collections/biodiversity-counts/plant-ecology/how-to-calculate-a-biodiversity-index)
->    which calculates diversity as:
->
->    the number of species in the plot / the total number of individuals in the plot = Biodiversity index.
-{: .challenge}
 
 {% include links.md %}
