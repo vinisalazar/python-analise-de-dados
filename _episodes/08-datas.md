@@ -10,274 +10,182 @@ objectives:
 - "Descreva o uso de strings de formatação para descrever o layout de um string de data e/ou tempo."
 - "Faça aritmética com datas."
 keypoints:
-- "Date and Time functions in Python come from the datetime library, which needs to be imported"
-- "You can use format strings to have dates/times displayed in any representation you like"
-- "Internally date and times are stored in special data structures which allow you to access the component parts of dates and times"
+- "Utilidades de data e tempo vêm da biblioteca datetime, que precisa ser importada."
+- "Você pode usar strings de formatação para representar data/tempo da forma que precisar."
+- "Internamente, datas e tempo são armazenadas em estruturas de dados que permitem acessarmos separadadamente cada componente de data e tempo."
+- "O Pandas facilita a manipulação de datas através de colunas do tipo `datetime`."
+- "Podemos usar colunas do tipo `datetime` para plotar séries temporais."
 ---
 
-## Date and Times in Python
+## Dados
 
-Python can be very flexible in how it interprets 'strings' which you want to be considered as a date, time, or date and time, but you have to tell Python how the various parts of the date and/or time are represented in your 'string'. You can do this by creating a `format`. In a `format`, different case sensitive characters preceded by the `%` character act as placeholders for parts of the date/time, for example `%Y` represents year formatted as 4 digit number such as 2014.
+Para essa seção, vamos usar os dados de consumo de energia da [PJM](https://www.pjm.com/), uma companhia de energia dos EUA. Os
+dados foram adquiridos no [Kaggle](https://www.kaggle.com/robikscube/hourly-energy-consumption).
 
-A full list of the characters used and what they represent can be found towards the end of the [datetime](https://docs.python.org/3/library/datetime.html) section of the official Python documentation.
+A PJM Interconnection LLC (PJM) é uma organização de transmissão regional (RTO) nos Estados Unidos. É parte da rede de interconexão oriental que opera um sistema de transmissão elétrica que atende toda ou parte de Delaware, Illinois, Indiana, Kentucky, Maryland, Michigan, Nova Jersey, Carolina do Norte, Ohio, Pensilvânia, Tennessee, Virgínia, Virgínia Ocidental e o distrito de Columbia.
 
-There is a `today()` method which allows you to get the current date and time.
-By default it is displayed in a format similar to the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard format.
+Os dados de consumo de energia por hora vêm do site da PJM e estão em megawatts (MW).
+As regiões mudaram ao longo dos anos, então os dados podem aparecer apenas para certas datas por região.
+## Datas e Tempo no Python
 
-To use the date and time functions you need to import the `datetime` module.
+O Python pode ser muito flexível sobre como ele interpreta 'strings' que no caso podem ser consideradas uma data, tempo, ou os dois combinados. No entanto, precisamos explicar para o Python como as diferentes partes da data ou tempo são representadas em sua 'string'. Você pode fazer isso criando um `format`. Em um `format`, diferentes caracteres precedidos pelo caracter de `%` funcionam como variáveis para as partes da data/tempo. Por exemplo, o caracter `%Y` representa o ano formatado em um dígito de 4 números, como 2014.
 
-~~~
+Uma lista completa dos caracteres utilizados e o que eles representam podem ser encontrados na documentação do Python do módulo [`datetime`](https://docs.python.org/pt-br/3/library/datetime.html#strftime-and-strptime-behavior).
+
+Existe uma função `today()` que permite pegar a data e tempo atual.
+Por padrão, isso é representado em um formato similar ao da [ISO 8601](https://pt.wikipedia.org/wiki/ISO_8601).
+
+Para usarmos as funções de data e tempo precisamos importar o módulo `datetime`.
+
+```python
 from datetime import datetime
 
-today = datetime.today()
-print('ISO     :', today)
-~~~
-{: .language-python}
+hoje = datetime.today()
+print("ISO 8601:", hoje)
+print(type(hoje))
+```
 
-~~~
-ISO     : 2018-04-12 16:19:17.177441
-~~~
-{: .output}
 
-We can use our own formatting instead. For example, if we wanted words instead of number and the 4 digit year at the end we could use the following.
+Podemos usar nossa própria formatação. Por exemplo, se quisermos palavras invés de números e o ano com 4 dígitos no fim, podemos usar o seguinte:
 
-~~~
-format = "%a %b %d %H:%M:%S %Y"
+```python
+formato = "%a %b %d %H:%M:%S %Y"
 
-today_str = today.strftime(format)
-print('strftime:', today_str)
-print(type(today_str))
+hoje_fmt = hoje.strftime(formato)
+print("strftime:", hoje_fmt)
+print(type(hoje_fmt))
 
-today_date = datetime.strptime(today_str, format)
-print('strptime:', today_date.strftime(format))
-print(type(today_date))
-~~~
-{: .language-python}
+data_hoje = datetime.strptime(hoje_fmt, formato)
+print("strptime:", data_hoje.strftime(formato))
+print(type(data_hoje))
+```
 
-~~~
-strftime: Thu Apr 12 16:19:17 2018
-<class 'str'>
-strptime: Thu Apr 12 16:19:17 2018
-<class 'datetime.datetime'>
-~~~
-{: .output}
+`strftime` converte um objeto datetime para uma string e `strptime` cria um objeto date time de uma string.
+Quando você os imprime usando a mesma string de formatação, parecem a mesma coisa.
 
-`strftime` converts a datetime object to a string and `strptime` creates a datetime object from a string.
-When you print them using the same format string, they look the same.
+Quando lemos um arquivo com informação de data e tempo, elas são carregadas como uma string. Antes de podermos usar as datas, precisamos convertê-las para objetos do tipo `date` do Python.
 
-The format of the date fields in the SAFI_results.csv file have been generated automatically to comform to the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard.
+Na string de formatação que usamos abaixo, os caracteres `-` e `:` são somente isso, caracteres na string representando a data e o tempo. Somente os caracteres que são precedidos por `%` tem um significado especial.
 
-When we read the file and extract the date fields, they are of type string. Before we can use them as dates, we need to convert them into Python date objects.
+Tendo convertido as strings para objetos datetime, existe uma variedade de métodos que podemos usar para extrair os diferentes componentes de data/tempo.
 
-In the format string we use below, the `-` , `:` , `T` and `Z` characters are just that, characters in the string representing the date/time.
-Only the character preceded with `%` have special meanings.
-
-Having converted the strings to datetime objects, there are a variety of methods that we can use to extract different components of the date/time.
-
-~~~
+```python
+import pandas as pd
 from datetime import datetime
 
+# Carregue os dados
+df = pd.read_csv("data/PJM_load_hourly")
 
-format = "%Y-%m-%dT%H:%M:%S.%fZ"
-f = open('SAFI_results.csv', 'r')
+# Selecione o primeiro registro
+timestamp = df.iloc[0, 0]
 
-#skip the header line
-line = f.readline()
+# Crie um objeto datetime com o formato correto
+formato = "%Y-%m-%d %H:%M:%S"
+timestamp = datetime.strptime(timestamp, formato)
 
-# next line has data
-line = f.readline()
+# Extraindo componentes individuais
+print(timestamp.date().year)
+print(timestamp.time().second)
+```
 
-strdate_start = line.split(',')[3]  # A04_start
-strdate_end = line.split(',')[4]    # A05_end
+## Datas e tempo com Pandas
 
-print(type(strdate_start), strdate_start)
-print(type(strdate_end), strdate_end)
+Essa maneira é como fazemos com o Python base. No entanto, o Pandas torna esse processo muito mais fácil. Observe a coluna `"timestamp"` desse DataFrame:
 
-
-# the full date and time
-datetime_start = datetime.strptime(strdate_start, format)
-print(type(datetime_start))
-datetime_end = datetime.strptime(strdate_end, format)
-
-print('formatted date and time', datetime_start)
-print('formatted date and time', datetime_end)
-
-
-# the date component
-date_start = datetime.strptime(strdate_start, format).date()
-print(type(date_start))
-date_end = datetime.strptime(strdate_end, format).date()
-
-print('formatted start date', date_start)
-print('formatted end date', date_end)
-
-# the time component
-time_start = datetime.strptime(strdate_start, format).time()
-print(type(time_start))
-time_end = datetime.strptime(strdate_end, format).time()
-
-print('formatted start time', time_start)
-print('formatted end time', time_end)
-
-
-f.close()
-~~~
-{: .language-python}
+```python
+df["timestamp"]
+```
 
 ~~~
-<class 'str'> 2017-03-23T09:49:57.000Z
-<class 'str'> 2017-04-02T17:29:08.000Z
-<class 'datetime.datetime'>
-formatted date and time 2017-03-23 09:49:57
-formatted date and time 2017-04-02 17:29:08
-<class 'datetime.date'>
-formatted start date 2017-03-23
-formatted end date 2017-04-02
-<class 'datetime.time'>
-formatted start time 09:49:57
-formatted end time 17:29:08
+0        1998-12-31 01:00:00
+1        1998-12-31 02:00:00
+2        1998-12-31 03:00:00
+3        1998-12-31 04:00:00
+4        1998-12-31 05:00:00
+                ...         
+32891    2001-01-01 20:00:00
+32892    2001-01-01 21:00:00
+32893    2001-01-01 22:00:00
+32894    2001-01-01 23:00:00
+32895    2001-01-02 00:00:00
+Name: timestamp, Length: 32896, dtype: object
 ~~~
 {: .output}
 
-## Components of dates and times
+Podemos ver que é uma coluna do tipo (`dtype`) `object`. Essa é a forma que o Pandas chama as strings. Para podermos manipular a coluna como uma data/tempo, precisamos convertê-la para o tipo `datetime`. No entanto, o Pandas faz isso
+facilmente para nós, com a função `pd.to_datetime()`
 
-For a date or time we can also extract individual components of them.
-They are held internally in the datetime datastructure.
+```python
+print("Tipo da coluna 'timestamp':", df["timestamp"].dtype)
+print("Convertendo para datetime...")
+df["timestamp"] = pd.to_datetime(df["timestamp"])
+print("Tipo da coluna 'timestamp':", df["timestamp"].dtype)
+```
+
+## Aritmética com Dados
+
+É possível fazer aritmética com datas. O resultado é um objeto do tipo `Timedelta`:
+
+```python
+data_inicio = df.loc[0, "timestamp"]
+data_fim = df.loc[500, "timestamp"]
+diferenca_tempo = data_inicio - data_fim
+print(diferenca_tempo)
+print(type(diferenca_tempo))
+print(diferenca_tempo.days)
+```
 
 ~~~
-# date parts.
-print('formatted end date', date_end)
-print(' end date year', date_end.year)
-print(' end date month', date_end.month)
-print(' end date day', date_end.day)
-print (type(date_end.day))
-
-# time parts.
-
-print('formatted end time', time_end)
-print(' end time hour', time_end.hour)
-print(' end time minutes', time_end.minute)
-print(' end time seconds', time_end.second)
-print(type(time_end.second))
-~~~
-{: .language-python}
-
-~~~
-formatted end date 2017-04-02
- end date year 2017
- end date month 4
- end date day 2
-<class 'int'>
-formatted end time 17:29:08
- end time hour 17
- end time minutes 29
- end time seconds 8
-<class 'int'>
+Timedelta('19 days 04:00:00')
 ~~~
 {: .output}
 
-## Date arithmetic
-
-We can also do arithmetic with the dates.
-
-~~~
-date_diff = datetime_end - datetime_start
-date_diff
-print(type(datetime_start))
-print(type(date_diff))
-print(date_diff)
-
-date_diff = datetime_start - datetime_end
-print(type(date_diff))
-print(date_diff)
-~~~
-{: .language-python}
-
-~~~
-<class 'datetime.datetime'>
-<class 'datetime.timedelta'>
-10 days, 7:39:11
-<class 'datetime.timedelta'>
--11 days, 16:20:49
-~~~
-{: .output}
-
-> ## Exercise
->
-> How do you interpret the last result?
-{: .challenge}
-
-The code below calculates the time difference between supposedly starting the survey and ending the survey (for each respondent).
-
-
-~~~
-from datetime import datetime
-
-format = "%Y-%m-%dT%H:%M:%S.%fZ"
-
-f = open('SAFI_results.csv', 'r')
-
-line = f.readline()
-
-for line in f:
-    #print(line)
-    strdate_start = line.split(',')[3]
-    strdate_end = line.split(',')[4]
-
-    datetime_start = datetime.strptime(strdate_start, format)
-    datetime_end = datetime.strptime(strdate_end, format)
-    date_diff = datetime_end - datetime_start
-    print(datetime_start, datetime_end, date_diff )
-
-
-f.close()
-~~~
-{: .language-python}
-
-~~~
-2017-03-23 09:49:57 2017-04-02 17:29:08 10 days, 7:39:11
-2017-04-02 09:48:16 2017-04-02 17:26:19 7:38:03
-2017-04-02 14:35:26 2017-04-02 17:26:53 2:51:27
-2017-04-02 14:55:18 2017-04-02 17:27:16 2:31:58
-2017-04-02 15:10:35 2017-04-02 17:27:35 2:17:00
-2017-04-02 15:27:25 2017-04-02 17:28:02 2:00:37
-2017-04-02 15:38:01 2017-04-02 17:28:19 1:50:18
-2017-04-02 15:59:52 2017-04-02 17:28:39 1:28:47
-2017-04-02 16:23:36 2017-04-02 16:42:08 0:18:32
-...
-~~~
-{: .output}
-
-> ## Exercise
->
-> 1. In the `SAFI_results.csv` file the `A01_interview_date field` (index 1) contains a date in the form of 'dd/mm/yyyy'. Read the file and calculate the differences in days (because the interview date is only given to the day) between the `A01_interview_date` values and the `A04_start` values. You will need to create a format string for the `A01_interview_date` field.
->
-> 2. Looking at the results here and from the previous section of code. Do you think the use of the smartphone data entry system for the survey was being used in real time?
->
-> > ## Solution
-> >
+> ## Contando os Dias
+> Usando a aritmética de dados, conte quantos **dias** de diferença existem entre as entradas
+> `1242` e `5734` do DataFrame. Qual é a diferença total? Incluindo horas?
+> > ## Solução
+> > ```python
+> > data_inicio = df.loc[1242, "timestamp"]
+> > data_fim = df.loc[5734, "timestamp"]
+> > diferenca_tempo = data_inicio - data_fim
+> > print("Diferença total:", diferenca_tempo)
+> > print("Diferença em dias:", diferenca_tempo.days)
+> > ```
 > > ~~~
-> > from datetime import datetime
-> >
-> > format1 = "%Y-%m-%dT%H:%M:%S.%fZ"
-> > format2 = "%d/%m/%Y"
-> >
-> > f = open('SAFI_results.csv', 'r')
-> >
-> > line = f.readline()
-> >
-> > for line in f:
-> >     A01 = line.split(',')[1]
-> >     A04 = line.split(',')[3]
-> >    
-> >     datetime_A04 = datetime.strptime(A04, format1)
-> >     datetime_A01 = datetime.strptime(A01, format2)
-> >     date_diff = datetime_A04 - datetime_A01
-> >     print(datetime_A04, datetime_A01, date_diff.days )
-> >      
-> > f.close()
+> > Diferença total: 186 days 19:00:00
+> > Diferença em dias: 186
 > > ~~~
-> > {: .language-python}
-> >
+> > {: .output}
 > {: .solution}
 {: .challenge}
+
+## Plotando Séries Temporais
+
+Uma que vez temos colunas do tipo `datetime`, elas podem ser usadas para criar plots
+do tipo série temporal. Podemos usar o método de plotagem do DataFrame Pandas:
+
+```python
+df.plot(x="timestamp", y="PJM_Load_MW", figsize=(12,8))
+```
+
+![timeseries-plot](../fig/08-PJM_timeseries.png)
+
+Também podemos usar datas para filtrar o DataFrame. Digamos que queremos
+todos os registros ANTES do ano 2000. Podemos filtrar da seguinte forma:
+
+```python
+filtro_data = df["timestamp"] < "2000-01-01"
+df[filtro_data].plot(x="timestamp", y="PJM_Load_MW", figsize=(12,8))
+```
+![timeseries-plot-filtered](../fig/08-PJM_timeseries_filtered.png)
+
+Podemos tomar vantagem disso para plotar períodos específicos, por exemplo:
+```python
+pre_2000 = df["timestamp"] < "2000-01-01"
+pos_2000 = df["timestamp"] >= "2000-01-01"
+fig, ax = plt.subplots(figsize=(12,8))
+df[pre_2000].plot(x="timestamp", y="PJM_Load_MW", color='slateblue', ax=ax, label="Pré Bug do Milênio")
+df[pos_2000].plot(x="timestamp", y="PJM_Load_MW", color='tab:green', ax=ax, label="Pós Bug do Milênio")
+```
+
+![millenium-bug-plot](../fig/08-PJM_millenium.png)
